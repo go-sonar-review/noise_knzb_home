@@ -1,0 +1,38 @@
+{% set questions = block.entries|default() %}
+{% set hasPaddingVertical = block.backgroundColor.handle is not same as('white') %}
+
+{% if questions|length %}
+    {% embed "_partials/section" with { style: { 'background-color': block.backgroundColor.color }, hasPaddingVertical } %}
+        {% block content %}
+            {% embed "_partials/container" %}
+                {% block content %}
+                    <div class="u-mb-small u-text-center">
+                        <h2 class="t-heading-2 t-heading-2--primary">{{ block.blockTitle }}</h2>
+                    </div>
+
+                    <div class="c-faq">
+                        {% embed "components/detailsGroup" with {id: random()} %}
+                            {% block content %}
+                                {% for question in questions %}
+                                    {% embed "components/details" %}
+                                        {% block summary %}
+                                            <div class="t-title t-title--semi-bold">
+                                                {{ question.question }}
+                                            </div>
+                                        {% endblock %}
+
+                                        {% block details %}
+                                            <div class="t-wysiwyg">
+                                                {{ question.answer }}
+                                            </div>
+                                        {% endblock %}
+                                    {% endembed %}
+                                {% endfor %}
+                            {% endblock %}
+                        {% endembed %}
+                    </div>
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+{% endif %}

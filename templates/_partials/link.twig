@@ -1,0 +1,43 @@
+{% set attributes = {
+    class: [
+      'c-link',
+      isPrimary|default(false) ? 'c-link--primary',
+      isSecondary|default(false) ? 'c-link--secondary',
+      isTertiary|default(false) ? 'c-link--tertiary',
+      isQuaternary|default(false) ? 'c-link--quaternary',
+
+      hasIconBefore|default(false) ? 'c-link--has-icon-before',
+      hasIconAfter|default(false) ? 'c-link--has-icon-after',
+
+      hasClipPathLeft|default(false) ? 'c-link--has-clip-path-left',
+      hasClipPathRight|default(false) ? 'c-link--has-clip-path-right',
+
+      withoutBackgroundColor|default(false) ? 'c-link--without-background-color',
+      withoutText|default(false) ? 'c-link--without-text',
+      
+      textColorWhite|default(false) ? 'c-link--text-color-white',
+      uppercase|default(false) ? 'c-link--uppercase',
+
+      fullHeight|default(false) ? 'c-link--full-heigth',
+      isWhite|default(false) ? 'c-link--is-white',
+
+      isListLink|default(false) ? 'c-link--list-link',
+      styleNormal|default(false) ? 'c-link--is-normal',
+
+      paddingSmall|default(false) ? 'c-link--padding-small',
+
+      removePaddingLeft|default(false) ? 'c-link--padding-left-none',
+    ]
+} %}
+
+{% set url = url|default(cta.url|default() ) %}
+
+{% if url %}
+    <a 
+        {{ attr(attributes) }} 
+        href="{{ url }}" 
+        target="{{ target|default(cta.target|default('_self')) }}"
+        aria-label="{{ text|default(cta.text) }}">
+        <span class="c-link__label">{{ text|default(cta.text) }}</span>
+    </a>
+{% endif %}

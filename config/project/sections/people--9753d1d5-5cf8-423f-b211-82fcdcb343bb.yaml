@@ -1,0 +1,27 @@
+defaultPlacement: beginning
+enableVersioning: true
+handle: people
+name: Personen
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  c3dd2df9-188d-4590-ac87-62318e5eb486: # KNZB
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: null
+  uid: c9f68bea-2fa8-4f4e-810b-2425713b8eff
+type: structure

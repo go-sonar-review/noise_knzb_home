@@ -1,0 +1,90 @@
+{# Eager loading - Navigation #}
+{% set footerNavigation = craft.entries({
+  section: 'navigation',
+  id: 1540,
+  with: [
+    'navigation',
+    'navigation.submenu',
+    'navigation.submenu.menu:menuLinks'
+  ]
+}).one() %}
+
+{% set copyrightNavigation = craft.entries({
+  section: 'navigation',
+  id: 2027,
+  with: [
+    'navigation',
+    'navigation.submenu',
+    'navigation.submenu.menu:menuLinks'
+  ]
+}).one() %}
+
+{# Eager loading - Globals #}
+{% do craft.app.elements.eagerLoadElements(
+  className(defaults),
+  [defaults],
+  [
+  'footerContent.footerContent',
+  'footerContent.footerContent:footerLogo'
+  ]
+) %}
+
+<footer class="c-footer">
+  <div class="c-footer__content">
+    <div class="c-footer__details">
+
+    {% set imagePropertiesMobile = {
+      image: defaults.footerContent[0].footerLogo[0]|default( defaults.logo[0]|default()  ) ,
+      sizes: '(max-width: 1280px) 40vw',
+      srcset: ['107w', '171w'],
+      height: 48,
+      width: 107,
+    } %}
+
+    {% set imageProperties = {
+      image: defaults.footerContent[0].footerLogo[0]|default( defaults.logo[0]|default()  ) ,
+      sizes: '171px',
+      srcset: ['171w'],
+      height: 77,
+      width: 171,
+      class: "c-footer__details-logo"
+    } %}
+
+    {% include '_partials/image.twig' with {
+      properties: imageProperties,
+      propertiesMobile: imagePropertiesMobile
+    } %}
+
+    {% if defaults.footerContent[0].footerText|default() %}
+      <div class="c-footer__details-text">{{ defaults.footerContent[0].footerText }}</div>
+    {% endif %}
+
+    {% include '_partials/socials.twig' %}
+
+    </div>
+
+    <div class="c-footer__list">
+      {% if footerNavigation %}
+        {% for column in footerNavigation.navigation|filter( i => i.submenu|length ) %}
+        <div class="c-footer__list-item">
+          <p class="c-list-item__title t-heading-4 t-heading-4--bold">{{ column.submenu.menuTitel|default(column.linkTitle|default()) }}</p>
+            {% for cta in column.submenu[0].menuLinks|default() %}
+              <a href="{{ cta.menuLink.url }}" target="{{ cta.menuLink.target|default('_self') }}">{{ cta.menuLink.text }} {{ svg('@webroot/assets/icons/chevron-right.svg') }}</a>
+            {% endfor %}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="c-footer__copyright">
+    <div class="c-copyright__content">
+      <p class="t-small-text">&copy; {{ "now"|date("Y") }}&nbsp;KNZB</p>
+      {% if copyrightNavigation %}
+        {% for cta in copyrightNavigation.navigation|filter( i => i.linkUrl|default() ) %}
+          <a href="{{ cta.linkUrl.url }}" target="{{ cta.linkUrl.targetString }}">{{ cta.linkTitle|default(cta.linkUrl.text) }}</a>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</footer>

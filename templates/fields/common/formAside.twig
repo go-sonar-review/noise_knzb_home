@@ -1,0 +1,49 @@
+{% set isWhite = isWhite|default(false) %}
+
+{% set attributesBlock = {
+    class: [
+      'c-form-aside',
+      isNested|default(false) ? 'c-form-aside--is-nested',
+      isWhite|default(false) ? 'c-form-aside--is-white',
+    ]
+} %}
+
+{% set attributesTitle = {
+    class: [
+        't-heading-4 t-heading-4--uppercase t-heading-4--margin-reset',
+        isWhite ? 't-heading-4--primary-dark' : 't-heading-4--white',
+    ]
+} %}
+
+{% set attributesText = {
+    class: [
+        't-wysiwyg',
+        isWhite ? 't-wysiwyg--primary-dark' : 't-wysiwyg--white',
+    ]
+} %}
+
+{% if block.form[0]|default() %}
+  {% embed "_partials/section" with { 
+      style: { 'background-color': block.backgroundColor.color|default('#183291') },
+      hasNoPaddingHorizontal: true,
+      hasNoSpacing: true,
+  } %}
+      {% block content %}
+
+          <div {{ attr(attributesBlock) }}>
+              <div class="c-form-aside__content">
+                {% if block.blockTitle|default() %}
+                  <h2 {{ attr(attributesTitle) }}>{{ block.blockTitle }}</h2>
+                {% endif %}
+                  
+                {% if block.blockText|default() %}
+                  <div {{ attr(attributesText) }}>{{ block.blockText }}</div>
+                {% endif %}
+
+                {% include "_partials/form" with { form: block.form[0]|default(), isDark: not isWhite|default(false) } %}
+              </div>
+          </div>
+
+      {% endblock %}
+  {% endembed %}
+{% endif %}

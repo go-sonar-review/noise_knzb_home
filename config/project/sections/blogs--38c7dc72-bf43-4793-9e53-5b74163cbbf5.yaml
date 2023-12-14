@@ -1,0 +1,24 @@
+defaultPlacement: end
+enableVersioning: true
+handle: blogs
+name: Blogs
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  c3dd2df9-188d-4590-ac87-62318e5eb486: # KNZB
+    enabledByDefault: true
+    hasUrls: true
+    template: site.twig
+    uriFormat: 'blogs/{slug}'
+type: channel

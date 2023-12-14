@@ -1,0 +1,38 @@
+{% set attributesBlock = {
+    class: [
+        'c-cta-list',
+        isNested|default(false) ? 'c-cta-list--is-nested'
+    ]
+} %}
+
+{% embed "_partials/section" with {
+    hasNoPaddingHorizontal: true,
+    hasPaddingVerticalSmall: true 
+} %}
+  {% block content %}
+
+    <div {{ attr(attributesBlock) }}>
+      <div class="c-cta-list__content c-cta-list__content--{{ block.backgroundColor.handle|default('transparent') }}">
+
+        {% if block.blockTitle|default() %}
+          <h2 class="t-heading-4 t-heading-4--uppercase t-heading-4--margin-reset ">{{ block.blockTitle }}</h2>
+        {% endif %}
+
+        {% if block.ctas|default() %}
+          {% embed "_partials/content.twig" with { contentClass: "c-link-list" } %}
+            {% block content %}
+              {% for i in block.ctas %}
+                {% include '_partials/link.twig' with { 
+                  cta: i.cta,
+                  isListLink: true
+                } %}
+              {% endfor %}
+            {% endblock %}
+          {% endembed %}
+        {% endif %}
+          
+      </div>
+    </div>
+
+  {% endblock %}
+{% endembed %}

@@ -1,0 +1,121 @@
+/* -------------------------------- */
+/* Global variables */
+/* -------------------------------- */
+:root {
+  /* Colors */
+  --default-logo-location: url("./logo.svg"); /* logo */
+  --first-color: #000; /* account text */
+  --second-color: #fff; /* navigation text */
+  --third-color: #333f4d; /* header/navigation bg color */
+  --fourth-color: #be252b; /* button*/
+  --fifth-color: #f3f7fc; /* account bg color hover */
+
+  /* Header */
+  --global-header-bar: var(--third-color);
+  --global-header-logo: var(--default-logo-location);
+
+  /* System */
+  --system-bg-color: var(--third-color);
+  --system-text-color: var(--second-color);
+
+  /* Account */
+  --account-bg-color: var(--second-color);
+  --account-text-color: var(--first-color);
+  --account-bg-color-hover: var(--fifth-color);
+  --account-text-color-hover: var(--first-color);
+
+  /* Navigation */
+  --nav-bg-color: var(--third-color);
+  --nav-text-color: var(--second-color);
+  --nav-bg-color-hover: var(--fourth-color);
+  --nav-text-color-hover: var(--second-color);
+}
+
+/* HEADER */
+#global-container {
+  position: relative;
+}
+#global-container:after {
+  content: "";
+  display: block;
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--global-header-bar);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center -5px;
+  height: 5px;
+  width: 100%;
+}
+#global-sidebar {
+  background-color: var(--global-header-bar);
+}
+
+/* SYSTEM */
+#edition-logo {
+  border: 1px solid var(--nav-text-color);
+}
+#edition-logo > .edition-name {
+  color: var(--system-text-color);
+}
+#edition-logo > .edition-trial {
+  background-color: var(--system-text-color);
+  color: var(--system-bg-color);
+}
+body.ltr #edition-logo > .edition-trial:before {
+  border-color: transparent var(--system-text-color) transparent transparent;
+}
+#version {
+  color: var(--system-text-color);
+}
+
+/* ACCOUNT */
+#global-sidebar > #system-info {
+  background-color: var(--account-bg-color);
+}
+#global-sidebar > #system-info:hover,
+#global-sidebar > #system-info:focus {
+  background-color: var(--account-bg-color-hover) !important;
+}
+#global-sidebar > #system-info #system-name h2 {
+  color: var(--account-text-color);
+}
+#global-sidebar > #system-info:hover #system-name h2,
+#global-sidebar > #system-info:focus #system-name h2 {
+  color: var(--account-text-color-hover);
+}
+body.ltr #system-name h2:after {
+  display: none;
+}
+#global-sidebar #system-info #site-icon {
+  position: relative;
+}
+#global-sidebar #system-info #site-icon:before {
+  content: "";
+  display: block;
+  background: var(--global-header-logo);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+#global-sidebar #system-info #site-icon img,
+#global-sidebar #system-info #site-icon svg {
+  display: none;
+}
+
+/* NAVIGATION */
+#global-sidebar > a[href],
+#global-sidebar *:not(.has-subnav) > a[href] {
+  color: var(--nav-text-color);
+  background-color: var(--nav-bg-color);
+}
+#nav li:not(.has-subnav) > a.sel,
+#global-sidebar > a[href]:hover,
+#global-sidebar *:not(.has-subnav) > a[href]:hover {
+  color: var(--nav-text-color-hover);
+  background-color: var(--nav-bg-color-hover);
+}

@@ -1,0 +1,112 @@
+field: b67271c9-deaf-4f52-91f6-3392469feae8 # Blokken
+fieldLayouts:
+  b648fbeb-3eb9-4c61-8f56-5434716a3d0c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: e1d64b03-0dbc-4cc3-aa47-92c0f078b7b0 # Achtergrondkleur
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c9753bf5-a7b7-449a-9eed-8ba19f74a8c1 # Titel
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3013c7fc-c039-411e-afba-0aaa9e6445c0 # CTA's
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  3013c7fc-c039-411e-afba-0aaa9e6445c0: # CTA's
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: ctas
+    instructions: ''
+    name: 'CTA''s'
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 1ff4ab7b-37c2-403b-b7d8-2e0563ef1a41 # CTA
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_26_ctas}}'
+      fieldLayout: row
+      maxRows: ''
+      minRows: '1'
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  c9753bf5-a7b7-449a-9eed-8ba19f74a8c1: # Titel
+    columnSuffix: lvyebxbi
+    contentColumnType: text
+    fieldGroup: null
+    handle: blockTitle
+    instructions: ''
+    name: Titel
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  e1d64b03-0dbc-4cc3-aa47-92c0f078b7b0: # Achtergrondkleur
+    columnSuffix: jwrfipkp
+    contentColumnType: text
+    fieldGroup: null
+    handle: backgroundColor
+    instructions: ''
+    name: Achtergrondkleur
+    searchable: false
+    settings:
+      allowCustomColor: false
+      allowCustomColorPicker: false
+      allowOpacity: false
+      colorFormat: auto
+      defaultColorHandle: ''
+      defaultOpacity: '100'
+      fieldDescriptions: false
+      paletteBaseColors: null
+      paletteColors: ''
+      presetId: '3'
+      presetMode: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: presseddigital\colorit\fields\ColoritField
+handle: ctaList
+name: 'CTA Lijst'
+sortOrder: 6

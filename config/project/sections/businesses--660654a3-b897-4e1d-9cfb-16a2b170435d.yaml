@@ -1,0 +1,27 @@
+defaultPlacement: beginning
+enableVersioning: true
+handle: businesses
+name: Bedrijven
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  c3dd2df9-188d-4590-ac87-62318e5eb486: # KNZB
+    enabledByDefault: true
+    hasUrls: true
+    template: site
+    uriFormat: '{parent.uri ? parent.uri : ''bedrijven''}/{slug}'
+structure:
+  maxLevels: 2
+  uid: 11074535-610d-44d1-be23-1d63631bd4d8
+type: structure

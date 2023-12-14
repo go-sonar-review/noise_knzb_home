@@ -1,0 +1,35 @@
+.authors {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+
+    @include tablet {
+      width: auto;
+    }
+  }
+
+  &__image {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+
+    &--fallback {
+      background: $catskill-white;
+    }
+  }
+}

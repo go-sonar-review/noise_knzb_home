@@ -1,0 +1,128 @@
+field: b67271c9-deaf-4f52-91f6-3392469feae8 # Blokken
+fieldLayouts:
+  18460ff4-b153-4e31-b850-9a643545f6b5:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: b7963ff6-ef74-46d0-b1f6-8d30582f250e # Achtergrondkleur
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 0f8a00f3-f923-4e36-9471-a6604e964f51 # Formulier
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 63adc4f1-2c85-4b08-8f0f-13a308345402 # Details
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  0f8a00f3-f923-4e36-9471-a6604e964f51: # Formulier
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: form
+    instructions: ''
+    name: Formulier
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\formie\fields\Forms
+  63adc4f1-2c85-4b08-8f0f-13a308345402: # Details
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: details
+    instructions: "Voeg extra informatie toe.\r\nDeze is optioneel."
+    name: Details
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - b290bbb6-6217-49d5-ab8c-0a58b7a706ee # Label
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - e81c94cc-5925-4854-8f27-7952aac899e3 # Titel
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+          -
+            - 61cadaba-7363-436a-8314-9fc5a7e6e4f2 # Omschrijving
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_16_details}}'
+      fieldLayout: row
+      maxRows: '1'
+      minRows: '0'
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  b7963ff6-ef74-46d0-b1f6-8d30582f250e: # Achtergrondkleur
+    columnSuffix: fyoiogxo
+    contentColumnType: text
+    fieldGroup: null
+    handle: backgroundColor
+    instructions: ''
+    name: Achtergrondkleur
+    searchable: false
+    settings:
+      allowCustomColor: false
+      allowCustomColorPicker: false
+      allowOpacity: false
+      colorFormat: auto
+      defaultColorHandle: ''
+      defaultOpacity: '100'
+      fieldDescriptions: false
+      paletteBaseColors: null
+      paletteColors: ''
+      presetId: '1'
+      presetMode: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: presseddigital\colorit\fields\ColoritField
+handle: formBlock
+name: Formulier
+sortOrder: 8

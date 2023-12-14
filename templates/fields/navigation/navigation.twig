@@ -1,0 +1,66 @@
+{% set search = craft.entries.section('search').one %}
+
+<div class="c-navigation">
+  <div class="c-navigation__container">
+    <vue-navigation>
+
+      <template {{ 'v-slot:search' }}>
+        <a href="{{ search.url }}" class="c-navigation__search">
+          {{ svg('@webroot/assets/ui/search.svg')|attr({ 
+            class: 'c-navigation__search-icon', 
+            width: 32, 
+            height: 32, 
+            title: "Zoeken",
+            alt: "Zoeken"  
+            }) 
+          }}
+        </a>
+      </template>
+
+      <template {{ 'v-slot:logo' }}>
+        <a href="{{siteUrl}}" class="c-navigation__logo-link">
+          {% set imageProperties = {
+            image: defaults.logo[0]|default(),
+            sizes: '(max-width: 1280px) 100vw, 1280px',
+            height: 78,
+            width: 172,
+            class: "c-navigation__logo"
+          } %}
+          {% include '_partials/image.twig' with { 
+            properties: imageProperties,
+          } %}
+        </a>
+      </template>
+
+      <template {{ 'v-slot:knzb' }}>
+        <div class="c-navigation__knzb">
+          {% if mainNavigation.navigation|default() %}
+            <ul class="c-navigation-list c-navigation-list--primary">
+              {% nav main_item in mainNavigation.navigation|filter( e => e.linkUrl.url|default() ) %}
+                <li class="c-navigation-list__item">
+                  <a class="c-navigation-list__link" href="{{ main_item.linkUrl.url|default() }}" target="{{ main_item.linkUrl.target|default('_self') }}">{{ main_item.linkTitle|default( main_item.linkUrl.text) }}</a>
+                </li>
+              {% endnav %}
+            </ul>
+        {% endif %}
+        </div>
+      </template>
+
+      <template {{ 'v-slot:sport' }}>
+        <div class="c-navigation__sport">
+          {% if sportNavigation.navigation|default() %}
+            <ul class="c-navigation-list c-navigation-list--secondary">
+              {% nav sport_item in sportNavigation.navigation|filter( e => e.linkUrl.url|default() ) %}
+                <li class="c-navigation-list__item">
+                  <a class="c-navigation-list__link" href="{{ sport_item.linkUrl.url|default() }}" target="{{ sport_item.linkUrl.target|default('_self') }}">{{ sport_item.linkTitle|default( sport_item.linkUrl.text ) }}</a>
+                </li>
+              {% endnav %}
+            </ul>
+          {% endif %}
+        </div>
+      </template>
+
+    </vue-navigation>
+  </div>
+</div>
+

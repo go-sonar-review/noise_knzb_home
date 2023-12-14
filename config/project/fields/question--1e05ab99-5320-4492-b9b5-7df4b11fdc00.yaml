@@ -1,0 +1,19 @@
+columnSuffix: xdbdsdum
+contentColumnType: text
+fieldGroup: f9a53747-387c-4b17-b1b3-6167c1418b5d # Questions
+handle: question
+instructions: ''
+name: Vraag
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

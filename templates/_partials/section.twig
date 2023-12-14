@@ -1,0 +1,23 @@
+{% set isNested = isNested|default(false) %}
+
+{% set attributes = {
+    class: [
+        'l-section',
+        isFullscreen|default(false) ? 'l-section--is-fullscreen',
+        hasSpacingSmall|default(false) ? 'l-section--has-spacing-small',
+        hasSpacingMedium|default(false) ? 'l-section--has-spacing-medium',
+        hasNoSpacing|default(false) ? 'l-section--has-no-spacing',
+        hasNoPaddingHorizontal|default(false) ? 'l-section--has-no-padding-horizontal',
+        hasPaddingVertical|default(false) ? 'l-section--has-padding-vertical',
+        hasPaddingVerticalSmall|default(false) ? 'l-section--has-padding-vertical-small',
+        hasDecorationTop|default(false) ? 'l-section--has-decoration-top',
+        isNested|default(false) ? 'l-section--is-nested',
+        isNested|default(false) and loop.first|default(false) ? 'l-section--is-first-nested-block',
+        hasPaddingHorizontalMobile|default(false) ? 'l-section--has-padding-horizontal-Mobile',
+    ],
+    style: style|default({}) 
+} %}
+
+<section {{attr(attributes)}}>
+    {% block content %}{% endblock %}
+</section>

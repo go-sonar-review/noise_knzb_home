@@ -1,0 +1,12 @@
+{% set attributes = {
+    class: [
+        'c-image-container',
+        is9x8|default(false) ? 'c-image-container--9x8',
+        is16x9|default(false) ? 'c-image-container--16x9'
+    ],
+    style: style|default({})
+} %}
+
+<div{{ attr(attributes) }}>
+    {% block content %}{% endblock %}
+</div>

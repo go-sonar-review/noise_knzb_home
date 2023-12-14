@@ -1,0 +1,23 @@
+{# Eager loading - Navigation #}
+{% set mainNavigation = craft.entries({
+  section: 'navigation',
+  id: 60,
+  with: [
+      'navigation',
+      'navigation.submenu',
+      'navigation.submenu.menu:menuLinks'
+  ]
+}).one() %}
+{% set sportNavigation = craft.entries({
+  section: 'navigation',
+  id: 477,
+  with: [
+      'navigation',
+      'navigation.submenu',
+      'navigation.submenu.menu:menuLinks'
+  ]
+}).one() %}
+
+<header class="l-header">
+    {% include "fields/navigation/navigation" %}
+</header>

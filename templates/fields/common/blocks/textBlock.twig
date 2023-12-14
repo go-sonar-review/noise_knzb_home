@@ -1,0 +1,42 @@
+{% set attributesBlock = {
+    class: [
+        'c-text-block',
+         isNested|default(false) ? 'c-text-block--is-nested'
+    ]
+} %}
+
+{% embed "_partials/section" with { 
+    style: { 'background-color': block.backgroundColor.color|default('white') },
+    hasPaddingVertical:  block.backgroundColor.handle|default('white') is not same as('white'),
+    hasNoPaddingHorizontal: true 
+} %}
+    {% block content %}
+
+        <div {{ attr(attributesBlock) }}>
+            <div class="c-text-block__content">
+                {% if block.blockTitle|default() %}
+                    <h2 class="t-heading-4 t-heading-4--primary t-heading-4--uppercase">{{ block.blockTitle }}</h2>
+                {% endif %}
+
+                <div class="t-wysiwyg">{{ block.text }}</div>
+
+                {% if block.ctas|default() %}
+                    {% embed "_partials/content.twig" with { contentClass: "c-link-list" } %}
+                        {% block content %}
+                            {% for i in block.ctas %}
+                                {% include '_partials/link.twig' with { 
+                                    cta: i.cta, 
+                                    isPrimary: true, 
+                                    hasIconBefore: true, 
+                                    hasClipPathLeft: true,
+                                    withoutBackgroundColor: true
+                                } %}
+                            {% endfor %}
+                        {% endblock %}
+                    {% endembed %}
+                {% endif %}
+            </div>
+        </div>
+
+    {% endblock %}
+{% endembed %}

@@ -1,0 +1,14 @@
+columnSuffix: yryfnjoi
+contentColumnType: boolean
+fieldGroup: 62bdff2d-64e6-4b21-8d1a-e63f9b794dc5 # Common
+handle: featured
+instructions: ''
+name: Uitgelicht
+searchable: false
+settings:
+  default: false
+  offLabel: null
+  onLabel: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Lightswitch

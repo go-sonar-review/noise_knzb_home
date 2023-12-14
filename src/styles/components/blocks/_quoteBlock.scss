@@ -1,0 +1,22 @@
+.c-quote-block {
+  &__content {
+    padding-left: 16px;
+    border-left: 3px solid $lapis-blue;
+    color: $black;
+    font-style: italic;
+  }
+
+  &__quote {
+    font-family: $title-font-stack;
+    font-size: 20px;
+    font-weight: 500;
+
+    @include tablet-landscape {
+      font-size: 32px;
+    }
+  }
+
+  &__quotee {
+    font-size: 14px;
+  }
+}

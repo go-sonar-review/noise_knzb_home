@@ -1,0 +1,24 @@
+defaultPlacement: end
+enableVersioning: true
+handle: homepage
+name: Homepage
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - Default
+      -
+        - urlFormat
+        - /
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  c3dd2df9-188d-4590-ac87-62318e5eb486: # KNZB
+    enabledByDefault: true
+    hasUrls: true
+    template: site.twig
+    uriFormat: __home__
+type: single

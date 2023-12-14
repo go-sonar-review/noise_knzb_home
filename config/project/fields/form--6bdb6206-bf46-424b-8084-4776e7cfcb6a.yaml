@@ -1,0 +1,43 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 62bdff2d-64e6-4b21-8d1a-e63f9b794dc5 # Common
+handle: form
+instructions: ''
+name: Formulier
+searchable: false
+settings:
+  columns:
+    __assoc__:
+      -
+        - 6cbd9dbc-3b65-44f3-8c98-eb9a3b24859c # Titel
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 9856a4b3-b28a-4c34-b2e9-c591d88de932 # Tekst
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - bd525484-5f1d-42cd-ac9f-c5afbcb8741e # Formulier
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_form}}'
+  fieldLayout: row
+  maxRows: '1'
+  minRows: ''
+  placeholderKey: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: ''
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

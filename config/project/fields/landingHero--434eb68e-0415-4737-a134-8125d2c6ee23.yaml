@@ -1,0 +1,16 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 05631174-aab0-4a97-a8e6-bb9ad45da0e1 # Heroes
+handle: landingHero
+instructions: ''
+name: 'Landing Hero'
+searchable: false
+settings:
+  contentTable: '{{%matrixcontent_landinghero}}'
+  maxBlocks: '1'
+  minBlocks: ''
+  propagationKeyFormat: null
+  propagationMethod: all
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix

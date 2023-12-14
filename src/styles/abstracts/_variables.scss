@@ -1,0 +1,66 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/// Default body fontsize
+$font-size-base: 16px;
+
+/// Default text-shadow
+$text-shadow: 2px 2px 4px rgba(0,0,0,0.35);
+
+/// grid spacing
+$gutter-mobile: 16px;
+$gutter: 24px;
+$padding-size: 0.75rem; // for RFHE components.
+$section-outer-padding--mobile: 1rem;
+$section-outer-padding: 2 * $padding-size;
+$section-outer-padding--widescreen: 5 * $padding-size;
+
+/// container widths
+$container-max-width--tablet: 720px;
+$container-max-width--tablet-landscape: 984px;
+$container-max-width--widescreen: 1248px;
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'http://cdn.example.com/assets/';
+$base-url: "/assets/" !default;
+
+// =================
+// TRANSITION SPEEDS
+// =================
+$transition-faster: 0.1s;
+$transition-fast: 0.2s;
+$transition-medium: 0.3s;
+$transition-slow: 0.5s;
+$transition-slower: 1s;
+
+// ==============
+// BULMA SETTINGS
+// ==============
+$column-gap-mobile: $gutter-mobile;
+$column-gap: $gutter;
+
+// ==============
+// NAVIGATION SETTINGS
+// ==============
+$navigation-mobile-height: 80px;
+$navigation-desktop-height: 142px;
+$navigation-index: 20;
+
+// ==============
+// LINK SETTINGS
+// ==============
+$link-clippath-padding: 10px;
+
+$shadow: 0px 6px 34px rgba(0, 49, 63, 0.1);
+
+$gradient-orange: linear-gradient(
+  to bottom,
+  #f66601,
+  #f66d08 12%,
+  #f8a54f 50%,
+  #f66d08 88%,
+  #f66601 100%
+);

@@ -1,0 +1,390 @@
+field: b67271c9-deaf-4f52-91f6-3392469feae8 # Blokken
+fieldLayouts:
+  3c81749a-d352-4ecb-b89c-8d6bdff36f13:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 5458f95e-5a45-497d-99ec-0120fa14160c # Achtergrondkleur
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 1e64fc10-5ecc-411c-b836-874f7fa83c8b # Titel
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 908bedc8-043e-4576-8efc-4a73f8244631 # Link
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: aa6b944e-f14f-4503-9049-911000bd9c58 # Entry Type
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 868b1fa4-0158-4e48-a124-686df02c83ee # Inhoud
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Content
+        sortOrder: 1
+fields:
+  1e64fc10-5ecc-411c-b836-874f7fa83c8b: # Titel
+    columnSuffix: keozbtye
+    contentColumnType: text
+    fieldGroup: null
+    handle: blockTitle
+    instructions: ''
+    name: Titel
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  868b1fa4-0158-4e48-a124-686df02c83ee: # Inhoud
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: entries
+    instructions: ''
+    name: Inhoud
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  908bedc8-043e-4576-8efc-4a73f8244631: # Link
+    columnSuffix: vjurenir
+    contentColumnType: text
+    fieldGroup: null
+    handle: blockLink
+    instructions: ''
+    name: Link
+    searchable: false
+    settings:
+      allowCustomText: '1'
+      allowTarget: '1'
+      defaultText: ''
+      selectLinkText: ''
+      types:
+        __assoc__:
+          -
+            - presseddigital\linkit\models\Email
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - presseddigital\linkit\models\Phone
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - presseddigital\linkit\models\Url
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+                -
+                  - allowAlias
+                  - '1'
+                -
+                  - allowMailto
+                  - '1'
+                -
+                  - allowHash
+                  - '1'
+                -
+                  - allowPaths
+                  - '1'
+          -
+            - presseddigital\linkit\models\Twitter
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - presseddigital\linkit\models\Facebook
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - presseddigital\linkit\models\Instagram
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - presseddigital\linkit\models\LinkedIn
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - presseddigital\linkit\models\Entry
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+          -
+            - presseddigital\linkit\models\Category
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+          -
+            - presseddigital\linkit\models\Asset
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+          -
+            - presseddigital\linkit\models\User
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+                -
+                  - userPath
+                  - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: presseddigital\linkit\fields\LinkitField
+  5458f95e-5a45-497d-99ec-0120fa14160c: # Achtergrondkleur
+    columnSuffix: dqxhztwl
+    contentColumnType: text
+    fieldGroup: null
+    handle: backgroundColor
+    instructions: ''
+    name: Achtergrondkleur
+    searchable: false
+    settings:
+      allowCustomColor: false
+      allowCustomColorPicker: false
+      allowOpacity: false
+      colorFormat: auto
+      defaultColorHandle: ''
+      defaultOpacity: '100'
+      fieldDescriptions: false
+      paletteBaseColors: null
+      paletteColors: ''
+      presetId: '1'
+      presetMode: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: presseddigital\colorit\fields\ColoritField
+  aa6b944e-f14f-4503-9049-911000bd9c58: # Entry Type
+    columnSuffix: bdixkces
+    contentColumnType: string
+    fieldGroup: null
+    handle: entryType
+    instructions: ''
+    name: 'Entry Type'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Agenda
+            -
+              - value
+              - agenda
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Blog
+            -
+              - value
+              - blogs
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Kennisartikelen
+            -
+              - value
+              - knowledgeArticles
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Nieuws
+            -
+              - value
+              - news
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Showcases
+            -
+              - value
+              - showcases
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Vacatures
+            -
+              - value
+              - vacancies
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+handle: featuredContentBlock
+name: 'Uitgelichte inhoud'
+sortOrder: 15

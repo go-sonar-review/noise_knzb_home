@@ -1,0 +1,58 @@
+{# Eager loading - Globals #}
+{% do craft.app.elements.eagerLoadElements(
+  className(defaults),
+  [defaults],
+  [
+  'modals.modalWindow',
+  'modals.modalWindow:ctas',
+  'modals.modalWindow:imageDesktop',
+  'modals.modalWindow:imageMobile',
+  ]
+) %}
+{% set globalModalData = defaults.modals|default() %}
+
+{% for block in globalModalData %}
+{% set desktopImage = block.imageDesktop[0]|default( defaults.fallbackImage[0] ) %}
+
+  {% set imageProperties = {
+    image: desktopImage,
+    sizes: '(max-width: 1023px) 90vw, 300px',
+    srcset: ['300w', '375w', '520w', '768w'  ],
+    width: 301,
+    height: 429,
+  } %}
+
+  {% set imagePropertiesMobile = {
+    image: block.imageMobile[0]|default(desktopImage),
+    width: 318,
+    height: 184,
+  } %}
+
+  {% set links = block.ctas|default()|filter(i => i.cta.url)|map( i => { 
+      url: i.cta.url, 
+      target: i.cta.targetString|default('_self'), 
+      text: i.cta.text 
+    })
+  %}
+
+  <local-storage-modal
+    id="{{ block.blockId|lower|replace({" ": "_"}) }}"
+    :links="{{ links|json_encode }}">
+    
+    <template {{ 'v-slot:modal-content' }}>
+      {% if block.blockTitle|default() %}
+        <h2 class="t-heading-3 t-heading-3--primary t-heading-3--uppercase t-heading-3--line-height-compact">{{ block.blockTitle }}</h2>
+      {% endif %}
+
+      <div class="t-wysiwyg">{{ block.blockText }}</div>
+    </template>
+
+    <template {{ 'v-slot:image-content' }}>
+      {% include '_partials/image' with {
+        properties: imageProperties,
+        propertiesMobile: imagePropertiesMobile
+      } %}
+    </template>
+  </local-storage-modal>
+
+{% endfor %}

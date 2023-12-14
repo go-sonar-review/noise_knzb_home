@@ -1,0 +1,62 @@
+{% set details = block.details[0]|default() %}
+
+{% set attributesBlock = {
+    class: [
+        'c-form-block',
+        isNested|default(false) ? 'c-form-block--is-nested'
+    ]
+} %}
+{% set attributesMain = {
+    class: [
+        'c-form-block__main',
+        not details ? 'c-form-block__main--alone',
+    ]
+} %}
+
+{% set hasPaddingVertical = block.backgroundColor.handle is not same as('white') %}
+
+{% embed "_partials/section" with { 
+    hasNoPaddingHorizontal: true, 
+    style: { 
+        'background-color': block.backgroundColor.color
+     }, 
+    hasPaddingVertical 
+} %}
+    {% block content %}
+        {% embed "_partials/container" %}
+            {% block content %}
+
+                <div {{attr(attributesBlock)}}>
+                    <div {{attr(attributesMain)}}>
+                        {% embed "_partials/card" with { 
+                            isWhite: true,
+                        } %}
+                             {% block content %}
+                                {% include "_partials/form" with { form: block.form[0]|default() } %}
+                            {% endblock %}
+                        {% endembed %}
+                    </div>
+                    {% if details %}
+                        <div class="c-form-block__aside">
+                            {% embed "_partials/card" with { 
+                                isDark: true,
+                                hasLionHead: true,
+                            } %}
+                                {% block content %}
+                                    <h4 class="t-heading-6 t-heading-6--tertiary">{{ details.label }}</h4>
+                                    <span class="u-mb-medium">
+                                        <h2 class="t-heading-2 t-heading-2--secondary">{{ details.blockTitle }}</h2>
+                                    </span>
+                                    <div class="t-wysiwyg t-wysiwyg--light">
+                                        {{ details.description|nl2br }}
+                                    </div>
+                                {% endblock %}
+                            {% endembed %}
+                        </div>
+                    {% endif %}
+                </div>
+
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
+{% endembed %}

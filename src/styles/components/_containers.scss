@@ -1,0 +1,35 @@
+.c-image-container {
+  position: relative;
+  height: 0;
+  width: 100%;
+  padding-top: calc(100% / 16 * 9);
+  overflow: hidden;
+
+  &--9x8 {
+    padding-top: calc(100% / 9 * 8);
+  }
+  &--16x9 {
+    padding-top: calc(100% / 16 * 9);
+  }
+
+  &--clip-path-right {
+    @include clip-path("right", 10%);
+  }
+
+  &--clip-path-left {
+    @include clip-path("left", 10%);
+  }
+
+  & > img,
+  & > iframe,
+  & > picture img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    object-fit: cover;
+    min-height: 100%;
+    min-width: 100%;
+  }
+}

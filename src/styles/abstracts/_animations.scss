@@ -1,0 +1,75 @@
+@keyframes shake-right {
+  0%,
+  50%,
+  100% {
+    transform: translateX(0);
+  }
+  25%,
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes shake-left {
+  0%,
+  50%,
+  100% {
+    transform: translateX(0);
+  }
+  25%,
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.out-left-enter-active,
+.out-left-leave-active,
+.out-right-enter-active,
+.out-right-leave-active {
+  transition: all $transition-slow ease;
+}
+
+.out-left-leave-to,
+.out-right-enter {
+  transform: translateX(-15px);
+  opacity: 0;
+}
+
+.out-left-enter,
+.out-right-leave-to {
+  transform: translateX(15px);
+  opacity: 0;
+}
+
+.accordion-enter-active,
+.accordion-leave-active {
+  will-change: height, opacity;
+  transition: height $transition-fast ease, opacity $transition-fast ease;
+  overflow: hidden;
+}
+
+.accordion-enter,
+.accordion-leave-to {
+  height: 0 !important;
+  opacity: 0;
+}

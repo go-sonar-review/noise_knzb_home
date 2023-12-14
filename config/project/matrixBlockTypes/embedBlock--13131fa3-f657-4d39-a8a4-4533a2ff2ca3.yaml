@@ -1,0 +1,34 @@
+field: b67271c9-deaf-4f52-91f6-3392469feae8 # Blokken
+fieldLayouts:
+  6455a783-ba43-4a7b-b4f9-296e39c06986:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: b54a0cea-ae73-4f68-b81e-973a408c937e # Embed
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  b54a0cea-ae73-4f68-b81e-973a408c937e: # Embed
+    columnSuffix: plqoaudr
+    contentColumnType: text
+    fieldGroup: null
+    handle: embed
+    instructions: ''
+    name: Embed
+    searchable: false
+    settings:
+      url: ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: wrav\oembed\fields\OembedField
+handle: embedBlock
+name: 'Embed block'
+sortOrder: 7

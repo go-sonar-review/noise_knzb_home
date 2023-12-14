@@ -1,0 +1,46 @@
+.c-cta-list {
+  @include full-grid-with-column-gap;
+
+  row-gap: 30px;
+
+  &__content {
+    grid-column: main-start / main-end;
+    position: relative;
+    padding: 40px;
+    width: 100%;
+    color: $nile-blue;
+    background-color: $catskill-white;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: auto;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 80px;
+      background: linear-gradient( 0deg, rgba($jagged-ice, 1) 0%, rgba($jagged-ice, 0) 100% );
+      clip-path: polygon(80% 0, 100% 0, 100% 100%, 0% 100%);
+      opacity: 0.4;
+    }
+
+    &--light-blue {
+      color: $nile-blue;
+      background-color: $jagged-ice;
+
+      &:before {
+        background: linear-gradient( 0deg, rgba($white, 1) 0%, rgba($white, 0) 100% );
+      }
+    }
+
+    &--dark-blue {
+      color: $white;
+      background-color: $lapis-blue;
+
+      &:before {
+        background: linear-gradient( 0deg, rgba($navy-blue, 1) 0%, rgba($navy-blue, 0) 100% );
+      }
+    }
+
+  }
+}

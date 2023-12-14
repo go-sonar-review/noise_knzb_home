@@ -1,0 +1,22 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 62bdff2d-64e6-4b21-8d1a-e63f9b794dc5 # Common
+handle: articleAuthor
+instructions: ''
+name: Auteur
+searchable: false
+settings:
+  allowSelfRelations: false
+  limit: ''
+  localizeRelations: false
+  selectionLabel: ''
+  showSiteMenu: true
+  source: null
+  sources:
+    - 'section:9753d1d5-5cf8-423f-b211-82fcdcb343bb' # Personen
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: null
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Entries

@@ -1,0 +1,13 @@
+description: "Een schrijver kan nieuwsberichten maken, maar niet publiceren. \r\nDit moet een beheerder of redacteur voor ze doen. \r\nWij vinden de rol van schrijver ideaal voor bijvoorbeeld gastartikelen. "
+handle: writer
+name: Schrijver
+permissions:
+  - accesscp
+  - accesssitewhensystemisoff
+  - 'createentries:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'editentries:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'editimagesinvolume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+  - 'editpeerentries:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'editpeerentrydrafts:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'saveassetinvolume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+  - 'viewvolume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets

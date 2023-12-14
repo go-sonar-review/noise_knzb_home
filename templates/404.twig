@@ -1,0 +1,2 @@
+{% set entry = entry|default() ? entry : craft.entries.section('pageNotFound').one %}
+{% include "sections/single/single.twig" with { entry: entry|default(null) } %}

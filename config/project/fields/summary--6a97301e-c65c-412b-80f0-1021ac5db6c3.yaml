@@ -1,0 +1,19 @@
+columnSuffix: bdloxwdw
+contentColumnType: string(1000)
+fieldGroup: 38e230dd-26f6-4263-b7a9-a0b559a90e6a # SEO
+handle: summary
+instructions: 'Deze tekst zal gebruikt worden voor de content overzicht pagina''s en als standaard tekst voor de SEO omschrijving.'
+name: Samenvatting
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: 250
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

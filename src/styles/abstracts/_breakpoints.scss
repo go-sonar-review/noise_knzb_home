@@ -1,0 +1,109 @@
+// DIVICE SIZES
+$mobile-small: 320px;
+$mobile: 412px;
+$tablet: 768px;
+$tablet-landscape: 1024px;
+$desktop: 1280px;
+$widescreen: 1440px;
+
+// BASIC QUERIES
+@mixin mobile {
+  @media screen and (min-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape {
+  @media screen and (min-width: #{$tablet-landscape}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: #{$desktop}) {
+    @content;
+  }
+}
+
+@mixin widescreen {
+  @media screen and (min-width: #{$widescreen}) {
+    @content;
+  }
+}
+
+// DEVICE ONLY QUERIES
+@mixin mobile-small {
+  @media screen and (max-width: #{$mobile - 1}) {
+    @content;
+  }
+}
+
+@mixin mobile-only {
+  @media screen and (max-width: #{$tablet - 1}) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media screen and (min-width: #{$tablet}) and (max-width: #{$desktop - 1}) {
+    @content;
+  }
+}
+
+@mixin desktop-only {
+  @media screen and (min-width: #{$desktop}) and (max-width: #{$widescreen - 1}) {
+    @content;
+  }
+}
+
+@mixin widescreen-only {
+  @media screen and (min-width: #{$widescreen}) {
+    @content;
+  }
+}
+
+// UNTIL SIZE QUERIES
+@mixin until-tablet {
+  @media screen and (max-width: #{$tablet - 1}) {
+    @content;
+  }
+}
+
+@mixin until-tablet-landscape {
+  @media screen and (max-width: #{$tablet-landscape - 1}) {
+    @content;
+  }
+}
+
+@mixin until-desktop {
+  @media screen and (max-width: #{$desktop - 1}) {
+    @content;
+  }
+}
+
+@mixin until-widescreen {
+  @media screen and (max-width: #{$widescreen - 1}) {
+    @content;
+  }
+}
+
+// CUSTOM QUERIES
+@mixin mq($width1, $width2: 0) {
+  @if $width2>0 {
+    @media only screen and ((min-width: #{$width1}) and (max-width: #{$width2})) {
+      @content;
+    }
+  }
+
+  @else {
+    @media only screen and (min-width: #{$width1}) {
+      @content;
+    }
+  }
+}

@@ -1,0 +1,451 @@
+.c-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+
+  padding: 40px $section-outer-padding--mobile;
+  background-color: transparent;
+  box-shadow: $shadow;
+  overflow: hidden;
+
+  @include tablet {
+    padding: 40px;
+  }
+
+  &--dark {
+    background-color: $color-primary-dark;
+  }
+
+  &--white {
+    background-color: $white;
+  }
+
+  &--dark-light {
+    background-color: $catskill-white;
+  }
+
+  &--no-gap {
+    gap: 0px;
+  }
+  
+  &--dark-gradient {
+    background: linear-gradient(to bottom, rgba($catskill-white, 1), transparent), linear-gradient(102deg, $catskill-white 80%, rgba($jagged-ice, 0.45)  80%);
+  }
+
+  &--has-lion-head {
+    background-image: url("data:image/svg+xml, #{svg-replace($svg-lion-head, $color-secondary)}");
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: auto calc(100% - 40px);
+
+    @include tablet-landscape {
+      background-size: auto calc(100% - 130px);
+    }
+  }
+
+  &--without-box-shadow {
+    box-shadow: none;
+  }
+  &--without-padding {
+    padding: 0;
+  }
+
+  &--flip-card {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    cursor: pointer;
+
+    @include on-event {
+      .c-card__inner {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+
+  &--flip-card .c-card {
+    &__inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: auto;
+        left: auto;
+        right: 0;
+        bottom: 0;
+        width: 50px;
+        height: 50px;
+        z-index: 1;
+      }
+
+      &::before {
+        box-sizing: content-box;
+        padding-left: 10px;
+        background: $blaze-orange;
+        @include clip-path("left", 8px);
+      }
+
+      &:after {
+        @include arrow-shape($white, center center);
+        background-size: 16px;
+      }
+    }
+
+    &__content {
+      width: 100%;
+      height: 100%;
+      color: $white;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 38, 72, 0.5) 8.09%,
+        rgba(0, 38, 72, 0) 39.86%
+      );
+
+      & > * {
+        z-index: 1;
+      }
+    }
+
+    &__content--front,
+    &__content--back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      backface-visibility: hidden;
+      transform: rotateY(180deg);
+      overflow: hidden;
+      overflow-y: auto;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%; 
+        clip-path: polygon(0 0, 50% 0, 8% 100%, 0% 100%);
+        background: linear-gradient(
+          90deg,
+          #13315c -20%,
+          rgba(19, 49, 92, 0) 99.36%
+        );
+        z-index: 1;
+      }
+    }
+
+    &__content--front {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: space-between;
+      transform: rotateY(0deg);
+
+      &::before {
+        left: -25%;
+      }
+    }
+
+    &__content--back {
+      background: $lapis-blue;
+    }
+
+    &__title {
+      margin-top: 40px;
+      margin-bottom: 8px;
+    }
+
+    &__image {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+    }
+
+    &__content-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 16px;
+      border-top: 1px solid $white;
+
+      & > *:first-child {
+        font-weight: bold;
+      }
+
+      &--weight-light > *:first-child {
+        font-weight: 300;
+      }
+    }
+
+    &__link {
+      color: inherit;
+
+      @include on-event {
+        color: $blaze-orange;
+      }
+    }
+  }
+
+  &--linked-card {
+    position: relative;
+    text-decoration: none;
+    transition: $transition-fast;
+    color: $black;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      transition: $transition-fast;
+    }
+
+    &::before{
+      width: 60px;
+      height: 54px;
+      background: $blaze-orange;
+      @include clip-path("left", 8px);
+    }
+
+    &::after {
+      @include arrow-shape(
+        $white,
+        center center,
+        $arrow-svg-shape
+      );
+      width: 18px;
+      height: 18px;
+      background-size: 18px;
+      transform: translate(-18px, -18px);
+    }
+
+    @include on-event {
+      text-decoration: none;
+      color: unset;
+
+      &::before {
+      background-color: darken($blaze-orange, 10%);
+      }
+
+      &::after {
+        transform: translate(-14px, -18px);
+      }
+    }
+
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: flex;
+  }
+
+  &__image {
+    position: relative;
+    margin-bottom: 8px;
+    height: 0px;
+    padding-top: calc(100% / 400 * 220);
+    overflow: hidden;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 16px;
+    
+    @include tablet-landscape{
+      padding-left: 20px;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+    margin-top: auto;
+    padding-left: 16px;
+    
+    @include tablet-landscape{
+      padding-left: 20px;
+    }
+  }
+
+  &__detail-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: calc(100% - 70px);
+  }
+}
+
+.c-card-featured {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin-bottom: 50px;
+  margin-bottom: 50px;
+
+  @include tablet {
+    height: 0px;
+    padding-top: 100%;
+  }
+
+  &__content {
+    position: absolute;
+    height: 200px;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 32px - 40px); // size is full container width - :after_width - margin_width
+    background-color: $lapis-blue;
+    padding-top: $section-outer-padding;
+    padding-right: $section-outer-padding;
+    padding-bottom: $section-outer-padding * 2;
+    padding-left: $section-outer-padding;
+    transform: translateY(50px);
+
+    @include shape-cursive-after($svg-shape-cursive-left, $lapis-blue);
+
+    &:after {
+      transform: translateX(100%);
+      height: 100%;
+      top: 0px;
+      right: 1px;
+    }
+
+    @include tablet-landscape {
+      padding: 35px 38px;
+    }
+  }
+
+  &__title {
+    @extend .t-title;
+    @extend .t-title--white;
+    @extend .t-title--uppercase;
+    
+    font-weight: 500;
+    font-size: 26px;
+
+    @include tablet {
+        font-size: 32px;
+    }
+
+    @include tablet-landscape {
+        font-size: 22px;
+    }
+
+    @include widescreen {
+        font-size: 24px;
+    }
+  }
+
+  &__arrow {
+    right: 0;
+    bottom: 0;
+    padding: 16px;
+    background-color: $blaze-orange;
+    z-index: 100;
+
+    @include shape-cursive-after($svg-shape-cursive-left, $blaze-orange);
+    @include shape-cursive-before($svg-shape-cursive-right, $blaze-orange);
+
+    position: absolute;
+
+    &::before {
+      transform: translateX(-100%);
+    }
+
+    &::after {
+      transform: translateX(100%);
+      height: 100%;
+    }
+
+    &::before, &::after{
+      aspect-ratio:  10 / 50;
+    }
+  }
+}
+
+.c-card-text {
+  width: 100%;
+  background-color: $background--primary;
+  @include clip-path("right", 6%);
+
+  @include tablet {
+    @include standard-grid;
+    grid-auto-flow: dense;
+  }
+
+  &__main {
+    background-color: $background--secondary;
+    padding: 18px;
+    margin-right: 18px;
+
+    @include clip-path("right", 15%);
+
+    @include tablet {
+      grid-column: span 6;
+      padding: 36px;
+    }
+
+    @include desktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__summary {
+    display: none;
+
+    @include tablet {
+      display: block;
+      grid-column: span 6;
+
+      padding-top: 36px;
+      padding-bottom: 36px;
+      margin-right: 110px;
+    }
+
+    @include desktop {
+      grid-column: span 8;
+    }
+  }
+}
+
+.c-card-search {
+  border-bottom: 1px solid $nile-blue;
+  padding-bottom: 24px;
+  padding-top: 24px;
+  width: 100%;
+
+  &__summary {
+    margin-top: 4px;
+  }
+}

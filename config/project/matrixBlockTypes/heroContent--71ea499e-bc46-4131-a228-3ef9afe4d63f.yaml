@@ -1,0 +1,166 @@
+field: 1980f1ed-d081-49d2-b2be-c55ce0de6c51 # Detail Hero
+fieldLayouts:
+  98f321c4-797c-4e3c-a42f-b34430977c3e:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 318e787b-fba8-4d05-be7c-e8cd18a745a3 # Titel
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 7cfbabd5-efce-4559-90df-e7230af3b008 # CTA's
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: b71359eb-dbb6-4b50-9f49-32bb9cd5b757 # Afbeelding Desktop
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: d1aef858-713c-41bd-ac92-04b766430b9f # Afbeelding Mobiel
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Content
+        sortOrder: 1
+fields:
+  7cfbabd5-efce-4559-90df-e7230af3b008: # CTA's
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: ctas
+    instructions: ''
+    name: 'CTA''s'
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - c8fbb0c7-68f8-4220-a141-687ac3b4f73d # CTA
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_6_ctas}}'
+      fieldLayout: row
+      maxRows: '2'
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  318e787b-fba8-4d05-be7c-e8cd18a745a3: # Titel
+    columnSuffix: prpcokyv
+    contentColumnType: text
+    fieldGroup: null
+    handle: blockTitle
+    instructions: ''
+    name: Titel
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b71359eb-dbb6-4b50-9f49-32bb9cd5b757: # Afbeelding Desktop
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: imageDesktop
+    instructions: ''
+    name: 'Afbeelding Desktop'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  d1aef858-713c-41bd-ac92-04b766430b9f: # Afbeelding Mobiel
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: imageMobile
+    instructions: ''
+    name: 'Afbeelding Mobiel'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: heroContent
+name: 'Hero Content'
+sortOrder: 1

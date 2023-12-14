@@ -1,0 +1,81 @@
+{% if hero|length %}
+{# Prevent bug where slider contains blank content. #}
+    {% set hero = hero
+        .with([
+            'imageDesktop',
+            'imageMobile',
+        ])
+        .all() %}
+    
+    <div class="c-carousel-hero c-carousel-hero--has-no-spacing">
+        <div class="c-carousel-hero__wrapper">
+
+            {% set originalAmount = hero|length %}
+
+            {% set minimalSlides = 4 %}
+            {% set precondition = hero|length < minimalSlides %}
+            {% for i in 0..10000 if precondition %}
+                {% set hero = hero|merge(hero) %}
+                {% set precondition = hero|length < minimalSlides %}
+            {% endfor %}
+
+            <slide-carousel-hero :slides="{{ hero|length }}" :amount="{{ originalAmount }}">
+                {% for slide in hero %}
+                    <template {{ 'v-slot:slide--' ~ loop.index }}>
+                        <div class="c-carousel-hero__slide">
+
+                            {% set imageProperties = {
+                                image: slide.imageDesktop[0]|default(),
+                                sizes: '(max-width: 1440px) 90vw, 1296px',
+                                srcset: ['560w','960w','1201w','1283w', '2592w'],
+                                height: 500,
+                                width: 1202,
+                                loading: "eager",
+                                class: "c-carousel-hero__figure c-carousel-hero__figure--tablet",
+                                mode: 'fit'
+                            } %}
+
+                            {% set imagePropertiesMobile = {
+                                image: slide.imageMobile[0]|default(slide.imageDesktop[0]|default()),
+                                sizes: '100vw',
+                                srcset: ['360w', '786w', '1572w'],
+                                height: 360,
+                                width: 360,
+                                loading: "eager",
+                                class: "c-carousel-hero__figure c-carousel-hero__figure--mobile",
+                                mode: 'fit'
+                            } %}
+
+                            <div class="c-carousel-hero__image">
+                                {% include '_partials/image.twig' with {
+                                    properties: imageProperties,
+                                    propertiesMobile: imagePropertiesMobile
+                                } %}
+                            </div>
+
+                        </div>
+                    </template>
+
+                    <template {{ 'v-slot:content--' ~ loop.index }}>
+                        <div class="c-carousel-hero__content">
+                            <h1 class="t-heading-1 t-heading-1-uppercase t-heading-1--text-shadow c-carousel-hero__title">{{ slide.blockTitle }}</h1>
+                            {% if slide.cta %}
+                                {% include '_partials/link.twig' with {
+                                    text: 'Lees meer',
+                                    cta: slide.cta,
+                                    hasIconAfter: true,
+                                    withoutBackgroundColor: true,
+                                    textColorWhite: true,
+                                    uppercase: true,
+                                    styleNormal: true,
+                                    removePaddingLeft: true
+                                } %}
+                            {% endif %}
+                        </div>
+                    </template>
+                {% endfor %}
+            </slide-carousel-hero>
+
+        </div>
+    </div>
+{% endif %}

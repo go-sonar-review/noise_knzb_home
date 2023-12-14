@@ -1,0 +1,22 @@
+.c-image-block {
+  @include full-grid-with-column-gap;
+
+  row-gap: 32px;
+  grid-auto-flow: dense;
+
+  .c-image-container { 
+    grid-column: side-start / side-end;
+  }
+  
+  img {
+    width: 100%;
+  }
+
+  &--left img {
+    @include clip-path("left", 10%);
+  }
+
+  &--right img {
+    @include clip-path("right", 10%);
+  }
+}

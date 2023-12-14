@@ -1,0 +1,152 @@
+/*
+Grid
+Style guide: 3-layout.1-grid
+ */
+
+/*
+Grid Section
+A container to divide page into vertical sections
+
+:hover - hover state
+.l-section--has-spacing-small - Small section spacing
+.l-section--has-spacing-medium - Medium section spacing
+
+Markup:
+<body class="l-body">
+  <header class="l-header"></header>
+  <main>
+    <section class="l-section {{modifier_class}}">
+       <div style="background: #DDD">Section</div>
+      <div class="l-container">
+        <div style="background: #DDD">Container</div>
+      </div>
+    </section
+  </main>
+  <footer class="c-footer">
+    <div style="background: #DDD">Footer</div>
+  </footer>
+</body>
+Style guide: 3-layout.1-grid.section
+*/
+
+.l-section {
+  @include section;
+}
+
+/*
+Grid Container
+A container to help structuring the section content
+
+.l-container--show-grid - Show Development grid
+
+Markup:
+<body class="l-body">
+  <header class="l-header"></header>
+  <main>
+    <section class="l-section">
+      <div class="l-container {{modifier_class}}">
+        <div style="background: #DDD">Container</div>
+      </div>
+    </section
+  </main>
+  <footer class="c-footer">
+    <div style="background: #DDD">Footer</div>
+  </footer>
+</body>
+Style guide: 3-layout.1-grid.container
+*/
+.l-container {
+  @include container;
+}
+
+.l-content {
+  margin-top: $gutter;
+
+  &--has-no-margin {
+    margin-top: 0;
+  }
+}
+
+/*
+  Grid Columns
+  Markup:
+  <div class="l-cards-grid">
+    <div class="columns" style="border: 1px solid grey">
+      <div class="column" style="border: 1px solid grey">
+        <div style="background: #DDD">Column</div>
+      </div>
+      <div class="column" style="border: 1px solid grey">
+        <div style="background: #DDD">Column</div>
+      </div>
+    </div>
+  </div>
+  Style guide: 3-layout.1-grid.columns
+*/
+
+.l-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-column-gap: $gutter;
+  grid-row-gap: 40px;
+
+  @include tablet-landscape {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.l-article-layout {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  @include tablet-landscape {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+
+  &__content {
+    order: 2;
+    overflow: hidden;
+
+    @include tablet-landscape {
+      order: 1;
+      grid-column: 1 / span 8;
+      grid-row: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+
+  &--center &__content {
+    grid-column: 3 / span 8;
+  }
+
+  &__aside {
+    order: 1;
+
+    @include tablet-landscape {
+      order: 2;
+      grid-column: 9 / span 4;
+      grid-row: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+
+  @include tablet-landscape {
+    &--vacancies &__content {
+      grid-column: 1 / span 6;
+    }
+
+    &--vacancies &__aside {
+      grid-column: 7 / span 6;
+    }
+  }
+}

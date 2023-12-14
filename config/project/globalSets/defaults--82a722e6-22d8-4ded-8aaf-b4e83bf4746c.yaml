@@ -1,0 +1,50 @@
+fieldLayouts:
+  ac66d623-fbfa-41f2-9eef-89fc3a2085e5:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: b62f49e7-c35e-4c90-a57f-4657da37c3b8 # Logo
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 0c6de825-8746-4ed2-91ac-2dde23b7f310 # Fallback Afbeelding
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            type: craft\fieldlayoutelements\HorizontalRule
+          -
+            fieldUid: 3415dad4-3019-49ac-91b1-6ed455f2b311 # Modals
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            type: craft\fieldlayoutelements\HorizontalRule
+          -
+            fieldUid: 22c9b66e-8ed9-4067-9fb9-e02a1f250d7f # Footer content
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+handle: defaults
+name: Defaults
+sortOrder: 1

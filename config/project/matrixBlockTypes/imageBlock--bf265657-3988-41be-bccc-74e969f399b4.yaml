@@ -1,0 +1,186 @@
+field: b67271c9-deaf-4f52-91f6-3392469feae8 # Blokken
+fieldLayouts:
+  903ecf40-7c7f-4e2f-adee-810add1b4fe3:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 1c932ef8-cdfa-434b-a8fb-fe3404c1e4ef # Achtergrondkleur
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 215fdd85-250a-4ca7-b347-3c0575747d58 # Afbeelding Desktop
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+          -
+            fieldUid: f2473f99-c071-4128-9d86-cf444775d0db # Afbeelding Mobiel
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+          -
+            fieldUid: 449a91b5-2b79-471f-8614-143aef09e53d # Afbeelding clippath
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 25
+        name: Content
+        sortOrder: 1
+fields:
+  1c932ef8-cdfa-434b-a8fb-fe3404c1e4ef: # Achtergrondkleur
+    columnSuffix: krgtfxsy
+    contentColumnType: text
+    fieldGroup: null
+    handle: backgroundColor
+    instructions: ''
+    name: Achtergrondkleur
+    searchable: false
+    settings:
+      allowCustomColor: false
+      allowCustomColorPicker: false
+      allowOpacity: false
+      colorFormat: auto
+      defaultColorHandle: ''
+      defaultOpacity: '100'
+      fieldDescriptions: false
+      paletteBaseColors: null
+      paletteColors: ''
+      presetId: '1'
+      presetMode: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: presseddigital\colorit\fields\ColoritField
+  215fdd85-250a-4ca7-b347-3c0575747d58: # Afbeelding Desktop
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: imageDesktop
+    instructions: ''
+    name: 'Afbeelding Desktop'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  449a91b5-2b79-471f-8614-143aef09e53d: # Afbeelding clippath
+    columnSuffix: vlrcccwo
+    contentColumnType: string
+    fieldGroup: null
+    handle: imageClipPath
+    instructions: ''
+    name: 'Afbeelding clippath'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Links
+            -
+              - value
+              - left
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Rechts
+            -
+              - value
+              - right
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Geen
+            -
+              - value
+              - none
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  f2473f99-c071-4128-9d86-cf444775d0db: # Afbeelding Mobiel
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: imageMobile
+    instructions: ''
+    name: 'Afbeelding Mobiel'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: large
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+handle: imageBlock
+name: Afbeelding
+sortOrder: 1

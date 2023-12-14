@@ -1,0 +1,6 @@
+{% for block in blocks %}
+    {% include "fields/common/blocks/" ~ block.type with {
+      block: block,
+      isNested: isNested|default(false)
+    } %}
+{% endfor %}

@@ -1,0 +1,24 @@
+{% set hasPaddingVertical = block.backgroundColor.handle is not same as('white') %}
+
+{% embed "_partials/section" with { style: { 'background-color': block.backgroundColor.color }, hasPaddingVertical } %}
+  {% block content %}
+    {% embed "_partials/container" %}
+      {% block content %}
+        <div class="c-quote-block">
+          {% embed "components/detailsGroup" with {id: random()} %}
+            {% block content %}
+
+              <div class="c-quote-block__content">
+                <figure>
+                  <blockquote  class="c-quote-block__quote">{{ block.quote }}</blockquote>
+                  <figcaption  class="c-quote-block__quotee">{{ block.quotee }}</figcaption>
+                </figure>
+              </div>
+              
+            {% endblock %}
+          {% endembed %}
+        </div>
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+{% endembed %}

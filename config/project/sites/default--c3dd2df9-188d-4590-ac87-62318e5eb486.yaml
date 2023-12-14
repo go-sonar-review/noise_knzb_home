@@ -1,0 +1,9 @@
+baseUrl: $PRIMARY_SITE_URL
+enabled: true
+handle: default
+hasUrls: true
+language: nl-NL
+name: KNZB
+primary: true
+siteGroup: 2702215e-9faf-40d2-b2dd-4f32855b0855 # Articulate
+sortOrder: 1

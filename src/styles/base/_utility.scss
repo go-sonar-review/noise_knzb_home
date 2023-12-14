@@ -1,0 +1,114 @@
+// -----------------------------------------------------------------------------
+// This file contains CSS utility/helper classes.
+// -----------------------------------------------------------------------------
+
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+/**
+ * Hide text while making it readable for screen readers
+ * 1. Needed in WebKit-based browsers because of an implementation bug;
+ *    See: https://code.google.com/p/chromium/issues/detail?id=457146
+ */
+.hide-text {
+  overflow: hidden;
+  padding: 0;
+  /* 1 */
+  text-indent: 101%;
+  white-space: nowrap;
+}
+
+/**
+ * Hide element while making it readable for screen readers
+ * Shamelessly borrowed from HTML5Boilerplate:
+ * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
+ */
+.visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.u-text-center {
+    text-align: center !important;
+}
+
+$spacing-tiny: 16px;
+$spacing-small: 22px;
+$spacing-medium: 40px;
+$spacing-big: 60px;
+
+.u-mt-tiny {
+  margin-top: $spacing-tiny !important;
+}
+.u-mt-small {
+  margin-top: $spacing-small !important;
+}
+.u-mt-medium {
+  margin-top: $spacing-medium !important;
+}
+.u-mt-big {
+  margin-top: $spacing-big !important;
+}
+
+.u-mb-tiny {
+  margin-bottom: $spacing-tiny !important;
+}
+.u-mb-small {
+  margin-bottom: $spacing-small !important;
+}
+.u-mb-medium {
+  margin-bottom: $spacing-medium !important;
+}
+.u-mb-big {
+  margin-bottom: $spacing-big !important;
+}
+
+.u-limit-lines-1 {
+  @include limit-lines( 1 );
+}
+.u-limit-lines-2 {
+  @include limit-lines( 2 );
+}
+.u-limit-lines-3 {
+  @include limit-lines( 3 );
+}
+
+.u-ph-very-tiny-rel {
+  // This is for overflow on oblique text so it doesn't cutt off text when even when it's within the line limit;
+  padding: 0 0.25em; // 0.25 is just enough for large letters like "M" and "W" not be cut;
+}
+
+.u-basic-reset {
+    @include basic-reset;
+}
+
+.u-object-fit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+}
+
+.u-basic-link-with-children {
+  @include on-event{
+    & > * {
+      text-decoration: underline;
+    }
+   }
+}

@@ -1,0 +1,17 @@
+.zsiq {
+  @include until-tablet {
+    &_theme1 {
+      display: none !important;
+    }
+  }
+
+  @include until-desktop {
+    &_theme1 &_flt_rel {
+      transform: scale(0.8) !important;
+    }
+
+    &_theme1 #titlediv {
+      display: none !important;
+    }
+  }
+}

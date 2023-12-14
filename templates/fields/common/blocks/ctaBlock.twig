@@ -1,0 +1,44 @@
+{% set attributesBlock = {
+    class: [
+        'c-cta-block',
+        isNested|default(false) ? 'c-cta-block--is-nested'
+    ]
+} %}
+
+{% embed "_partials/section" with {
+    hasNoPaddingHorizontal: true,
+    hasPaddingVerticalSmall: true,
+    hasPaddingHorizontalMobile: true 
+} %}
+
+  {% block content %}
+
+    <div {{ attr(attributesBlock) }}>
+
+      <div class="c-cta-block__content">
+
+        {% set isDownload = block.blockLinkType.value == "download" %}
+        {% set linkTypeClass = 'c-link-card--' ~ block.blockLinkType.value|default("download") %}
+        {% set linkAttributes = {
+            href: block.cta.url,
+            download: isDownload,
+            target: isDownload or block.cta.targetString|default('_self'),
+            class: [ 'c-link-card', linkTypeClass, ]
+        } %}
+
+         <a{{ attr(linkAttributes) }}>
+            <div class="c-cta-block__inner">
+                <div class="c-cta-block__text">
+                    <span class="c-cta-block__pre-title">{{ block.blockPreTitle|default( block.blockLinkType.label|default('Download') ) }}</span>
+                    <p class="c-cta-block__title">{{ block.blockTitle|default( block.cta.text ) }}</p>
+                </div>
+            </div>
+        </a>
+          
+      </div>
+
+    </div>
+
+  {% endblock %}
+
+{% endembed %}

@@ -1,0 +1,79 @@
+
+{% set attributesBlock = {
+    class: [
+        'c-social-share',
+        isNested|default(false) ? 'c-social-share--is-nested'
+    ]
+} %}
+
+{% embed "_partials/section" with {
+    hasNoPaddingHorizontal: true,
+    hasNoSpacing: true 
+} %}
+    {% block content %}
+
+        <div {{ attr(attributesBlock) }}>
+          <div class="c-social-share__content">
+            
+            <div class="c-social-share__inner">
+              <span class="c-social-share__label">Delen:</span>
+              <div class="c-social-share__icons">
+                {# Variables #}
+                {% set url = seomatic.meta.parsedValue('canonicalUrl') %}
+                {% set title = seomatic.meta.parsedValue('seoTitle') %}
+                {% set description = seomatic.meta.parsedValue('seoDescription') %}
+                {% set domain = getenv('DEFAULT_SITE_URL') %}
+
+                <a 
+                  href="https://www.facebook.com/sharer/sharer.php?u={{ url }}" 
+                  class="c-social-share__link social-share__link--facebook"
+                  target="_blank">
+                  {{ _self.shareIcon('assets/icons/facebook--without-background.svg', 'Share op facebook' ) }}
+                </a>
+                <a 
+                  href="https://twitter.com/intent/tweet?url={{ url }}&text={{ title }}"
+                  class="c-social-share__link social-share__link--twitter"
+                  data-size="large"
+                  target="_blank">
+                  {{ _self.shareIcon('assets/icons/twitter--without-background.svg', 'Share op twitter' ) }}
+                </a>
+                <a 
+                  href="http://www.linkedin.com/shareArticle?mini=true&url={{ url }}&title={{ title }}&summary={{ description }}&source={{ domain }}" 
+                  class="c-social-share__link social-share__link--linkedIn"
+                  target="_blank">
+                  {{ _self.shareIcon('assets/icons/linkedin--without-background.svg', 'Share op linkedIn' ) }}
+                </a> 
+                <a 
+                  href="https://api.whatsapp.com/send?text={{ url }}" 
+                  class="c-social-share__link social-share__link--whatsapp"
+                  target="_blank">
+                  {{ _self.shareIcon('assets/icons/whatsapp--without-background.svg', 'Share op whatsapp' ) }}
+                </a>
+                <a 
+                  href="mailto:?subject={{ title }}%20&amp;body={{ url }}" 
+                  class="c-social-share__link social-share__link--mail"
+                  target="_blank">
+                  {{ _self.shareIcon('assets/icons/mail--without-background.svg', 'Share op mail' ) }}
+                </a>
+                
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+    {% endblock %}
+
+    {% macro shareIcon(path, title) %}
+      {{ svg('@webroot/' ~ path )|attr({ 
+        class: 'social-share__icon', 
+        width: 24, 
+        height: 24, 
+        title: title, 
+        alt: title  
+      })  }}
+    {% endmacro %}
+
+
+{% endembed %}
+

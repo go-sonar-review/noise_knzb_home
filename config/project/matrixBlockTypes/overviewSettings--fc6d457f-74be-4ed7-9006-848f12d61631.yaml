@@ -1,0 +1,221 @@
+field: 50d23bb7-47e7-4d1c-a3f0-fa89e155e14e # Overzicht settings
+fieldLayouts:
+  8a1eded6-2156-4ade-a09a-3aab21882523:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: a12c0f8a-0927-413f-a578-a4851994896d # Content types
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 80e87baf-f80c-47d1-bbb8-adcac648ebb1 # Toon categorie select
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: b8366860-34d1-4bc3-8024-dd48f07dce87 # Uitgelichte onderwerpen
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: b4f8a94f-06ed-4e9e-af76-16830c109db5 # Geen resultaten bericht
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  80e87baf-f80c-47d1-bbb8-adcac648ebb1: # Toon categorie select
+    columnSuffix: vplvwzzp
+    contentColumnType: boolean
+    fieldGroup: null
+    handle: showCategorySelect
+    instructions: 'Categorie select toont als deze instelling aanstaat en er geen categorie op paginaniveau geselecteerd staat.'
+    name: 'Toon categorie select'
+    searchable: false
+    settings:
+      default: true
+      offLabel: null
+      onLabel: null
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Lightswitch
+  a12c0f8a-0927-413f-a578-a4851994896d: # Content types
+    columnSuffix: uexkuvoy
+    contentColumnType: string
+    fieldGroup: null
+    handle: contentTypes
+    instructions: ''
+    name: 'Content types'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Alles
+            -
+              - value
+              - ''
+            -
+              - default
+              - '1'
+        -
+          __assoc__:
+            -
+              - label
+              - Agenda
+            -
+              - value
+              - agendaItem
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Bedrijven
+            -
+              - value
+              - businesses
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Blogs
+            -
+              - value
+              - blog
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Kennisartikelen
+            -
+              - value
+              - knowledgeArticle
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Nieuws
+            -
+              - value
+              - newsDetail
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Personen
+            -
+              - value
+              - people
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Showcases
+            -
+              - value
+              - showcase
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Vacatures
+            -
+              - value
+              - vacancy
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  b4f8a94f-06ed-4e9e-af76-16830c109db5: # Geen resultaten bericht
+    columnSuffix: alnzucxd
+    contentColumnType: text
+    fieldGroup: null
+    handle: noResultsMessage
+    instructions: ''
+    name: 'Geen resultaten bericht'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: 'Geen resultaten gevonden'
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b8366860-34d1-4bc3-8024-dd48f07dce87: # Uitgelichte onderwerpen
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: featuredSubjects
+    instructions: 'Deze items zullen boven in de zoekfunctie op de overzichtspagina getoond worden.'
+    name: 'Uitgelichte onderwerpen'
+    searchable: false
+    settings:
+      allowLimit: false
+      allowMultipleSources: false
+      allowSelfRelations: false
+      branchLimit: '3'
+      limit: null
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: 'group:36284fad-33be-41ff-9a5e-1cd3f68cd112' # Onderwerpen
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Categories
+handle: overviewSettings
+name: 'Overzicht settings'
+sortOrder: 1

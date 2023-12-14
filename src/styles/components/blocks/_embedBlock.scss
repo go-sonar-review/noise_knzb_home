@@ -1,0 +1,50 @@
+.c-embed-block {
+  @include full-grid-with-column-gap;
+  row-gap: 32px;
+  grid-auto-flow: dense;
+
+  &__content {
+    position: relative;
+    grid-column: side-start / side-end;
+  }
+
+  &__content--video {
+    grid-column: main-start / main-end;
+  }
+
+  &__container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  &__figure, 
+  &__figure iframe {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100%;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    max-height: 1080px;
+  }
+
+  &__content--short &__figure,
+  &__content--short &__figure &__iframe {
+    aspect-ratio: 9 / 16;
+    max-width: 496px;
+  }
+
+  &__content--full &__figure,
+  &__content--full &__figure &__iframe {
+    aspect-ratio: 1 / 1;
+
+    @include tablet {
+      aspect-ratio: 2 / 1;
+    }
+    @include desktop {
+      aspect-ratio: 9 / 3;
+    }
+  }
+}

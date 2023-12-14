@@ -1,0 +1,31 @@
+description: "De auteur kan zelf berichten schrijven, bewerken en publiceren, maar niet de berichten van anderen aanpassen en/of pagina’s aanmaken. \r\nEen auteur kan alleen zijn eigen berichten aanpassen en verwijderen. \r\nZe beheren geen instellingen, plugins of thema’s."
+handle: author
+name: Auteur
+permissions:
+  - accesscp
+  - accesssitewhensystemisoff
+  - 'createentries:38c7dc72-bf43-4793-9e53-5b74163cbbf5' # Blogs
+  - 'createentries:76a53ca8-58e7-43da-b682-0d16c2be5edd' # Agenda
+  - 'createentries:7907a8f8-18f9-49df-bf82-4c6913cfe8c3' # Kennisartikelen
+  - 'createentries:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'createentries:f9aaa7cb-bed7-4b5b-b0a7-c0fa0939fae0' # Showcases
+  - 'deleteentries:38c7dc72-bf43-4793-9e53-5b74163cbbf5' # Blogs
+  - 'deleteentries:76a53ca8-58e7-43da-b682-0d16c2be5edd' # Agenda
+  - 'deleteentries:7907a8f8-18f9-49df-bf82-4c6913cfe8c3' # Kennisartikelen
+  - 'deleteentries:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'deleteentries:f9aaa7cb-bed7-4b5b-b0a7-c0fa0939fae0' # Showcases
+  - 'editentries:38c7dc72-bf43-4793-9e53-5b74163cbbf5' # Blogs
+  - 'editentries:76a53ca8-58e7-43da-b682-0d16c2be5edd' # Agenda
+  - 'editentries:7907a8f8-18f9-49df-bf82-4c6913cfe8c3' # Kennisartikelen
+  - 'editentries:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'editentries:f9aaa7cb-bed7-4b5b-b0a7-c0fa0939fae0' # Showcases
+  - 'editimagesinvolume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+  - 'editpeerentries:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'editpeerentries:f9aaa7cb-bed7-4b5b-b0a7-c0fa0939fae0' # Showcases
+  - 'publishentries:38c7dc72-bf43-4793-9e53-5b74163cbbf5' # Blogs
+  - 'publishentries:76a53ca8-58e7-43da-b682-0d16c2be5edd' # Agenda
+  - 'publishentries:7907a8f8-18f9-49df-bf82-4c6913cfe8c3' # Kennisartikelen
+  - 'publishentries:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'publishentries:f9aaa7cb-bed7-4b5b-b0a7-c0fa0939fae0' # Showcases
+  - 'saveassetinvolume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+  - 'viewvolume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets

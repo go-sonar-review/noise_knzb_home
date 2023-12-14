@@ -1,0 +1,27 @@
+.c-partner-slider {
+   @include full-grid-with-column-gap;
+
+   position: relative;
+   padding: 12px 0;
+   border-top: 1px solid $catskill-white;
+
+   &__content {
+      grid-column: side-start / side-end; 
+      max-width: 100%;
+   }
+
+   &__link {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+   }
+
+   &__image {
+      display: flex;
+      height: 48px;
+      object-fit: contain;
+   }
+}

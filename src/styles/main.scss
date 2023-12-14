@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// INCLUDE STYLING FROM ABSTRACTS
+@import "./abstracts/all.scss";
+
+// INCLUDE STYLING FROM VENDORS
+@import "./vendors/**/*.scss";
+
+// INCLUDE STYLING FROM BASE
+@import "./base/**/*.scss";
+
+// INCLUDE STYLING FROM LAYOUT
+@import "./layout/**/*.scss";
+
+// INCLUDE STYLING FROM COMPONENTS
+@import "./components/**/*.scss";
+
+// INCLUDE STYLING FROM PAGES
+@import "./pages/**/*.scss";
+
+// INCLUDE STYLING FROM THEMES
+@import "./themes/**/*.scss";
+
+// INCLUDE STYLING FROM CRAFT TEMPLATES
+@import "../../templates/**/*.scss";

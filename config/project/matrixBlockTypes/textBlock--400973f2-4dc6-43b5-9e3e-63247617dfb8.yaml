@@ -1,0 +1,149 @@
+field: b67271c9-deaf-4f52-91f6-3392469feae8 # Blokken
+fieldLayouts:
+  c07d729d-62e7-4b81-bd51-60bd045235db:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: df9e8c0f-8cf9-4f6c-82f3-8b65d3ccc74c # Achtergrondkleur
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 03775924-55f8-433c-b18c-6563e4ca0aab # Titel
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 905e7a60-a7d6-43fa-9953-db2e8f75b8dc # Tekst
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 5dd2cb57-f5e8-4c7f-a1b3-2bb67a3583d4 # CTA's
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  5dd2cb57-f5e8-4c7f-a1b3-2bb67a3583d4: # CTA's
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: ctas
+    instructions: ''
+    name: 'CTA''s'
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 855b5830-225b-44ee-8748-3b8bc5e30678 # CTA
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_2_ctas}}'
+      fieldLayout: row
+      maxRows: '2'
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  905e7a60-a7d6-43fa-9953-db2e8f75b8dc: # Tekst
+    columnSuffix: udqyvhbz
+    contentColumnType: text
+    fieldGroup: null
+    handle: text
+    instructions: ''
+    name: Tekst
+    searchable: false
+    settings:
+      availableTransforms: '*'
+      availableVolumes: '*'
+      columnType: text
+      configSelectionMode: choose
+      defaultTransform: ''
+      manualConfig: ''
+      purifierConfig: ''
+      purifyHtml: '1'
+      redactorConfig: Standard.json
+      removeEmptyTags: '1'
+      removeInlineStyles: '1'
+      removeNbsp: '1'
+      showHtmlButtonForNonAdmins: ''
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      uiMode: enlarged
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\redactor\Field
+  03775924-55f8-433c-b18c-6563e4ca0aab: # Titel
+    columnSuffix: rxhxsdhu
+    contentColumnType: text
+    fieldGroup: null
+    handle: blockTitle
+    instructions: ''
+    name: Titel
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  df9e8c0f-8cf9-4f6c-82f3-8b65d3ccc74c: # Achtergrondkleur
+    columnSuffix: bixmuseq
+    contentColumnType: text
+    fieldGroup: null
+    handle: backgroundColor
+    instructions: ''
+    name: Achtergrondkleur
+    searchable: false
+    settings:
+      allowCustomColor: false
+      allowCustomColorPicker: false
+      allowOpacity: false
+      colorFormat: auto
+      defaultColorHandle: ''
+      defaultOpacity: '100'
+      fieldDescriptions: false
+      paletteBaseColors: null
+      paletteColors: ''
+      presetId: '1'
+      presetMode: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: presseddigital\colorit\fields\ColoritField
+handle: textBlock
+name: Tekst
+sortOrder: 13

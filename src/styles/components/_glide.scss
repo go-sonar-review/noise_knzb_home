@@ -1,0 +1,188 @@
+// Required Core Stylesheet
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.core";
+
+// Optional Theme Stylesheet
+@import "node_modules/@glidejs/glide/src/assets/sass/glide.theme";
+
+.glide {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+
+  // Base
+  &__track {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  &__slides {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__slide {
+    position: relative;
+    height: inherit;
+    white-space: pre-line;
+  }
+
+  // Controls
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
+  }
+
+  &--featuredContentBlock &__controls {
+    position: absolute;
+    top: calc(50% - 52px);
+    transform: translateY(-50%);
+    z-index: 1;
+
+    display: none;
+    
+    @include tablet {
+      display: flex;
+    }    
+  }
+
+  &__arrow {
+    position: relative;
+    display: inline-flex;
+    gap: 0;
+    width: max-content;
+    padding: 0;
+    margin: 0;
+
+    color: $link-text-color;
+    font-family: $title-font-stack;
+    text-decoration: none;
+    background-color: $link-background--primary;
+    transform: none;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    transition: all $transition-fast ease-in-out;
+
+    &:before{
+      content: "";
+      display: block;
+      width: 50px;
+      height: 100%;
+      min-height: 50px;
+      transition: 0.2s;
+      box-sizing: content-box;
+      background-color: inherit;
+      @include arrow-shape($link-default-arrow-color, center center);
+      transition: none;
+      transition: background-position $transition-fast ease-in-out;
+    }
+
+    @include on-event {
+      color: $link-text-color;
+      text-decoration: none;
+      background-color: $button-background-hover-dark;
+
+      &:before {
+        background-color: inherit;
+        background-position: calc(50% + 4px);
+      }
+    }
+
+    &--prev {
+      left: 8px;
+      right: auto;
+      padding-left: 10px;
+      @include clip-path('left', 8px );
+      transform: rotate( 180deg );
+    }
+
+    &--next {
+      left: auto;
+      right: 8px;
+      padding-left: 10px;
+      @include clip-path('left', 8px );
+    }
+  }
+
+  // Timeline
+  &__timeline-container {
+    position: relative;
+    display: block;
+    gap: 8px;
+    height: 10px;
+    width: 100%;
+    background: $jagged-ice;
+  }
+
+  &__timeline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 0%;
+    height: 100%;
+    background-color: $blaze-orange;
+    opacity: 0;
+  }
+
+  &__timeline--active{
+    display: block;
+    opacity: 1;
+    animation-name: timeline-width;
+    animation-timing-function: linear;
+  }
+
+  @keyframes timeline-width {
+    from { width: 0%; }
+    to { width: 100%; }
+  }
+
+  // Bullets
+  &__bullets {
+    position: relative;
+    top: unset;
+    bottom: unset;
+    left: unset;
+    right: unset;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px;
+    padding-top: 32px;
+    transform: unset;
+  }
+
+  &__bullet {
+    position: relative;
+    display: flex;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: $jagged-ice;
+    transition: backgoundColor 500ms ease-in-out;
+    box-shadow: none !important;
+
+    @include on-event{
+      border: none;
+      opacity: 0.6;
+      background-color: $blaze-orange;
+    }
+
+    &--active {
+      opacity: 1;
+      background-color: $blaze-orange;
+
+      &:focus {
+        background-color: $blaze-orange;
+
+      }
+    }
+  }
+}

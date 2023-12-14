@@ -1,0 +1,102 @@
+field: b67271c9-deaf-4f52-91f6-3392469feae8 # Blokken
+fieldLayouts:
+  b2c95c11-fc32-4860-a257-b4db84b0e6e2:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 2c115245-8595-4706-89c6-0c8174c97225 # Achtergrondkleur
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: ca10c5d2-8f5c-4d18-a454-fcc8443bf285 # Quote
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: eb41ab3f-fe64-4cad-95bf-f1e9aff05415 # Quotee
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  2c115245-8595-4706-89c6-0c8174c97225: # Achtergrondkleur
+    columnSuffix: wvgqtxwz
+    contentColumnType: text
+    fieldGroup: null
+    handle: backgroundColor
+    instructions: ''
+    name: Achtergrondkleur
+    searchable: false
+    settings:
+      allowCustomColor: false
+      allowCustomColorPicker: false
+      allowOpacity: false
+      colorFormat: auto
+      defaultColorHandle: ''
+      defaultOpacity: '100'
+      fieldDescriptions: false
+      paletteBaseColors: null
+      paletteColors: ''
+      presetId: '1'
+      presetMode: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: presseddigital\colorit\fields\ColoritField
+  ca10c5d2-8f5c-4d18-a454-fcc8443bf285: # Quote
+    columnSuffix: mutgsiih
+    contentColumnType: text
+    fieldGroup: null
+    handle: quote
+    instructions: ''
+    name: Quote
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  eb41ab3f-fe64-4cad-95bf-f1e9aff05415: # Quotee
+    columnSuffix: vnxbyiwi
+    contentColumnType: text
+    fieldGroup: null
+    handle: quotee
+    instructions: ''
+    name: Quotee
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: quoteBlock
+name: Quote
+sortOrder: 12

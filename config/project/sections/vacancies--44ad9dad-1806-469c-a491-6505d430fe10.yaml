@@ -1,0 +1,27 @@
+defaultPlacement: beginning
+enableVersioning: true
+handle: vacancies
+name: Vacatures
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  c3dd2df9-188d-4590-ac87-62318e5eb486: # KNZB
+    enabledByDefault: true
+    hasUrls: true
+    template: site.twig
+    uriFormat: '{parent.uri ? parent.uri : ''vacatures''}/{slug}'
+structure:
+  maxLevels: 2
+  uid: c791369b-b79d-4c72-a177-de591ee090f2
+type: structure

@@ -1,0 +1,153 @@
+{#
+	Image component. Sets transforms, srcsets and some default settings.
+	You don't need this if you're 100% sure your image is a SVG or Animated Gif.
+	loading="lazy" is polyfilled with https://github.com/mfranzke/loading-attribute-polyfill
+	
+  ### properties:
+	image: the image object. - required
+	sizes: tells the browser the width of the image in the layout - default: 100vw
+	height: tells the browser what height to expect. Also important for the ratio. - default: intrinsic image height (default also returns original image ratio)
+	width: tells the browser what width to expect. Also important for the ratio. - default: intrinsic image width
+	srcset: array of image widths to transform for the srcset - default: ['375w', '750w', '1200w', '1500w', '1920w', '2400w']
+	loading: "eager" (above the fold) or "lazy" (under the fold) - default: "lazy"
+	class: custom classname on <picture> element
+	alt: text to describe the image - default: img.title (is set for both mobile and desktop)
+	
+  ### propertiesMobile
+	If you want a different image/ratio for mobile (max-width: 767px) use the next:
+	image: required
+	sizes: default: 100vw
+	height: default: intrinsic image height
+	width: default: intrinsic image width
+	srcset: default: ['375w', '750w', '1200w']
+  
+  ### Example properties
+  {% set imageProperties = {
+		image: entry.image.desktop|default,
+		sizes: '(max-width: 1280px) 100vw, 1280px',
+		height: 800,
+		width: 2400,
+		srcset: ['1280w', '1500w', '1920w', '2400w'],
+		loading: "eager"
+		class: "custom-image-class",
+		alt: "A bright, crescent moon sinking into the dark blue ocean"
+	} %}
+
+	{% set imagePropertiesMobile = {
+		image: entry.image.mobile|default,
+		sizes: '100vw',
+		height: 1200,
+		width: 600,
+		srcset: ['375w', '750w'],
+	} %}
+
+	{% set imagePropertiesTablet = {
+		image: entry.image.Tablet|default,
+		sizes: '100vw',
+		height: 1200,
+		width: 600,
+		srcset: ['375w', '750w', '1200w'],
+	} %}    
+
+	{% include '_partials/image.twig' with { 
+    properties: imageProperties, 
+    propertiesMobile: imagePropertiesMobile,
+    propertiesTablet: imagePropertiesTablet 
+  } %}
+#}
+
+{% set image = properties.image|default %}
+
+{% if image|default and image.kind == 'image' %}
+	{% set generalSettings = {
+		quality: properties.quality|default(80),
+		width: properties.width|default(image.width|default()),
+		height: properties.height|default(image.height|default()),
+		mode: properties.mode|default('crop')
+	} %}
+
+	{% set mobileSettings = generalSettings %}
+	{% set mobileSettings = {
+		width: propertiesMobile.width|default(image.width|default()),
+		height: propertiesMobile.height|default(image.height|default())
+	} %}
+
+	{% set tabletSettings = generalSettings %}
+	{% set tabletSettings = {
+		width: propertiesMobile.width|default(image.width|default()),
+		height: propertiesMobile.height|default(image.height|default())
+	} %}    
+
+	{% set loading = properties.loading|default('lazy') %}
+
+	{% set defaultSrcset = ['375w', '750w', '1200w', '1500w', '1920w', '2400w'] %}
+	{% set defaultSrcsetMobile = ['375w', '750w', '1200w'] %}
+  {% set defaultSrcsetTablet = ['375w', '750w', '1200w'] %}
+
+	{% if image.hasFocalPoint %}
+		{% set x = image.focalPoint | first * 100 ~ '%' %}
+		{% set y = image.focalPoint | last * 100 ~ '%' %}
+		{% set focalPoint = 'background-position: ' ~ [x, y]|join(' ') ~ '; object-position: ' ~ [x, y]|join(' ') ~ ';' %}
+	{% endif %}
+
+	{% if image.extension == 'svg' or image.extension == 'gif' %}
+		<picture class="image {{ properties.class|default }} transparent">
+			{% if propertiesMobile|default and propertiesMobile.image|default() %}
+				{% set extension = propertiesMobile.image.extension == 'svg' ? 'svg+xml' : propertiesMobile.image.extension %}
+				<source type="image/{{ extension }}" srcset="{{ propertiesMobile.image.getUrl() }}" media="(max-width: 767px)">
+			{% endif %}
+
+			<img
+				src="{{ image.getUrl() }}"
+				alt="{{ properties.alt|default(image.title) }}"
+				title="{{ properties.alt|default(image.title) }}"
+				width="{{ properties.width|default(generalSettings.width|default()) }}"
+				height="{{ properties.height|default(generalSettings.height|default()) }}"
+				decoding="async"
+				loading="{{ loading }}"/>
+		</picture>
+
+	{% else %}
+      <picture class="image {{ properties.class|default }} {{ image.extension == 'png' ? 'transparent' : null }}">
+      
+        {% macro imageRendering(properties, settings, srcset, maxWidth = null) %}
+          {{ tag('source', {
+            media: maxWidth|default() ? '(max-width: ' ~ maxWidth ~ 'px)' : null ,
+            srcset: properties.image.setTransform(settings|merge({ format: 'webp' })).getSrcset(properties.srcset|default(srcset)),
+            type: 'image/webp',
+            sizes: properties.sizes|default('100vw')
+          }) }}
+          {{ tag('source', {
+            media: maxWidth|default() ? '(max-width: ' ~ maxWidth ~ 'px)' : null ,
+            srcset: properties.image.setTransform(settings).getSrcset(properties.srcset|default(srcset)),
+            type: 'image/' ~ properties.image.extension,
+            sizes: properties.sizes|default('100vw')
+          }) }}
+        {% endmacro %}
+        
+        {# Render Sources - Tablet #}
+        {% if propertiesMobile|default() and propertiesMobile.image|default() %}
+          {{ _self.imageRendering( propertiesMobile, mobileSettings, defaultSrcsetMobile, 767 ) }}
+        {% endif %}
+
+        {# Render Sources - Mobile #}
+        {% if propertiesTablet|default() and propertiesTablet.image|default() %}
+          {{ _self.imageRendering( propertiesTablet, tabletSettings, defaultSrcsetTablet, 1023 ) }}
+        {% endif %}
+
+        {# Render Sources - Desktop #}
+        {{ _self.imageRendering( properties, generalSettings, defaultSrcset, null ) }}
+
+        <img
+          class="{{properties.class|default}}"
+          src="{{ image.getUrl(generalSettings) }}"
+          alt="{{ properties.alt|default(image.title) }}" 
+          title="{{ properties.alt|default(image.title) }}"
+          width="{{ properties.width|default(generalSettings.width|default()) }}"
+          height="{{ properties.height|default(generalSettings.height|default()) }}"
+          style="{{ focalPoint|default() }}"
+          loading="{{ loading }}"
+          decoding="async"/>
+      </picture>
+	{% endif %}
+{% endif %}

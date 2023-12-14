@@ -1,0 +1,11 @@
+diff -rupN a/src/Scout.php b/src/Scout.php
+--- a/src/Scout.php	2020-01-27 12:13:35.148078307 -0500
++++ b/src/Scout.php	2020-01-27 12:14:38.294046990 -0500
+@@ -133,6 +133,7 @@ class Scout extends Plugin
+
+     private function validateConfig()
+     {
++        return;
+         $indices = $this->getSettings()->getIndices();
+
+         if ($indices->unique('indexName')->count() !== $indices->count()) {

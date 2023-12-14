@@ -1,0 +1,62 @@
+{% set businesses = craft.entries({
+  section: 'businesses',
+  with: ['logo']
+}).all() %}
+
+
+{% set businesses = businesses|filter( i => i.logo[0]|default()) %}
+{% if businesses|length %}
+  {# Prevent bug where slider contains blank content. #}
+  {% set minimalSlides = 12 %}
+  {% set precondition = businesses|length < minimalSlides %}
+  {% for i in 0..10000 if precondition %}
+      {% set businesses = businesses|merge(businesses) %}
+      {% set precondition = businesses|length < minimalSlides %}
+  {% endfor %}
+
+  {% set settings = {
+    autoplay: 5000,
+    focusAt: 'center',
+    perView: 6,
+    gap: 24,
+    breakpoints: {
+      1024: { perView: 4, },
+      412: { perView: 2 },
+    },
+    controls: false,
+    timeline: false,
+    bullets: false
+  } %}
+
+<div class="c-partner-slider">
+  <div class="c-partner-slider__content">
+    <slide-carousel :slides="{{ businesses|length }}" :settings="{{ settings|json_encode }}">
+      {% for slide in businesses %}
+        <template {{ 'v-slot:slide--' ~ loop.index }}>
+          <a 
+            class="c-partner-slider__link" 
+            href="{{ slide.cta.url|default( slide.url ) }}"
+            target="{{ slide.cta.targetString|default('_self') }}">
+
+              {% set imageProperties = {
+                image: slide.logo[0]|default(),
+                class: "c-partner-slider__image",
+                sizes: '(max-width: 412) 100vw, (max-width: 1024) 25vw, (max-width: 1440) 16.67vw, 232px',
+                srcset: ['120w', '175w', '214w', '232w'],
+                height: 48,
+                width: 175,
+                quality: 90,
+                mode: 'fit',
+              } %}
+
+             {% include '_partials/image.twig' with { 
+                properties: imageProperties
+              } %}
+
+          </a>
+        </template>
+      {% endfor %}
+    </slide-carousel>
+  </div>
+</div>
+{% endif %}

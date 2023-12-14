@@ -1,0 +1,215 @@
+.c-hero {
+  @include section;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  padding: 0;
+  color: $white;
+  overflow: hidden;
+
+  @include tablet-landscape {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    margin: 0 auto;
+    background-color: $lapis-blue;
+  }
+
+  &--missing-background &__image-container {
+    background: transparent;
+    &:before { 
+      content: none;
+    }
+  }
+
+  &--no-clip-path &__container::before {
+    display: none;
+  }
+
+  // Styling detail page hero
+  &--detail &__meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px 16px;
+
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  @include tablet-landscape {
+    &--detail &__container {
+      
+      &:before {
+        width: 50%;
+        background: $navy-blue;
+      }
+    }
+
+    &--detail &__content {
+      max-width: 50%;
+    }
+
+    &--detail &__image-container {
+      width: 50%;
+      background: $navy-blue;
+      @include clip-path('left', 150px);
+    }
+  }
+  
+  &__container {
+    position: relative;
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 1;
+    margin-top: auto;
+    padding-top: 232px;
+    z-index: 2;
+
+    @include tablet-landscape {
+      @include container;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+      min-height: 422px;
+      padding: 32px 0;
+
+      &:before {
+        @include clip-path('left', 150px);
+        content: "";
+        position: absolute;
+        left: auto;
+        right: 0;
+        top: 0%;
+        width: 76%;
+        height: 100%;
+        background: $hero-gradient;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: calc(95%);
+    padding: 46px 16px;
+    @include clip-path('right', 5%);
+    background-color: $lapis-blue;
+    z-index: $navigation-index - 5;
+
+    background: linear-gradient(0.27turn, 
+    darken($lapis-blue, 0%),
+    darken($lapis-blue, 0%) 49%,
+    darken($lapis-blue, 3%) 50%,
+    darken($lapis-blue, 4%) 100%);
+    
+    @include tablet-landscape { 
+      max-width: 60%;
+      clip-path: none;
+      padding: 0;
+      background: none;
+    }
+  }
+
+  &__tags {
+    margin-bottom: 8px;
+  }
+
+  &__image-container {
+    position: relative;
+    grid-row: 1 / span 1;
+    grid-column: 1 / span 1;
+    height: 100%;
+    min-height: 352px;
+    max-height: 546px;
+    overflow: hidden;
+    background-color: $navy-blue;
+
+    @include tablet-landscape {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: auto;
+      display: block;
+      height: 100%;
+      width: 40%;
+      min-height: unset;
+      max-height: unset;
+      background: transparent;
+      z-index: 2;
+    }
+    
+    &:before {
+      content: "";
+      position: absolute;
+      right: -40px;
+      top: 50%;
+      height: 100%;
+      width: 100%;
+      transform: translateY(-50%);
+      background-image: url("data:image/svg+xml, #{svg-replace( $svg-lion-head-full, $white )}");
+      background-position: center right;
+      background-repeat: no-repeat;
+      background-size: contain;
+      opacity: 0.1;
+    }
+  }
+
+  &__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    @include tablet-landscape {
+      @include clip-path('left', 150px);
+    }
+  }
+}
+
+.c-search-hero {
+    @include full-grid-with-column-gap;
+    position: relative;
+
+    background: linear-gradient(0.27turn, 
+    darken($lapis-blue, 8%) 15%,
+    darken($lapis-blue, 4%) 50%,
+    lighten($nile-blue, 20%) 80%,
+    lighten($nile-blue, 25%) 100%);
+    
+    &::after {
+        content: "";
+        position: absolute;
+        right: -40px;
+        top: 50%;
+        height: 100%;
+        width: 100%;
+        transform: translateY(-50%);
+        background-image: url("data:image/svg+xml, #{svg-replace( $svg-lion-head-full, $white )}");
+        background-position: center right;
+        background-repeat: no-repeat;
+        background-size: contain;
+        opacity: 0.1;
+        pointer-events: none;
+    }
+
+    &__content {
+        grid-column: main-start / main-end;
+        display: flex;
+        flex-direction: column;
+        min-height: 280px;
+        justify-content: center;
+        padding-top: 50px;
+        padding-bottom: 50px;
+
+        @include tablet-landscape {
+            min-height: 320px;
+        }
+    }
+}

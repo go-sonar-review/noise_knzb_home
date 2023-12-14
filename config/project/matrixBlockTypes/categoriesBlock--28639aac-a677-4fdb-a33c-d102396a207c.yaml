@@ -1,0 +1,104 @@
+field: b67271c9-deaf-4f52-91f6-3392469feae8 # Blokken
+fieldLayouts:
+  ac9a542e-2572-4c8c-8e89-b3c62176cc89:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: c5e9e09f-0e41-456b-84f3-b1c464a89abb # Title
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 8e646155-a601-475a-8d52-a0f2d616e444 # Eerste gedeelte titel
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: bfed8b97-a955-4c1c-acd8-e5f90c5fd8e1 # Categories
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  8e646155-a601-475a-8d52-a0f2d616e444: # Eerste gedeelte titel
+    columnSuffix: meiezhnw
+    contentColumnType: text
+    fieldGroup: null
+    handle: firstPartTitle
+    instructions: ''
+    name: 'Eerste gedeelte titel'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  bfed8b97-a955-4c1c-acd8-e5f90c5fd8e1: # Categories
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: categories
+    instructions: ''
+    name: Categories
+    searchable: false
+    settings:
+      allowLimit: false
+      allowMultipleSources: false
+      allowSelfRelations: false
+      branchLimit: ''
+      limit: null
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: 'group:36284fad-33be-41ff-9a5e-1cd3f68cd112' # Onderwerpen
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Categories
+  c5e9e09f-0e41-456b-84f3-b1c464a89abb: # Title
+    columnSuffix: blvzaebk
+    contentColumnType: text
+    fieldGroup: null
+    handle: blockTitle
+    instructions: ''
+    name: Title
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+handle: categoriesBlock
+name: 'Categorieën block'
+sortOrder: 3

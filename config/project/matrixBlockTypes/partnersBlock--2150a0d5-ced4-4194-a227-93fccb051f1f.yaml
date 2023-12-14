@@ -1,0 +1,76 @@
+field: b67271c9-deaf-4f52-91f6-3392469feae8 # Blokken
+fieldLayouts:
+  e2e45355-e24f-4d55-af05-731bf6032ad9:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: bca9e05d-2b39-4f95-bc6d-9bead4d663d5 # AchtergrondKleur
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 514a3ac4-a557-42dd-a0ce-93cb82d9523f # Partners
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  514a3ac4-a557-42dd-a0ce-93cb82d9523f: # Partners
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: partners
+    instructions: ''
+    name: Partners
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: ''
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:660654a3-b897-4e1d-9cfb-16a2b170435d' # Bedrijven
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  bca9e05d-2b39-4f95-bc6d-9bead4d663d5: # AchtergrondKleur
+    columnSuffix: myomixwi
+    contentColumnType: text
+    fieldGroup: null
+    handle: backgroundColor
+    instructions: ''
+    name: AchtergrondKleur
+    searchable: false
+    settings:
+      allowCustomColor: false
+      allowCustomColorPicker: false
+      allowOpacity: false
+      colorFormat: auto
+      defaultColorHandle: ''
+      defaultOpacity: '100'
+      fieldDescriptions: false
+      paletteBaseColors: null
+      paletteColors: ''
+      presetId: '1'
+      presetMode: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: presseddigital\colorit\fields\ColoritField
+handle: partnersBlock
+name: Partners
+sortOrder: 10

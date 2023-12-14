@@ -1,0 +1,15 @@
+{% if getenv('ENVIRONMENT') == 'staging' or getenv('ENVIRONMENT') == 'production' %}
+  <!-- ZoHo KNZB Contact Widget code -->
+    <script type="text/javascript" id="zsiqchat">
+        var $zoho=$zoho || {};
+        $zoho.salesiq = $zoho.salesiq || {widgetcode: "siq83566a27184d253a5bb6565e22ea5178a06e887ce76c6c26f6bb058589cdf608", values:{},ready:function(){}};
+        var d=document;
+        s=d.createElement("script");
+        s.type="text/javascript";
+        s.id="zsiqscript";
+        s.defer=true;
+        s.src="https://salesiq.zoho.eu/widget";
+        t=d.getElementsByTagName("script")[0];
+        t.parentNode.insertBefore(s,t);
+    </script>  
+{% endif %}

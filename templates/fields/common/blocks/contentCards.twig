@@ -1,0 +1,37 @@
+{% set attributesBlock = {
+    class: [
+        'c-content-cards',
+        isNested|default(false) ? 'c-content-cards--is-nested'
+    ]
+} %}
+
+{% if block.cards|length %}
+    {% embed "_partials/section" with {
+      hasNoPaddingHorizontal: true,
+      hasPaddingVerticalSmall: true
+  } %}
+        {% block content %}
+
+            <div {{ attr(attributesBlock) }}>
+                <div class="c-content-cards__content">
+                    <div class="c-content-cards__list">
+                        {% for card in block.cards|filter( e => e.blockEntry[0].url|default() ) %}
+                            <a class="c-link-card" href="{{ card.blockEntry[0].url }}">
+                                <div class="content-card content-card--{{ block.backgroundColor.handle|default('transparent') }} ">
+                                    {% if card.blockTitle|default() %}
+                                        <h2 class="t-heading-4 t-heading-4--uppercase">{{ card.blockTitle }}</h2>
+                                    {% endif %}
+
+                                    {% if card.blockText|default() %}
+                                        <div class="t-wysiwyg">{{ card.blockText }}</div>
+                                    {% endif %}
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        {% endblock %}
+    {% endembed %}
+{% endif %}

@@ -1,0 +1,48 @@
+.c-content-cards {
+  @include full-grid-with-column-gap;
+
+  row-gap: 30px;
+
+  &__content {
+    grid-column: main-start / main-end;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include desktop {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+.content-card {
+  position: relative;
+  padding: 40px 40px 50px 40px;
+  width: 100%;
+  color: $white;
+  background: linear-gradient(102deg, $navy-blue 24%, $lapis-blue 24%);
+
+  &::after {
+    z-index: 2;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    content: "";
+
+    @include arrow-shape($white, 50% 50%, $arrow-svg-shape);
+    width: 60px;
+    height: 50px;
+    background-color: $blaze-orange;
+    background-size: 18px;
+    @include clip-path("left", 8px);
+  }
+}

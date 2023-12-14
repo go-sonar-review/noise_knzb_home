@@ -1,0 +1,54 @@
+{# Eager loading - Entry fields #}
+{% do craft.app.elements.eagerLoadElements(
+    className(entry),
+    [entry],
+    [
+    'detailHero.heroContent',
+    'detailHero.heroContent:imageDesktop',
+    'detailHero.heroContent:imageMobile',
+    'detailHero.heroContent:ctas',
+    ]
+) %}
+{% set hero = entry.detailHero[0]|default() %}
+
+{% embed "fields/heroes/hero" with { type: 'detail', hero } %}
+    {% block content %}
+        <div class="c-hero__tags">
+            {% include "_partials/tags.twig" with { 
+                tags: entry.categories|default(), 
+                secondary: true 
+            } %}
+        </div>
+
+        <div class="c-hero__title">
+            <h1 class="t-heading-1 t-heading-1-uppercase t-heading-1---line-height-compact t-heading-1--small t-heading-1--margin-reset">{{ hero.blockTitle|default( entry.title ) }}</h1>
+        </div>
+
+        {% if hero.ctas|default() %}
+            {% embed "_partials/content.twig" with { contentClass: "c-link-list c-link-list--no-spacing" } %}
+                {% block content %}
+                    {% for i in hero.ctas %}
+                        {% include '_partials/link.twig' with {
+                        cta: i.cta ,
+                        isPrimary: true,
+                        hasClipPathRight: true,
+                    } %}
+                    {% endfor %}
+                {% endblock %}
+            {% endembed %}
+        {% endif %}
+
+        <div class="c-hero__meta">
+            {% if hasDate|default(false) %}
+                {% if entry.startDate|default() or entry.endDate|default() %}
+                    {% include '_partials/date.twig' with { startDate: entry.startDate|default() , endDate: entry.endDate|default() } %}
+                {% else %}
+                    {% include '_partials/date.twig' with { startDate: entry.postDate, isWhite:true, withIcon: true } %}
+                {% endif %}
+            {% endif %}
+
+            {% include '_partials/authors.twig' with { authors: entry.articleAuthor|default([]), asList: false  } %}
+        </div>
+
+    {% endblock %}
+{% endembed %}

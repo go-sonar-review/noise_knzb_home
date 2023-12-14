@@ -1,0 +1,43 @@
+.c-featured-content {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    @include full-grid-with-column-gap;
+
+    &__title {
+        grid-column: main-start / main-end;
+        max-width: 100%;
+        margin-bottom: 32px;
+
+        @include tablet {
+            grid-row: 1 / span 1;
+            margin-bottom: 0px;
+            justify-self: center;
+        }
+    }
+
+    &__main {
+        grid-column: side-start / side-end;
+        max-width: 100%;
+
+        @include tablet {
+          grid-column: main-start / side-end;
+        }
+    }
+
+    &__link {
+        grid-column: main-start / main-end;
+        max-width: 100%;
+
+        @include tablet {
+            grid-row: 1 / span 1;
+            grid-column: 2 / -2;
+            justify-self: end;
+        }
+    }
+}
+
+.c-featured-content .glide__slide {
+    max-width: 500px;
+}

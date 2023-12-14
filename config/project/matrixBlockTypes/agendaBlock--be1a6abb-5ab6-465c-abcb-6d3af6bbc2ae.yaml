@@ -1,0 +1,296 @@
+field: b67271c9-deaf-4f52-91f6-3392469feae8 # Blokken
+fieldLayouts:
+  b62d055c-d678-4bb9-b84e-9d11964f4652:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 3f858981-1dbb-4049-9ab4-d4fd28585e68 # Achtergrondkleur
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 6f837c82-27e6-4176-b099-bc77f8ebe649 # Categorieën
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 57efe9f4-3a50-41c7-9860-26ca3e376bc7 # Afbeelding desktop
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: d20f9928-5de2-468a-8528-9b305513f5a1 # Afbeelding Mobile
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 1a0a0609-e360-4e6c-8798-34ec1472d8e9 # Titel
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 3a269b36-ccb2-495e-ba93-8d33d06cec1b # CTA'S
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: c92f2df3-d95b-4964-8df7-7330a1e141e9 # Inhoud
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: ee06cac3-c759-42e5-a620-ed3847b76f79 # Uitgelichte inhoud
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  1a0a0609-e360-4e6c-8798-34ec1472d8e9: # Titel
+    columnSuffix: nrzozjrn
+    contentColumnType: text
+    fieldGroup: null
+    handle: blockTitle
+    instructions: ''
+    name: Titel
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  3a269b36-ccb2-495e-ba93-8d33d06cec1b: # CTA'S
+    columnSuffix: vneyoert
+    contentColumnType: string
+    fieldGroup: null
+    handle: ctas
+    instructions: ''
+    name: 'CTA''S'
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - 496c5b7f-f1ff-43a8-ade2-04a95174b070 # CTA
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_10_ctas}}'
+      fieldLayout: row
+      maxRows: '1'
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+  3f858981-1dbb-4049-9ab4-d4fd28585e68: # Achtergrondkleur
+    columnSuffix: oxdshgrt
+    contentColumnType: text
+    fieldGroup: null
+    handle: backgroundColor
+    instructions: ''
+    name: Achtergrondkleur
+    searchable: false
+    settings:
+      allowCustomColor: false
+      allowCustomColorPicker: false
+      allowOpacity: false
+      colorFormat: auto
+      defaultColorHandle: ''
+      defaultOpacity: '100'
+      fieldDescriptions: false
+      paletteBaseColors: null
+      paletteColors: ''
+      presetId: '1'
+      presetMode: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: presseddigital\colorit\fields\ColoritField
+  6f837c82-27e6-4176-b099-bc77f8ebe649: # Categorieën
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: categories
+    instructions: ''
+    name: Categorieën
+    searchable: false
+    settings:
+      allowLimit: false
+      allowMultipleSources: false
+      allowSelfRelations: false
+      branchLimit: ''
+      limit: null
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: 'group:36284fad-33be-41ff-9a5e-1cd3f68cd112' # Onderwerpen
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Categories
+  57efe9f4-3a50-41c7-9860-26ca3e376bc7: # Afbeelding desktop
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: imageDesktop
+    instructions: ''
+    name: 'Afbeelding desktop'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  c92f2df3-d95b-4964-8df7-7330a1e141e9: # Inhoud
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: entries
+    instructions: ''
+    name: Inhoud
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: '5'
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:76a53ca8-58e7-43da-b682-0d16c2be5edd' # Agenda
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  d20f9928-5de2-468a-8528-9b305513f5a1: # Afbeelding Mobile
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: imageMobile
+    instructions: ''
+    name: 'Afbeelding Mobile'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      allowUploads: true
+      allowedKinds:
+        - image
+      defaultUploadLocationSource: 'volume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+      defaultUploadLocationSubpath: ''
+      limit: '1'
+      localizeRelations: false
+      previewMode: full
+      restrictFiles: '1'
+      selectionLabel: ''
+      showSiteMenu: true
+      showUnpermittedFiles: false
+      showUnpermittedVolumes: false
+      singleUploadLocationSource: 'volume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+      singleUploadLocationSubpath: ''
+      source: null
+      sources: '*'
+      targetSiteId: null
+      useSingleFolder: false
+      validateRelatedElements: false
+      viewMode: list
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Assets
+  ee06cac3-c759-42e5-a620-ed3847b76f79: # Uitgelichte inhoud
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: featured
+    instructions: ''
+    name: 'Uitgelichte inhoud'
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: '1'
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:76a53ca8-58e7-43da-b682-0d16c2be5edd' # Agenda
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+handle: agendaBlock
+name: Agenda
+sortOrder: 2

@@ -1,0 +1,11 @@
+{% extends "_layouts/base" %}
+
+{% block content %}
+
+    {% include 'fields/common/carouselHero' with { hero: entry.carouselHero } %}
+
+    {% include "fields/navigation/subNavigation" %}
+
+    {% include "fields/common/blocks" %}
+    
+{% endblock %}

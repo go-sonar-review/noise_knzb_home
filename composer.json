@@ -1,0 +1,89 @@
+{
+  "name": "noprotocol/knzb-home",
+  "description": "KNZB - Corporate CMS",
+  "require": {
+    "php": "^8.2",
+    "ext-bcmath": "*",
+    "ext-exif": "*",
+    "ext-gd": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "born05/craft-enforcepassword": "1.0.4.2",
+    "born05/craft-sentry": "^1.1",
+    "born05/craft-twofactorauthentication": "*",
+    "clubstudioltd/craft-asset-rev": "^6.0",
+    "codeception/codeception": "^4.1",
+    "codeception/module-webdriver": "^1.2",
+    "craftcms/aws-s3": "1.3.2",
+    "craftcms/cms": "3.8.5",
+    "craftcms/element-api": "2.8.6.1",
+    "craftcms/redactor": "2.10.12",
+    "cweagans/composer-patches": "^1.7",
+    "doublesecretagency/craft-cpcss": "2.4.0",
+    "mmikkel/cp-field-inspect": "1.4.4",
+    "nystudio107/craft-retour": "3.2.9",
+    "nystudio107/craft-routemap": "1.1.8",
+    "nystudio107/craft-seomatic": "3.4.51",
+    "ostark/craft-async-queue": "^2.3",
+    "ostark/upper": "dev-feat/akamai-driver-support",
+    "presseddigital/colorit": "3.0.0",
+    "presseddigital/linkit": "3.0.4.1",
+    "putyourlightson/craft-dashboard-begone": "^1.0",
+    "putyourlightson/craft-elements-panel": "^1.1",
+    "skayocrafts/sidebar-shortcuts": "^1.0",
+    "studioespresso/craft-dumper": "^2.0.0",
+    "studioespresso/craft-scout": "2.7.2",
+    "verbb/expanded-singles": "1.2.0",
+    "verbb/formie": "1.6.25",
+    "verbb/redactor-tweaks": "^2.0",
+    "verbb/super-table": "2.7.4",
+    "vlucas/phpdotenv": "^5.4.0",
+    "wrav/oembed": "1.13.19",
+    "yiisoft/yii2-redis": "~2.0.0"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/hyra/upper"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "modules\\": "modules/",
+      "Modules\\Search\\": "modules/search/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "process-timeout": 0,
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true,
+      "craftcms/plugin-installer": true,
+      "treeware/plant": true,
+      "cweagans/composer-patches": true,
+      "php-http/discovery": true
+    },
+    "platform": {
+      "php": "8.2.5"
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "@php craft install/check && php craft migrate/all --interactive=0 || exit 0",
+      "@php craft install/check && php craft project-config/apply --interactive=0 || return 0",
+      "@php craft install/check && php craft clear-caches/all --interactive=0 || exit 0"
+    ],
+    "post-create-project-cmd": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+      "sh ./installer.sh"
+    ]
+  },
+  "extra": {
+    "patches": {
+      "studioespresso/craft-scout": {
+        "No Scout Indices Validation": "patches/scout/no-indices-validation.patch"
+      }
+    }
+  }
+}

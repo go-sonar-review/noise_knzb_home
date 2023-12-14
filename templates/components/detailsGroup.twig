@@ -1,0 +1,23 @@
+<div id="{{ id }}">
+    {% block content %}{% endblock %}
+</div>
+
+{% js %}
+// Fetch all the details element.
+const group_{{id}} = document.getElementById("{{ id }}");
+const details_{{id}} = group_{{id}}.querySelectorAll("details");
+
+// Add the onclick listeners.
+details_{{id}}.forEach((targetDetail) => {
+  targetDetail.addEventListener("click", () => {
+
+    // Close all the details that are not targetDetail.
+    details_{{id}}.forEach((detail) => {
+      if (detail !== targetDetail) {
+        detail.removeAttribute("open");
+      }
+    });
+  });
+});
+
+{% endjs %}

@@ -1,0 +1,484 @@
+field: b67271c9-deaf-4f52-91f6-3392469feae8 # Blokken
+fieldLayouts:
+  fb582d0e-3e74-4cbc-8f16-36536c4bc59c:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 393e8c81-27ff-4c42-a49c-b1cced3bda51 # Achtergrondkleur
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 918240e9-3d65-4975-8813-b0ed3fd7af43 # Titel
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 7cb02100-dee1-4afd-b7e5-c2e3d2c234b7 # Link
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 6709ad07-d196-4f51-a7c0-b360d5dbff9f # Tags achtergrondkleur
+            instructions: null
+            label: null
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 5356a574-503c-4e2d-9d4f-c6218c1961b4 # Entry Type
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: b3d2116e-c804-4ca6-a755-35c5f9b1b411 # Onderwerp
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+          -
+            fieldUid: 33d15d8e-f0aa-483d-9541-dc15e2a2138d # Inhoud
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 50
+        name: Content
+        sortOrder: 1
+fields:
+  7cb02100-dee1-4afd-b7e5-c2e3d2c234b7: # Link
+    columnSuffix: trlhrvhd
+    contentColumnType: text
+    fieldGroup: null
+    handle: blockLink
+    instructions: ''
+    name: Link
+    searchable: false
+    settings:
+      allowCustomText: '1'
+      allowTarget: '1'
+      defaultText: ''
+      selectLinkText: ''
+      types:
+        __assoc__:
+          -
+            - presseddigital\linkit\models\Email
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - presseddigital\linkit\models\Phone
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - presseddigital\linkit\models\Url
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+                -
+                  - allowAlias
+                  - '1'
+                -
+                  - allowMailto
+                  - '1'
+                -
+                  - allowHash
+                  - '1'
+                -
+                  - allowPaths
+                  - '1'
+          -
+            - presseddigital\linkit\models\Twitter
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - presseddigital\linkit\models\Facebook
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - presseddigital\linkit\models\Instagram
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - presseddigital\linkit\models\LinkedIn
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - customPlaceholder
+                  - ''
+          -
+            - presseddigital\linkit\models\Entry
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - '1'
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+          -
+            - presseddigital\linkit\models\Category
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+          -
+            - presseddigital\linkit\models\Asset
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+          -
+            - presseddigital\linkit\models\User
+            -
+              __assoc__:
+                -
+                  - enabled
+                  - ''
+                -
+                  - customLabel
+                  - ''
+                -
+                  - sources
+                  - '*'
+                -
+                  - customSelectionLabel
+                  - ''
+                -
+                  - userPath
+                  - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: presseddigital\linkit\fields\LinkitField
+  33d15d8e-f0aa-483d-9541-dc15e2a2138d: # Inhoud
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: entries
+    instructions: ''
+    name: Inhoud
+    searchable: false
+    settings:
+      allowSelfRelations: false
+      limit: '3'
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: null
+      sources:
+        - 'section:76a53ca8-58e7-43da-b682-0d16c2be5edd' # Agenda
+        - 'section:38c7dc72-bf43-4793-9e53-5b74163cbbf5' # Blogs
+        - 'section:7907a8f8-18f9-49df-bf82-4c6913cfe8c3' # Kennisartikelen
+        - 'section:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+        - 'section:f9aaa7cb-bed7-4b5b-b0a7-c0fa0939fae0' # Showcases
+        - 'section:44ad9dad-1806-469c-a491-6505d430fe10' # Vacatures
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Entries
+  393e8c81-27ff-4c42-a49c-b1cced3bda51: # Achtergrondkleur
+    columnSuffix: qrxygmjo
+    contentColumnType: text
+    fieldGroup: null
+    handle: backgroundColor
+    instructions: ''
+    name: Achtergrondkleur
+    searchable: false
+    settings:
+      allowCustomColor: false
+      allowCustomColorPicker: false
+      allowOpacity: false
+      colorFormat: auto
+      defaultColorHandle: ''
+      defaultOpacity: '100'
+      fieldDescriptions: false
+      paletteBaseColors: null
+      paletteColors: ''
+      presetId: '1'
+      presetMode: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: presseddigital\colorit\fields\ColoritField
+  5356a574-503c-4e2d-9d4f-c6218c1961b4: # Entry Type
+    columnSuffix: nksllogp
+    contentColumnType: string
+    fieldGroup: null
+    handle: entryType
+    instructions: ''
+    name: 'Entry Type'
+    searchable: false
+    settings:
+      optgroups: true
+      options:
+        -
+          __assoc__:
+            -
+              - label
+              - Agenda
+            -
+              - value
+              - agenda
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Blog
+            -
+              - value
+              - blogs
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Kennisartikelen
+            -
+              - value
+              - knowledgeArticles
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Nieuws
+            -
+              - value
+              - news
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Showcases
+            -
+              - value
+              - showcases
+            -
+              - default
+              - ''
+        -
+          __assoc__:
+            -
+              - label
+              - Vacatures
+            -
+              - value
+              - vacancies
+            -
+              - default
+              - ''
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\Dropdown
+  6709ad07-d196-4f51-a7c0-b360d5dbff9f: # Tags achtergrondkleur
+    columnSuffix: kqcofymj
+    contentColumnType: text
+    fieldGroup: null
+    handle: tagsBackgroundColor
+    instructions: ''
+    name: 'Tags achtergrondkleur'
+    searchable: false
+    settings:
+      allowCustomColor: false
+      allowCustomColorPicker: false
+      allowOpacity: false
+      colorFormat: auto
+      defaultColorHandle: ''
+      defaultOpacity: '100'
+      fieldDescriptions: false
+      paletteBaseColors: null
+      paletteColors:
+        -
+          __assoc__:
+            -
+              - label
+              - Dark
+            -
+              - handle
+              - dark
+            -
+              - color
+              - '183291'
+        -
+          __assoc__:
+            -
+              - label
+              - Light
+            -
+              - handle
+              - light
+            -
+              - color
+              - C5E2EE
+      presetId: ''
+      presetMode: false
+    translationKeyFormat: null
+    translationMethod: none
+    type: presseddigital\colorit\fields\ColoritField
+  918240e9-3d65-4975-8813-b0ed3fd7af43: # Titel
+    columnSuffix: wtuupwlh
+    contentColumnType: text
+    fieldGroup: null
+    handle: blockTitle
+    instructions: ''
+    name: Titel
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  b3d2116e-c804-4ca6-a755-35c5f9b1b411: # Onderwerp
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: categories
+    instructions: 'Je kunt dit veld leeg laten als je de categorieën van de huidige pagina wilt gebruiken.'
+    name: Onderwerp
+    searchable: false
+    settings:
+      allowLimit: false
+      allowMultipleSources: false
+      allowSelfRelations: false
+      branchLimit: ''
+      limit: null
+      localizeRelations: false
+      selectionLabel: ''
+      showSiteMenu: true
+      source: 'group:36284fad-33be-41ff-9a5e-1cd3f68cd112' # Onderwerpen
+      sources: '*'
+      targetSiteId: null
+      validateRelatedElements: false
+      viewMode: null
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Categories
+handle: latestContentBlock
+name: 'Laatste content'
+sortOrder: 9

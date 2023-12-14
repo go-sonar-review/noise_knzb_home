@@ -1,0 +1,35 @@
+{% set contentType = overviewSettings.contentTypes|default() %}
+
+{% set imageDesktop = hero.imageDesktop[0]|default() %}
+
+<search-client content-type="{{ contentType }}" search-index="{{ getenv('SEARCH_INDEX') }}">
+
+    <template #filters>
+
+
+        {% embed "fields/heroes/searchHero" with { hero } %}
+            {% block content %}
+                <h1 class="t-heading-1 t-heading-1--white t-heading-1--margin-reset">{{ entry.title }}</h1>
+                <search-filters content-type="{{ contentType }}"/>
+            {% endblock %}
+        {% endembed %}
+
+    </template>
+
+    <template #hits>
+        {% embed "_partials/section" with { hasSpacingSmall: true } %}
+            {% block content %}
+                {% embed "_partials/container" %}
+                    {% block content %}
+                        <search-results content-type="{{ contentType }}"/>
+                    {% endblock %}
+                {% endembed %}
+            {% endblock %}
+        {% endembed %}
+    </template>
+
+    <template #pagination>
+        <search-pagination/>
+    </template>
+
+</search-client>

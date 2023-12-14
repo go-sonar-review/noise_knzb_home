@@ -1,0 +1,47 @@
+/*
+Grid
+Style guide: 3-layout.1-layout
+ */
+
+/*
+Grid Section
+A container to divide page into vertical sections
+Markup:
+<body class="l-body">
+  <header class="l-header"></header>
+  <main>
+    <section class="l-section">
+      <div class="l-container">
+      </div>
+    </section
+  </main>
+  <footer class="c-footer"></footer>
+</body
+Style guide: 3-layout.1-grid.section
+ */
+
+.l-header {
+  position: relative;
+}
+
+.l-body {
+  padding-top: $navigation-mobile-height;
+  background-color: $white;
+
+  @include desktop {
+    padding-top: $navigation-desktop-height;
+  }
+}
+
+.l-featured-blocks {
+  display: none;
+
+  @include tablet {
+    display: grid;
+    gap: $gutter;
+  }
+
+  @include tablet-landscape {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

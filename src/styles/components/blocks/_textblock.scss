@@ -1,0 +1,13 @@
+.c-text-block {
+  @include full-grid-with-column-gap;
+
+  row-gap: 32px;
+  grid-auto-flow: dense;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-column: main-start/ main-end;
+  }
+}

@@ -1,0 +1,38 @@
+{# Get overview link #}
+{% set overviewLink = craft.entries({
+  section: 'pages',
+  slug: entry.section.name|default()|lower
+}).one %}
+
+{% if entry.section.handle|default() == 'agenda' %}
+  {% include "fields/common/blocks" with { blocks: [{
+      type: "agendaBlock",
+      entryType: entry.section.handle,
+      categories: entry.categories|default(),
+      blockTitle: "Gerelateerde evenementen",
+      entries: null,
+      featured: null,
+      backgroundColor: {
+        handle: "catskill white",
+        color: "#F2F5F7"
+      },
+  }] } %}
+
+{% else %}
+  {% include "fields/common/blocks" with { blocks: [{
+    type: "latestContentBlock",
+    entryType: entry.section.handle,
+    categories: entry.categories|default(),
+    entries: null,
+    blockTitle: "Gerelateerde artikelen",
+    backgroundColor: {
+      handle: "catskill white",
+      color: "#F2F5F7"
+    },
+    blockLink: overviewLink.url|default() ? {
+      text: 'Bekijk alle '~ entry.section.name|lower ~ ' berichten',
+      url: overviewLink.url,
+      taget: null,
+    } : null,
+  }] } %}
+{% endif %}

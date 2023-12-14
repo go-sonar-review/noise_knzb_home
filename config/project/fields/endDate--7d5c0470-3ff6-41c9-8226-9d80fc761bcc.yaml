@@ -1,0 +1,17 @@
+columnSuffix: ubvuhoum
+contentColumnType: datetime
+fieldGroup: 62bdff2d-64e6-4b21-8d1a-e63f9b794dc5 # Common
+handle: endDate
+instructions: ''
+name: Einddatum
+searchable: false
+settings:
+  max: null
+  min: null
+  minuteIncrement: '30'
+  showDate: true
+  showTime: true
+  showTimeZone: ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Date

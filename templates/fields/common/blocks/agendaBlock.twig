@@ -1,0 +1,125 @@
+{% set attributesBlock = {
+    class: [
+        'c-agenda-block',
+        isNested|default(false) ? 'c-agenda-block--is-nested',
+        block.backgroundColor.handle is same as('white') ? "c-agenda-block--white"
+    ]
+} %}
+
+{% set entries = [] %}
+{% set entries = block.featured[0]|default() ? entries|merge( [block.featured[0]] ) : entries %}
+{% set entries = entries|merge( block.entries|default([]) ) %}
+{% set limit = 6 %}
+
+{% if block.entries|default() %}
+    {% set entries = entries|merge(block.entries) %}
+{% endif %}
+
+{% if limit - entries|length %}
+    {% set today = now|atom %}
+    {% set categories = block.categories %}
+    {% set excludeIds = ( ['and', entry.id ]|merge( entries |map( e => e.id|default() ) ) )|join(', not ') %}
+
+    {% set missingEntriesToFillAgendaList = craft.entries( {
+        section: 'agenda',
+        relatedTo: categories|default(null),
+        id: excludeIds,
+        startDate: '>=' ~ today,
+        orderBy: 'startDate ASC',
+        limit: limit - entries|length,
+        with: [
+            'featuredImage',
+            'categories'
+        ]
+    } ).all() %}
+
+    {% set entries = entries|merge( missingEntriesToFillAgendaList ) %}
+{% endif %}
+
+{% set attributesContent = {
+    class: [
+        "c-agenda-block__content",
+        block.backgroundColor.handle is same as('white') ? "c-agenda-block__content--grey"
+    ]
+} %}
+
+{% if entries %}
+    {% embed "_partials/section" with { 
+        style: { 
+            'background-color': block.backgroundColor.color 
+        }, 
+        hasPaddingVertical:  block.backgroundColor.handle is not same as('white'),
+        hasNoPaddingHorizontal: true 
+    } %}
+        {% block content %}
+           <div {{ attr(attributesBlock) }}>
+                
+                <div {{ attr(attributesContent) }}>
+                    <div class="t-mb-medium">
+                        <h2 class="t-heading-3 t-heading-3--tertiary">{{ block.blockTitle|default('Agenda') }}</h2>
+                        <ul class="l-list-bordered">
+                            {% for agenda_item in entries %}
+                                {% if entries|length < 2 or loop.index > 1 %}
+                                    <li class="l-list-bordered__item">
+                                        <a href="{{ agenda_item.url }}" class="u-basic-reset u-basic-link-with-children">
+                                            <h4 class="t-title t-title--uppercase t-title--quaternary t-title--small t-title--thin">
+                                                {% include '_partials/date.twig' with { startDate: agenda_item.startDate|default() , endDate: agenda_item.endDate|default() } %}
+                                            </h4>
+                                            <h3 class="t-title t-title--uppercase t-title--bold">{{ agenda_item.title }}</h3>
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="c-agenda-block__visual">
+
+                    {% set imageProperties = {
+                        image: block.imageDesktop[0]|default() ? block.imageDesktop[0] : featured.featuredImage[0]|default( defaults.fallbackImage[0]|default() ),
+                        sizes: '(max-width: 1024px) 100vw, (max-width: 1440px)50vw, 824px',
+                        srcset: ['328w','520w','824w','1024w'],
+                        height: 422,
+                        width: 648,                        
+                    } %}
+                    {% set imagePropertiesMobile = {
+                        image: block.imageMobile[0]|default( imageProperties.image ),
+                        sizes: '100vw',
+                        srcset: ['328w','520w','824w'],
+                        height: 213,
+                        width: 328,
+                    } %}
+                    {% include '_partials/image' with { 
+                        properties: imageProperties,
+                        propertiesMobile: imagePropertiesMobile
+                    } %}
+                    <div class="c-agenda-block__visual-details">
+                        {% if entries[0]|default() %}
+                            <a href="{{ entries[0].url }}" class="u-basic-reset u-basic-link-with-children">
+                                <h4 class="t-title t-title--uppercase t-title--white t-title--thin t-title--date t-title--line-limit-2 t-title--text-shadow">
+                                    {% include '_partials/date.twig' with { startDate: entries[0].startDate|default() , endDate: entries[0].endDate|default() } %}
+                                </h4>
+                                <h3 class="t-title t-title--uppercase t-title--white t-title--line-limit-4 t-title--text-shadow t-title--line-height-compact">{{ entries[0].title }}</h3>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {% for i in block.ctas|default() %}
+                    <div class="c-agenda-block__link">
+                        {% include '_partials/link.twig' with { 
+                            cta: i.ctaItem, 
+                            isPrimary: true, 
+                            hasIconAfter: true, 
+                            hasClipPathLeft: true,
+                            withoutBackgroundColor: true,
+                            paddingSmall: true
+                        } %}
+                    </div>
+                {% endfor %}
+            </div>
+
+        {% endblock %}
+    {% endembed %}
+{% endif %}

@@ -1,0 +1,80 @@
+field: c382d5b4-7897-470a-94bd-4c9d89dc76ff # Submenu
+fieldLayouts:
+  95ecc411-695f-4727-840c-5a657715f68d:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 3d69003b-fdd0-4015-9b9a-5d6f15708d64 # Menu Titel
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: a9e14171-d389-4b5d-9a4b-2fc1b4ef2f02 # Menu links
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  3d69003b-fdd0-4015-9b9a-5d6f15708d64: # Menu Titel
+    columnSuffix: zmuzriyi
+    contentColumnType: text
+    fieldGroup: null
+    handle: menuTitel
+    instructions: ''
+    name: 'Menu Titel'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  a9e14171-d389-4b5d-9a4b-2fc1b4ef2f02: # Menu links
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: menuLinks
+    instructions: ''
+    name: 'Menu links'
+    searchable: false
+    settings:
+      columns:
+        __assoc__:
+          -
+            - a492523f-7d42-417f-8b8b-ec57e3e13f34 # Menu link
+            -
+              __assoc__:
+                -
+                  - width
+                  - ''
+      contentTable: '{{%stc_3_menulinks}}'
+      fieldLayout: row
+      maxRows: ''
+      minRows: ''
+      placeholderKey: null
+      propagationKeyFormat: null
+      propagationMethod: all
+      selectionLabel: ''
+      staticField: ''
+    translationKeyFormat: null
+    translationMethod: site
+    type: verbb\supertable\fields\SuperTableField
+handle: menu
+name: Menu
+sortOrder: 1

@@ -1,0 +1,20 @@
+{% header "Cache-Control: no-store" %}
+
+{% set renderOptions = {} %}
+
+{% set attributes = {
+    class: [
+        'c-form',
+        isDark|default(false) ? 'c-form--is-dark'
+    ]
+} %}
+
+{% if form.handle|default() %}
+  <div {{ attr(attributes) }}>
+
+    {% do craft.formie.populateFormValues(form, {}) %}
+
+    {{ craft.formie.renderForm(form) }}
+
+  </div>
+{% endif %}

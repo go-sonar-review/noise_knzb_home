@@ -1,0 +1,25 @@
+columnSuffix: gohanjld
+contentColumnType: text
+fieldGroup: 38e230dd-26f6-4263-b7a9-a0b559a90e6a # SEO
+handle: seomatic
+instructions: ''
+name: SEOMatic
+searchable: true
+settings:
+  elementDisplayPreviewType: google
+  facebookTabEnabled: ''
+  generalEnabledFields:
+    - mainEntityOfPage
+    - seoTitle
+    - seoDescription
+    - seoKeywords
+    - seoImage
+    - seoImageDescription
+    - robots
+    - canonicalUrl
+  generalTabEnabled: '1'
+  sitemapTabEnabled: ''
+  twitterTabEnabled: ''
+translationKeyFormat: null
+translationMethod: none
+type: nystudio107\seomatic\fields\SeoSettings

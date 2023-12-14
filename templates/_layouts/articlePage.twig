@@ -1,0 +1,41 @@
+{% extends "_layouts/base" %}
+
+{% block content %}
+
+    {% set hasAside = entry.section.handle|default('article') in ['agenda', 'vacancies'] %}
+
+    {% include "fields/heroes/detailHero" with { hasDate: true } %}
+
+    {% include "fields/navigation/subNavigation" %}
+    
+    {% embed "_partials/container" %}
+      {% block content %}
+        
+        {% if hasAside %}
+            <div class="l-article-layout l-article-layout--with-aside l-article-layout--{{ entry.section.handle|default('article') }}">
+                
+                <div class="l-article-layout__content">
+                    {% include "fields/common/blocks" with { isNested: true } %}
+                    {% include '_partials/_socialShare.twig' with { isNested: true } %}
+                </div>
+
+                <div class="l-article-layout__aside">
+                    {% include 'fields/common/detailList.twig' with { block: entry.detailList[0]|default() } %}
+                    {% include  'fields/common/formAside.twig'  with { block: entry.form[0]|default(), isWhite: entry.section.handle|default('article') in ['vacancies']  } %}
+                </div>
+            </div>
+        {% else %}
+          <div class="l-article-layout l-article-layout--center">
+            <div class="l-article-layout__content">
+              {% include "fields/common/blocks" with { isNested: true } %}
+              {% include '_partials/_socialShare.twig' with { isNested: true } %}
+            </div>
+          </div>
+        {% endif %}
+      
+      {% endblock %}
+    {% endembed %}
+
+    {% include "_partials/_relatedArticles.twig" with { hasDecorationTop:  true } %}
+
+{% endblock %}

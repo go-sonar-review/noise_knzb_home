@@ -1,0 +1,42 @@
+{% set attributesBlock = {
+    class: [
+        'c-embed-block',
+        isNested|default(false) ? 'c-embed-block--is-nested'
+    ]
+} %}
+
+  {% embed "_partials/section" with {
+      hasNoPaddingHorizontal: true,
+      hasPaddingVerticalSmall: true 
+  } %}
+  
+  {% set isVideoPlayer = 'youtube' in block.embed.url or 'youtu.be' in block.embed.url or 'vimeo' in block.embed.url %}
+  {% set attributesContainer = {
+    class: [
+      'c-embed-block__content',
+      isVideoPlayer ? 'c-embed-block__content--video' : 'c-embed-block__content--full',
+      'short' in block.embed.url ? 'c-embed-block__content--short'
+    ]
+  } %}
+  
+  
+  {% block content %}
+    <div {{ attr(attributesBlock) }}>
+      <div {{ attr(attributesContainer) }}>
+          <figure class="c-embed-block__figure">
+            {{ 
+              block.embed.render({
+                url: block.embed.url,
+                attributes: {
+                  class: "c-embed-block__iframe",
+                  loading: "lazy"
+                }
+              }) 
+            }}
+          </figure>
+      </div>
+    </div>
+
+
+  {% endblock %}
+{% endembed %}

@@ -1,0 +1,50 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 05631174-aab0-4a97-a8e6-bb9ad45da0e1 # Heroes
+handle: carouselHero
+instructions: ''
+name: 'Carousel Hero'
+searchable: false
+settings:
+  columns:
+    __assoc__:
+      -
+        - 454657e9-b27d-40c2-9a81-f580603b1fc3 # Titel
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - fab7bc77-3529-4a0b-812f-a2c662234aea # Link
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - a4fb4aa5-136a-4f61-8e9c-36a4dd99cd93 # Afbeelding desktop
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - b836be00-f770-417e-8576-b87603346fdd # Afbeelding mobiel
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_carouselhero}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: ''
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

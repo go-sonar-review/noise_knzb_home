@@ -1,0 +1,111 @@
+/*
+Colors
+Style guide: 1-abstracts.colors
+*/
+
+/*
+Color palet
+Colors:
+$white: #FFFFFF - White
+$catskill-white: #F2F5F7 - Catskill White
+$white-lilac: #F5F7F8 - White Lilac
+$jagged-ice: #C5E2EE - Jagged Ice
+$storm-dust: #636363 - Storm Dust
+$blaze-orange: #FF6600 - Blaze Orange
+$lapis-blue: #183291 - Lapis Blue
+$black: #000000 - Black
+
+Style guide: 1-abstracts.colors.base
+ */
+
+$white: #ffffff;
+$catskill-white: #f2f5f7;
+$white-lilac: #f5f7f8;
+$jagged-ice: #c5e2ee;
+$storm-dust: #636363;
+$blaze-orange: #ff6600;
+$deep-sky-blue: #00b9e4;
+$navy-blue: #0065bd;
+$lapis-blue: #183291;
+$nile-blue: #13315c;
+$black: #000000;
+
+// Theme Colors
+$brand-color: $blaze-orange; // Orange
+
+// Text Colors
+$text-color: $black;
+$title-color--primary: $lapis-blue; // Blue
+$title-color--primary-dark: $nile-blue;
+$title-color--secondary: $white; // White
+$title-color--tertiary: $blaze-orange; // Orange
+$title-color--quaternary: $storm-dust;
+
+// Background Colors
+$background--primary: $catskill-white; // light gray
+$background--secondary: $jagged-ice; // Blue
+$background--tertiary: $blaze-orange; // Orange
+
+// Hero
+$hero-background: $lapis-blue; // Dark blue
+$hero-gradient: linear-gradient(
+  101.96deg,
+  rgba(0, 51, 95, 0.7) 2.45%,
+  rgba(24, 50, 145, 0.7) 50.76%
+);
+
+// Footer
+$footer-background: $nile-blue; // Dark blue
+$footer-gradient: linear-gradient(
+  101.96deg,
+  rgba(24, 50, 145, 0.7) 2.45%,
+  rgba(19, 49, 92, 0.7) 50.76%
+);
+
+// Link Colors
+$link-default-color: $lapis-blue;
+$link-hover-color: $blaze-orange;
+
+$link-text-color: $white;
+$link-text-color--without-background: $lapis-blue;
+$link-text-color-hover--without-background: darken($lapis-blue, 10%);
+$link-default-arrow-color: $white;
+$link-default-arrow-after-color: $blaze-orange;
+
+$text-link-color: $blaze-orange;
+$text-link-color-hover: darken($blaze-orange, 10%);
+
+$link-background--primary: $blaze-orange;
+$link-background--secondary: $deep-sky-blue;
+$link-background--tertiary: $navy-blue;
+$link-background--quaternary: $nile-blue;
+
+// Theme
+$color-primary: $lapis-blue;
+$color-primary-dark: $nile-blue;
+$color-secondary: $blaze-orange;
+
+$form-input-background: $catskill-white;
+$form-heading-3-color: $navy-blue;
+
+$button-background-hover-dark: darken($link-background--primary, 10%);
+
+// Tags
+$color-text--primary: $white;
+$color-background--primary: $lapis-blue;
+$color-text--secondary: $nile-blue;
+$color-background--secondary: $jagged-ice;
+
+$border-color-primary: $lapis-blue;
+$border-color-light-grey: rgba($storm-dust, 0.2);
+
+// List colors
+$color-list-gradiant: linear-gradient(242.89deg, #0065bd 25.78%, #183291 135.33%);
+
+// CTA block
+$color-cta-block-icon-background: linear-gradient(
+  255.05deg,
+  #0065bd 18.66%,
+  rgba(0, 101, 189, 0) 109.59%
+);
+$color-cta-block-background: $lapis-blue;

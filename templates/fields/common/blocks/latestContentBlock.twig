@@ -1,0 +1,135 @@
+{% set attributesBlock = {
+    class: [
+      "c-latest-content-block",
+      isNested|default(false) ? 'c-latest-content-block--is-nested'
+    ]
+} %}
+
+{% set settings = {
+  entryType: block.entryType|default(),
+  subjects: block.categories|default(entry.categories|default([])),
+  limit: 3 - block.entries|default([])|length,
+  exclude: ( ['and', entry.id ]|merge(block.entries|default([])|map( e => e.id|default())) )|join(', not ') 
+} %}
+
+{% set latestEntries = craft.entries({
+  section: settings.entryType,
+  relatedTo: settings.subjects,
+  limit: settings.limit,
+  id: settings.exclude|default(null),
+  with: [
+    'featuredImage',
+    'categories',
+  ]
+}).all() %}
+
+{# Merge selected and queried entries in one array #}
+{% set entries = block.entries|default([])|merge( latestEntries ) %}
+
+{# Set default tag color based on selection or entry section #}
+{% if block.entryType.value|default() == 'blogs' %}
+  {% set useSecondaryTagColor = block.tagsBackgroundColor.handle|default('light') is same as('light') %}
+{% else %}
+  {% set useSecondaryTagColor = block.tagsBackgroundColor.handle|default('dark') is same as('light') %}
+{% endif %}
+
+{% if entries|length %}
+  {% embed "_partials/section" with { 
+      style: { 'background-color': block.backgroundColor.color|default('white') },
+      hasPaddingVerticalSmall:  block.backgroundColor.handle|default('white') is not same as('white'),
+      hasNoPaddingHorizontal: true,
+      hasDecorationTop: hasDecorationTop|default(false)
+  } %}
+      {% block content %}
+          <div {{ attr(attributesBlock) }}>
+              <div class="c-latest-content-block__header">
+                <h2 class="t-heading-3 {{ block.hasDecorationTop.exists()|default(false) ? '' : 't-heading-3--static' }} t-heading-3--primary t-heading-3--bold t-heading-3--margin-reset t-heading-3--big-letter-spacing">{{ block.blockTitle }}</h2>
+
+                {% if block.blockLink|default() %}
+                  <div class="c-latest-content-block__link-container">
+                    {% include '_partials/link.twig' with { 
+                      cta: block.blockLink, 
+                      isPrimary: true, 
+                      hasIconAfter: true, 
+                      hasClipPathLeft: true,
+                      withoutBackgroundColor: true
+                    } %}
+                  </div>
+                {% endif %}
+              </div>
+
+              <div class="c-latest-content-block__entries">
+                {% for card in entries %}    
+                    {% embed "_partials/card" with { withoutBoxShadow: true, withoutPadding: true, cta: { url: card.url, text: card.text } } %}
+
+                      {% block image %}
+                        {% set imageProperties = {
+                          image: card.featuredImage[0]|default(defaults.fallbackImage[0]),
+                          sizes: '(max-width: 767px) 95vw, (max-width: 1440px) 33vw, 400px',
+                          srcset: ['224w','312w', '328w', '600w', '767w'],
+                          width: 312,
+                          height: 172,
+                          class: 'u-object-fit'
+                        } %}
+
+                        {% set imagePropertiesMobile = {
+                          width: 328,
+                          height: 181,
+                        } %}
+
+                        <div class="c-card__image">
+                          {% include '_partials/image' with { 
+                            properties: imageProperties,
+                            propertiesMobile: imagePropertiesMobile
+                          } %}
+                        </div>
+                      {% endblock %}
+
+                      {% block content %}
+                          <div class="c-card__content">
+                            <h3 class="t-heading-4 t-heading-4--primary t-heading-4--style-normal t-heading-4--semi-bold t-heading-4--line-height-compact t-heading-4--margin-reset t-heading-4--no-transform u-limit-lines-3">{{ card.title }}</h3>
+                          </div>
+                      {% endblock %}
+
+                      {% block details %}
+                        <div class="c-card__details">
+
+                          <div class="c-card__date">
+                            {% if settings.entryType.value|default() == 'agenda' and card.section.handle|default() == 'agenda' %}
+                              {% include '_partials/date.twig' with { startDate: card.startDate , endDate: card.endDate } %}
+                            {% else %}
+                              {% include '_partials/date.twig' with { startDate: card.postDate } %}
+                            {% endif %}
+                          </div>
+
+                          <div class="c-card__detail-content">
+                            {% include "_partials/tags.twig" with { 
+                              tags: card.categories|default(), 
+                              secondary: useSecondaryTagColor,
+                              tagLimit: 2
+                            } %}
+                          </div>
+                        </div>
+                      {% endblock %}
+
+                    {% endembed %}
+                {% endfor %}
+              </div>
+
+              <div class="c-latest-content-block__footer">
+                {% if block.blockLink|default() %}
+                  {% include '_partials/link.twig' with { 
+                    cta: block.blockLink, 
+                    isPrimary: true, 
+                    hasIconAfter: true, 
+                    hasClipPathLeft: true,
+                    withoutBackgroundColor: true,
+                    paddingSmall: true
+                  } %}
+                {% endif %}
+              </div>
+          </div>
+      {% endblock %}
+  {% endembed %}
+{% endif %}
+

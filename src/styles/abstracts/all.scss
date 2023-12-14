@@ -1,0 +1,17 @@
+/*
+Abstracts
+
+The `abstracts/` folder gathers all Sass tools and helpers used across the project. Every global variable, function, mixin and placeholder should be put in here.
+The rule of thumb for this folder is that it should not output a single line of CSS when compiled on its own. These are nothing but Sass helpers.
+
+Style guide: 1-abstracts
+ */
+
+@import "_variables.scss";
+@import "_functions.scss";
+@import "_colors.scss";
+// breakpoints: include before mixins
+@import "_breakpoints.scss";
+@import "_svg.scss";
+@import "_mixins.scss";
+@import "_animations.scss";

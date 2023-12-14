@@ -1,0 +1,11 @@
+{% set attributes = {
+    class: [
+        'l-content',
+        hasNoMargin|default(false) ? 'l-content--has-no-margin',
+        contentClass|default()
+    ]
+} %}
+
+<div {{ attr(attributes) }}>
+    {% block content %}{% endblock %}
+</div>

@@ -1,0 +1,150 @@
+{% set attributesBlock = {
+    class: [
+      "c-people-block",
+      isNested|default(false) ? 'c-people-block--is-nested'
+    ]
+} %}
+
+
+{# Allow query and selection with pagination #}
+{% set limit = (block.itemRows.value|default(1))|number_format * 4 %}
+{% set pagesAround = 3 %}
+{% if  block.entries|default() and block.entries|length > 1 %}
+  {% set resultsDataProvider = create({'class': 'yii\\data\\ArrayDataProvider', 'allModels': block.entries, 'pagination': {'pageSize': limit }}) %}
+  {% set pageEntries = resultsDataProvider.getModels() %}
+  {% set currentPage = resultsDataProvider.getPagination().getPage() + 1 %}
+  {% set pageCount = resultsDataProvider.getPagination().getPageCount() %}
+
+  {% set pageInfo = {
+    currentPage: currentPage,
+    totalPages: pageCount,
+    prevUrl: currentPage > 1 ? url(craft.app.request.absoluteUrl, {'page': ( currentPage - 1 )})  : null,
+    nextUrl: currentPage < pageCount ? url(craft.app.request.absoluteUrl, {'page': ( currentPage + 1 )}) : null,
+    nextUrls: [1,2,3]|map( e => currentPage + e <= pageCount ? url(craft.app.request.absoluteUrl, {'page': ( currentPage + e )}) ),
+    prevUrls: [1,2,3]|map( e => currentPage - e >= 1 ? url(craft.app.request.absoluteUrl, {'page': ( currentPage - e )}) ),
+  } %}
+
+{% else %}
+  {% paginate craft.entries({
+    section: 'people',
+    limit: limit,
+    with: [
+      'featuredImage'
+    ]
+  }) as pageInfo, pageEntries %}
+
+ {% set pageInfo = {
+    currentPage: pageInfo.currentPage,
+    totalPages: pageInfo.totalPages,
+    prevUrl: pageInfo.prevUrl,
+    nextUrl: pageInfo.nextUrl,
+    prevUrls: pageInfo.getPrevUrls( pagesAround )|default(),
+    nextUrls: pageInfo.getNextUrls( pagesAround )|default()
+  } %}
+
+{% endif %}
+
+{% if pageEntries|length %}
+  {% embed "_partials/section" with { 
+      style: { 'background-color': block.backgroundColor.color|default('white') },
+      hasPaddingVerticalSmall:  block.backgroundColor.handle|default('white') is not same as('white'),
+      hasNoPaddingHorizontal: true,
+      hasDecorationTop: hasDecorationTop|default(false)
+  } %}
+    {% block content %}
+      <div {{ attr(attributesBlock) }}>
+        <div class="c-people-block__header">
+          {% if block.blockTitle|default() %}
+            <h2 class="t-heading-3 {{ block.hasDecorationTop.exists()|default(false) ? '' : 't-heading-3--static' }} t-heading-3--primary t-heading-3--bold t-heading-3--margin-reset">{{ block.blockTitle }}</h2>
+          {% endif %}
+
+          {% if block.cta|default() %}
+            <div class="c-people-block__link-container">
+              {% include '_partials/link.twig' with { 
+                cta: block.cta, 
+                isPrimary: true, 
+                hasIconAfter: true, 
+                hasClipPathLeft: true,
+                withoutBackgroundColor: true
+              } %}
+            </div>
+          {% endif %}
+        </div>
+
+        <div class="c-people-block__entries">
+          {# Results #}
+          {% for card in pageEntries %}
+            {% embed "_partials/card" with { withoutBoxShadow: true, withoutPadding: true, isFlipCard: true} %}
+
+              {% block flip %}
+                <div class="c-card__inner">
+                  <div class="c-card__content c-card__content--front">
+                    {% set imageProperties = {
+                      image: card.featuredImage[0]|default(defaults.fallbackImage[0]),
+                      sizes: '(max-width: 1023px) 90vw, (max-width: 1439px) 45vw, 750px',
+                      srcset: ['375w', '750w',],
+                      width: 400,
+                      height: 220,
+                      class: 'c-card__image u-object-fit',
+                      mode: 'fit'
+                    } %}
+                    {% include '_partials/image' with { properties: imageProperties  } %}
+                    <div class="c-card__title">
+                      <h3 class="t-heading-4  t-heading-4--semi-bold t-heading-4--line-height-compact t-heading-4--margin-reset u-limit-lines-3 u-ph-very-tiny-rel t-heading-4--text-shadow">{{ card.title }}</h3>
+                    </div>
+                  </div>
+
+                  <div class="c-card__content c-card__content--back">
+                    <h3 class="t-heading-4 t-heading-4--semi-bold t-heading-4--line-height-compact t-heading-4--margin-reset u-limit-lines-3 u-ph-very-tiny-rel">{{ card.title }}</h3>
+
+                    {% if card.personDetails[0].functionTitle|default() or card.personDetails[0].department|default() %}
+                      <div class="c-card__content-item">
+                        {% if card.personDetails[0].functionTitle|default() %}<p>{{ card.personDetails[0].functionTitle }}</p>{% endif %}
+                        {% if card.personDetails[0].department|default() %}<p>{{ card.personDetails[0].department }}</p>{% endif %}
+                      </div>
+                    {% endif %}
+
+                    {% if card.personDetails[0].phoneNumber|default() or card.personDetails[0].email|default() %}
+                      <div class="c-card__content-item">
+                        <p>Contactgegevens</p>
+                        {% if card.personDetails[0].phoneNumber|default() %}
+                          <a class="c-card__link" href="{{ card.personDetails[0].phoneNumber.url }}" target="{{ card.personDetails[0].phoneNumber.target|default('_self') }}">
+                            {{ card.personDetails[0].phoneNumber.text }}
+                          </a>
+                        {% endif %}
+                        {% if card.personDetails[0].email|default() %}
+                          <a class="c-card__link" href="{{ card.personDetails[0].email.url }}" target="{{ card.personDetails[0].email.target|default('_self') }}">
+                            {{ card.personDetails[0].email.text }}
+                          </a>
+                          {% endif %}
+                      </div>
+                    {% endif %}
+
+                    {% if card.personDetails[0].extraInfo|default() %}
+                      <div class="c-card__content-item c-card__content-item--weight-light">
+                        <div class="t-wysiwyg t-wysiwyg--light">{{ card.personDetails[0].extraInfo }}</div>
+                      </div>
+                    {% endif %}
+
+                  </div>
+                </div>
+              {% endblock %}
+
+            {% endembed %}
+          {% endfor %}
+        </div>
+
+        {# Pagination #}
+        <div class="c-people-block__pagination">
+          {% include '_partials/pagination.twig' with {pageInfo : pageInfo} %}
+        </div>
+
+        <div class="c-people-block__footer">
+          {% if block.cta|default() %}
+            {% include '_partials/link.twig' with { cta: block.cta, isTertiary: true, withIconAfter: true, withoutBackground: true, withoutClippath: true, uppercase: true } %}
+          {% endif %}
+        </div>
+      </div>
+    {% endblock %}
+  {% endembed %}
+{% endif %}

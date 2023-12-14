@@ -1,0 +1,41 @@
+{% set attributesBlock = {
+    class: [
+      'c-detail-list',
+      isNested|default(false) ? 'c-detail-list--is-nested'
+    ]
+} %}
+
+{% if block|default() and block.locatie|default() %}
+  {% embed "_partials/section" with { 
+      style: { 'background-color': block.backgroundColor.color|default('#F2F5F7') },
+      hasNoPaddingHorizontal: true,
+      hasNoSpacing: true,
+  } %}
+      {% block content %}
+
+          <div {{ attr(attributesBlock) }}>
+              <div class="c-detail-list__content">
+                  <h2 class="t-heading-4 t-heading-4--primary t-heading-4--uppercase t-heading-4--margin-reset">{{ block.blockTitle|default('Praktische informatie') }}</h2>
+                  
+                  <ul class="c-detail-list__list">
+                    <li class="c-detail-list__item"><strong>Locatie: </strong>{{ block.locatie }}</li>
+                    {% for item in block.detailsList|default() %}
+                      <li class="c-detail-list__item">{% if item.itemTitle|default() %}<strong>{{ item.itemTitle}}: </strong>{% endif %}{{ item.itemText }}</li>
+                    {% endfor %}
+                  </ul>
+
+                  {% if block.cta|default() %}
+                    {% include '_partials/link.twig' with { 
+                        cta: block.cta, 
+                        isPrimary: true, 
+                        hasIconBefore: true, 
+                        hasClipPathLeft: true,
+                        withoutBackgroundColor: true
+                    } %}  
+                  {% endif %}
+              </div>
+          </div>
+
+      {% endblock %}
+  {% endembed %}
+{% endif %}

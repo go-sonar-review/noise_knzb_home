@@ -1,0 +1,91 @@
+.c-cta-block {
+  @include full-grid-with-column-gap;
+
+  row-gap: 30px;
+
+  &__content {
+    grid-column: main-start / main-end;
+    position: relative;
+    width: 100%;
+  }
+
+  &__inner {
+    position: relative;
+    width: 100%;
+    background: linear-gradient(
+      102deg,
+      $navy-blue 70px,
+      $lapis-blue 70px calc(100% - 70px),
+      $blaze-orange calc(100% - 70px)
+    );
+
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: "";
+      bottom: 0;
+      z-index: 2;
+      background-image: url("data:image/svg+xml, #{svg-replace( $svg-shape-download, $white )}");
+      aspect-ratio: 18/ 18;
+      background-position: 16px;
+      background-repeat: no-repeat;
+    }
+
+    &::after {
+      z-index: 2;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      top: 0;
+      content: "";
+
+      @include arrow-shape($white, 12px 50%, $arrow-svg-shape);
+      height: 100%;
+      background-color: transparent;
+      aspect-ratio: 18/ 18;
+      background-position: calc(100% - 16px);
+      @include clip-path("left", 12px);
+    }
+  }
+
+  &__text {
+    padding-left: 90px;
+    padding-right: 90px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__pre-title {
+    color: $white;
+    font-family: $title-font-stack;
+    text-transform: uppercase;
+    font-weight: 750;
+    font-size: 12px;
+  }
+
+  &__title {
+    color: $white;
+    font-family: $title-font-stack;
+    font-weight: 750;
+    font-size: 20px;
+    line-height: 116%;
+  }
+}
+
+// Icons
+.c-link-card {
+  &--download .c-cta-block__inner::before {
+    background-image: url("data:image/svg+xml, #{svg-replace( $svg-shape-download, $white )}");
+  }
+
+  &--link .c-cta-block__inner::before {
+    background-image: url("data:image/svg+xml, #{svg-replace( $svg-shape-link, $white )}");
+  }
+
+  &--information .c-cta-block__inner::before {
+    background-image: url("data:image/svg+xml, #{svg-replace( $svg-shape-info, $white )}");
+  }
+}

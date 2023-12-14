@@ -1,0 +1,38 @@
+.c-tags {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+  &__item {
+    padding: 6px 12px;
+    margin: 0 8px 8px 0;
+    text-transform: uppercase;
+    font-family: $title-font-stack;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 12px;
+
+    color: $color-text--primary;
+    background: $color-background--primary;
+
+    &:last-of-type{
+      margin-right: 0px;
+    }
+
+    &--extra {
+      color: $color-background--primary;
+      background: transparent;
+      padding: 6px 0;
+    }
+  }  
+
+  &--secondary &__item {
+    color: $color-text--secondary;
+    background: $color-background--secondary;
+
+    &--extra {
+      color: $color-text--secondary;
+      background: transparent;
+    }
+  }
+}

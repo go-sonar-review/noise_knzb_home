@@ -1,0 +1,110 @@
+{% extends "_layouts/base" %}
+
+{% block content %}
+
+    {# Eager loading - Entry fields #}
+    {% do craft.app.elements.eagerLoadElements(
+      className(entry),
+      [entry],
+      [
+        'searchHero.ctas',
+        'searchHero.ctas:ctaBlock',
+        'overviewSettings.overviewSettings:featuredSubjects'
+      ]
+    ) %}
+
+    {% set hero = entry.searchHero[0]|default() %}
+    {% set contentType = entry.overviewSettings[0].contentTypes.value|default() %}
+    {% set categories = entry.categories|map( e => e.title)|default([]) %}
+    {% set featuredEntriesByCategory = entry.overviewSettings[0].featuredSubjects|default() and false  ? entry.overviewSettings[0].featuredSubjects|map(
+         item => {
+            title: item.title,
+            entries: craft.entries({
+                relatedTo: item,
+                type: contentType,
+                limit: 4
+        }).all()}
+    )|default([]) : [] %}
+
+    {% set showCategorySelect = not categories|length and entry.overviewSettings[0].showCategorySelect|default() %}
+    {% set facets = {'categories': categories } %}
+
+    {% include "fields/navigation/subNavigation" with { isFixed : true } %}
+
+    <search-client content-type="{{ contentType }}" :facets="{{ facets|json_encode }}" search-index="{{ getenv('ALGOLIASEARCH__INDEX') }}">
+        <template #filters>
+            {% embed "fields/heroes/searchHero" with { hero } %}
+                {% block content %}
+                    <h1 class="t-heading-1 t-heading-1--white t-heading-1--margin-reset">{{ hero.blockTitle|default( entry.title ) }}</h1>
+                    <search-filters content-type="{{ contentType }}" search-placeholder="{{ hero.searchPlaceholder|default('Zoeken') }}" :show-category-select="{{ showCategorySelect|json_encode }}"/>
+
+                    {% if hero.ctas|default() %}
+                        {% embed "_partials/content.twig" with { contentClass: "c-link-list c-link-list--no-spacing" } %}
+                            {% block content %}
+                                {% for item in hero.ctas %}
+                                    {% include '_partials/link.twig' with {
+                                        cta: item.cta,
+                                        isPrimary: true,
+                                        hasClipPathRight: true,
+                                    } %}
+                                {% endfor %}
+                            {% endblock %}
+                        {% endembed %}
+                    {% endif %}
+                {% endblock %}
+            {% endembed %}
+        </template>
+
+        {% if featuredEntriesByCategory|length %}
+            <template #top-content>
+                {% embed "_partials/section" with { hasSpacingSmall:true } %}
+                    {% block content %}
+                        {% embed "_partials/container" %}
+                            {% block content %}
+                                <div class="l-featured-blocks">
+                                    {% for item in featuredEntriesByCategory %}
+                                        {% if item.entries|length %}
+                                        <div class="c-card c-card--dark-gradient c-card--no-gap c-card--without-box-shadow">
+                                                <h1 class="t-title t-title--big t-title--primary-dark t-title--uppercase t-title--margin-reset">{{ item.title }}</h1>
+                                                <ul class="l-list-bordered">
+                                                    {% for featuredEntry in item.entries %}
+                                                        <li class="l-list-bordered__item l-list-bordered__item--small l-list-bordered__item--primary-dark">
+                                                            <a class="t-link-arrow" href="{{ featuredEntry.url }}">{{ featuredEntry.title }}</a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            {% endblock %}
+                        {% endembed %}
+                    {% endblock %}
+                {% endembed %}
+            </template>
+        {% endif %}
+
+        <template #hits>
+            {% embed "_partials/section" with { hasSpacingSmall: true } %}
+                {% block content %}
+                    {% embed "_partials/container" %}
+                        {% block content %}
+                            <search-results content-type="{{ contentType }}">
+                                <template #no-results-message>
+                                    <p> {{ entry.overviewSettings[0].noResultsMessage|default( 'Geen resultaten gevonden' ) }} </p>
+                                </template>
+                            </search-results>
+                        {% endblock %}
+                    {% endembed %}
+                {% endblock %}
+            {% endembed %}
+        </template>
+
+        <template #pagination>
+            <search-pagination/>
+        </template>
+    </search-client>
+
+    {% include "fields/common/blocks" %}
+
+{% endblock %}

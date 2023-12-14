@@ -1,0 +1,139 @@
+.c-categories-block {
+  @include full-grid-with-column-gap;
+
+  position: relative;
+  padding: 12px 0;
+
+  &__content {
+    position: relative;
+    grid-column: side-start / side-end;
+    max-width: 100%;
+  }
+
+}
+
+.c-categories-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: 32px;
+  text-decoration: none;
+
+  @include on-event{
+    text-decoration: none;
+
+    img {
+      transform: scale(1.05);
+    }
+
+    .c-categories-card__content::after {
+        transform: translateX(4px);
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    gap: 16px;
+
+    height: 235px;
+    min-width: 150px;
+    width: 100%;
+    padding: 16px;
+    text-align: center;
+    color: $lapis-blue;
+    overflow: hidden;
+
+    @include desktop{
+      height: 398px;
+    }
+
+    & > * {
+      z-index: 1;
+      text-decoration: none;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background:  linear-gradient(102deg, rgba($nile-blue, 0.5) 28%, rgba($nile-blue, 0.7)  28%);
+      z-index: 1;
+    }
+
+    &::after {
+        transition: all .2s ease;
+        z-index: 2;
+        position: absolute;
+        bottom: 0;
+        left: -8px;
+        content: "";
+
+        @include arrow-shape(
+          $blaze-orange,
+          50% 50%,
+          $arrow-svg-shape
+        );
+        width: 70px;
+        height: 50px;
+        background-color: $white;
+        background-size: 18px;
+        @include clip-path("right", 8px);
+      }   
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 750;
+    font-family: $title-font-stack;
+    text-shadow: $text-shadow;
+    font-style: italic;
+    line-height: 116%;
+    color: $white;
+
+    @include desktop {
+      font-size: 40px;
+    }
+  }
+
+  &__pre-title {
+    font-size: 16px;
+    font-weight: 300;
+    font-style: normal;
+    font-family: $text-font-stack;
+    text-shadow: $text-shadow;
+
+    @include desktop {
+      font-family: $title-font-stack;
+      font-size: 36px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+
+    img { 
+      transition: all $transition-slow ease;
+    }
+  }
+
+  &__link {
+    margin-top: 16px;
+  }
+}

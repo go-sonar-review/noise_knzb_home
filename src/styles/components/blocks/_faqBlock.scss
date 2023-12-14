@@ -1,0 +1,15 @@
+.c-faq {
+  @include tablet-landscape {
+    @include standard-grid;
+
+    & > * {
+      grid-column: 2 / span 10;
+    }
+  }
+
+  @include widescreen {
+    & > * {
+      grid-column: 3 / span 8;
+    }
+  }
+}

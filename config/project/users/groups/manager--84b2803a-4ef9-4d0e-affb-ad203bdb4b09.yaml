@@ -1,0 +1,243 @@
+description: "Deze rol is voor superusers en geeft ons volledige controle over de website. \r\nEen beheerder kan andere beheerders verwijderen en rollen aanpassen, nieuwe berichten toevoegen, bewerken en verwijderen en zowel plugins als thema’s installeren. \r\nEen rol die je dus niet zomaar aan iemand geeft."
+handle: manager
+name: Beheerder
+permissions:
+  - accesscp
+  - accesscpwhensystemisoff
+  - accessplugin-formie
+  - accessplugin-retour
+  - accessplugin-seomatic
+  - accesssitewhensystemisoff
+  - administrateusers
+  - 'assignusergroup:4984ce56-a0a4-4a01-aece-22e3c888e557'
+  - 'assignusergroup:84b2803a-4ef9-4d0e-affb-ad203bdb4b09' # Beheerder
+  - 'assignusergroup:fc21b763-cd6a-4e79-832a-ac7186407a63' # Redacteur
+  - assignusergroups
+  - assignuserpermissions
+  - 'createentries:38c7dc72-bf43-4793-9e53-5b74163cbbf5' # Blogs
+  - 'createentries:44ad9dad-1806-469c-a491-6505d430fe10' # Vacatures
+  - 'createentries:660654a3-b897-4e1d-9cfb-16a2b170435d' # Bedrijven
+  - 'createentries:6be0d39b-24a8-41c8-8f32-58802e7edbf9' # Navigatie
+  - 'createentries:76a53ca8-58e7-43da-b682-0d16c2be5edd' # Agenda
+  - 'createentries:7907a8f8-18f9-49df-bf82-4c6913cfe8c3' # Kennisartikelen
+  - 'createentries:9753d1d5-5cf8-423f-b211-82fcdcb343bb' # Personen
+  - 'createentries:c7a73282-02b4-4b76-854d-58c24ede0f81' # Vragen
+  - 'createentries:cf732ece-47c8-4642-af7d-7a0015a41e95' # Pagina's
+  - 'createentries:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'createentries:f9aaa7cb-bed7-4b5b-b0a7-c0fa0939fae0' # Showcases
+  - 'createfoldersinvolume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+  - 'deleteentries:38c7dc72-bf43-4793-9e53-5b74163cbbf5' # Blogs
+  - 'deleteentries:44ad9dad-1806-469c-a491-6505d430fe10' # Vacatures
+  - 'deleteentries:660654a3-b897-4e1d-9cfb-16a2b170435d' # Bedrijven
+  - 'deleteentries:6be0d39b-24a8-41c8-8f32-58802e7edbf9' # Navigatie
+  - 'deleteentries:76a53ca8-58e7-43da-b682-0d16c2be5edd' # Agenda
+  - 'deleteentries:7907a8f8-18f9-49df-bf82-4c6913cfe8c3' # Kennisartikelen
+  - 'deleteentries:9753d1d5-5cf8-423f-b211-82fcdcb343bb' # Personen
+  - 'deleteentries:c7a73282-02b4-4b76-854d-58c24ede0f81' # Vragen
+  - 'deleteentries:cf732ece-47c8-4642-af7d-7a0015a41e95' # Pagina's
+  - 'deleteentries:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'deleteentries:f9aaa7cb-bed7-4b5b-b0a7-c0fa0939fae0' # Showcases
+  - 'deletefilesandfoldersinvolume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+  - 'deletepeerentries:38c7dc72-bf43-4793-9e53-5b74163cbbf5' # Blogs
+  - 'deletepeerentries:44ad9dad-1806-469c-a491-6505d430fe10' # Vacatures
+  - 'deletepeerentries:660654a3-b897-4e1d-9cfb-16a2b170435d' # Bedrijven
+  - 'deletepeerentries:6be0d39b-24a8-41c8-8f32-58802e7edbf9' # Navigatie
+  - 'deletepeerentries:76a53ca8-58e7-43da-b682-0d16c2be5edd' # Agenda
+  - 'deletepeerentries:7907a8f8-18f9-49df-bf82-4c6913cfe8c3' # Kennisartikelen
+  - 'deletepeerentries:9753d1d5-5cf8-423f-b211-82fcdcb343bb' # Personen
+  - 'deletepeerentries:c7a73282-02b4-4b76-854d-58c24ede0f81' # Vragen
+  - 'deletepeerentries:cf732ece-47c8-4642-af7d-7a0015a41e95' # Pagina's
+  - 'deletepeerentries:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'deletepeerentries:f9aaa7cb-bed7-4b5b-b0a7-c0fa0939fae0' # Showcases
+  - 'deletepeerentrydrafts:039f9f12-662c-4c07-a9c9-64c9b3b127a6' # Homepage
+  - 'deletepeerentrydrafts:25405789-7fb3-47de-a849-aa178e4ae089' # 404 
+  - 'deletepeerentrydrafts:38c7dc72-bf43-4793-9e53-5b74163cbbf5' # Blogs
+  - 'deletepeerentrydrafts:44ad9dad-1806-469c-a491-6505d430fe10' # Vacatures
+  - 'deletepeerentrydrafts:63578a7e-f1fe-414f-91c1-6e01aaf35851' # Zoeken
+  - 'deletepeerentrydrafts:660654a3-b897-4e1d-9cfb-16a2b170435d' # Bedrijven
+  - 'deletepeerentrydrafts:6be0d39b-24a8-41c8-8f32-58802e7edbf9' # Navigatie
+  - 'deletepeerentrydrafts:76a53ca8-58e7-43da-b682-0d16c2be5edd' # Agenda
+  - 'deletepeerentrydrafts:7907a8f8-18f9-49df-bf82-4c6913cfe8c3' # Kennisartikelen
+  - 'deletepeerentrydrafts:9753d1d5-5cf8-423f-b211-82fcdcb343bb' # Personen
+  - 'deletepeerentrydrafts:c7a73282-02b4-4b76-854d-58c24ede0f81' # Vragen
+  - 'deletepeerentrydrafts:cf732ece-47c8-4642-af7d-7a0015a41e95' # Pagina's
+  - 'deletepeerentrydrafts:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'deletepeerentrydrafts:f9aaa7cb-bed7-4b5b-b0a7-c0fa0939fae0' # Showcases
+  - 'deletepeerfilesinvolume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+  - deleteusers
+  - 'editcategories:36284fad-33be-41ff-9a5e-1cd3f68cd112' # Onderwerpen
+  - 'editentries:039f9f12-662c-4c07-a9c9-64c9b3b127a6' # Homepage
+  - 'editentries:25405789-7fb3-47de-a849-aa178e4ae089' # 404 
+  - 'editentries:38c7dc72-bf43-4793-9e53-5b74163cbbf5' # Blogs
+  - 'editentries:44ad9dad-1806-469c-a491-6505d430fe10' # Vacatures
+  - 'editentries:63578a7e-f1fe-414f-91c1-6e01aaf35851' # Zoeken
+  - 'editentries:660654a3-b897-4e1d-9cfb-16a2b170435d' # Bedrijven
+  - 'editentries:6be0d39b-24a8-41c8-8f32-58802e7edbf9' # Navigatie
+  - 'editentries:76a53ca8-58e7-43da-b682-0d16c2be5edd' # Agenda
+  - 'editentries:7907a8f8-18f9-49df-bf82-4c6913cfe8c3' # Kennisartikelen
+  - 'editentries:9753d1d5-5cf8-423f-b211-82fcdcb343bb' # Personen
+  - 'editentries:c7a73282-02b4-4b76-854d-58c24ede0f81' # Vragen
+  - 'editentries:cf732ece-47c8-4642-af7d-7a0015a41e95' # Pagina's
+  - 'editentries:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'editentries:f9aaa7cb-bed7-4b5b-b0a7-c0fa0939fae0' # Showcases
+  - 'editglobalset:82a722e6-22d8-4ded-8aaf-b4e83bf4746c' # Defaults
+  - 'editimagesinvolume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+  - 'editpeerentries:38c7dc72-bf43-4793-9e53-5b74163cbbf5' # Blogs
+  - 'editpeerentries:44ad9dad-1806-469c-a491-6505d430fe10' # Vacatures
+  - 'editpeerentries:660654a3-b897-4e1d-9cfb-16a2b170435d' # Bedrijven
+  - 'editpeerentries:6be0d39b-24a8-41c8-8f32-58802e7edbf9' # Navigatie
+  - 'editpeerentries:76a53ca8-58e7-43da-b682-0d16c2be5edd' # Agenda
+  - 'editpeerentries:7907a8f8-18f9-49df-bf82-4c6913cfe8c3' # Kennisartikelen
+  - 'editpeerentries:9753d1d5-5cf8-423f-b211-82fcdcb343bb' # Personen
+  - 'editpeerentries:c7a73282-02b4-4b76-854d-58c24ede0f81' # Vragen
+  - 'editpeerentries:cf732ece-47c8-4642-af7d-7a0015a41e95' # Pagina's
+  - 'editpeerentries:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'editpeerentries:f9aaa7cb-bed7-4b5b-b0a7-c0fa0939fae0' # Showcases
+  - 'editpeerentrydrafts:039f9f12-662c-4c07-a9c9-64c9b3b127a6' # Homepage
+  - 'editpeerentrydrafts:25405789-7fb3-47de-a849-aa178e4ae089' # 404 
+  - 'editpeerentrydrafts:38c7dc72-bf43-4793-9e53-5b74163cbbf5' # Blogs
+  - 'editpeerentrydrafts:44ad9dad-1806-469c-a491-6505d430fe10' # Vacatures
+  - 'editpeerentrydrafts:63578a7e-f1fe-414f-91c1-6e01aaf35851' # Zoeken
+  - 'editpeerentrydrafts:660654a3-b897-4e1d-9cfb-16a2b170435d' # Bedrijven
+  - 'editpeerentrydrafts:6be0d39b-24a8-41c8-8f32-58802e7edbf9' # Navigatie
+  - 'editpeerentrydrafts:76a53ca8-58e7-43da-b682-0d16c2be5edd' # Agenda
+  - 'editpeerentrydrafts:7907a8f8-18f9-49df-bf82-4c6913cfe8c3' # Kennisartikelen
+  - 'editpeerentrydrafts:9753d1d5-5cf8-423f-b211-82fcdcb343bb' # Personen
+  - 'editpeerentrydrafts:c7a73282-02b4-4b76-854d-58c24ede0f81' # Vragen
+  - 'editpeerentrydrafts:cf732ece-47c8-4642-af7d-7a0015a41e95' # Pagina's
+  - 'editpeerentrydrafts:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'editpeerentrydrafts:f9aaa7cb-bed7-4b5b-b0a7-c0fa0939fae0' # Showcases
+  - 'editpeerfilesinvolume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+  - 'editpeerimagesinvolume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+  - editusers
+  - formie-createforms
+  - formie-createsubmissions
+  - formie-deleteforms
+  - formie-editforms
+  - formie-editsubmissions
+  - 'formie-manageform:1c4e9296-35ba-474a-b648-476582666c52'
+  - 'formie-manageform:4dc5397c-d711-4fdc-8bca-0f718a532424'
+  - 'formie-manageform:6e8a76a3-618f-46e6-850e-250f185ab533'
+  - formie-manageformappearance
+  - 'formie-manageformappearance:1c4e9296-35ba-474a-b648-476582666c52'
+  - 'formie-manageformappearance:4dc5397c-d711-4fdc-8bca-0f718a532424'
+  - 'formie-manageformappearance:6e8a76a3-618f-46e6-850e-250f185ab533'
+  - formie-manageformbehavior
+  - 'formie-manageformbehavior:1c4e9296-35ba-474a-b648-476582666c52'
+  - 'formie-manageformbehavior:4dc5397c-d711-4fdc-8bca-0f718a532424'
+  - 'formie-manageformbehavior:6e8a76a3-618f-46e6-850e-250f185ab533'
+  - formie-manageformintegrations
+  - 'formie-manageformintegrations:1c4e9296-35ba-474a-b648-476582666c52'
+  - 'formie-manageformintegrations:4dc5397c-d711-4fdc-8bca-0f718a532424'
+  - 'formie-manageformintegrations:6e8a76a3-618f-46e6-850e-250f185ab533'
+  - formie-manageformsettings
+  - 'formie-manageformsettings:1c4e9296-35ba-474a-b648-476582666c52'
+  - 'formie-manageformsettings:4dc5397c-d711-4fdc-8bca-0f718a532424'
+  - 'formie-manageformsettings:6e8a76a3-618f-46e6-850e-250f185ab533'
+  - formie-managenotifications
+  - 'formie-managenotifications:1c4e9296-35ba-474a-b648-476582666c52'
+  - 'formie-managenotifications:4dc5397c-d711-4fdc-8bca-0f718a532424'
+  - 'formie-managenotifications:6e8a76a3-618f-46e6-850e-250f185ab533'
+  - formie-managenotificationsadvanced
+  - 'formie-managenotificationsadvanced:1c4e9296-35ba-474a-b648-476582666c52'
+  - 'formie-managenotificationsadvanced:4dc5397c-d711-4fdc-8bca-0f718a532424'
+  - 'formie-managenotificationsadvanced:6e8a76a3-618f-46e6-850e-250f185ab533'
+  - formie-managenotificationstemplates
+  - 'formie-managenotificationstemplates:1c4e9296-35ba-474a-b648-476582666c52'
+  - 'formie-managenotificationstemplates:4dc5397c-d711-4fdc-8bca-0f718a532424'
+  - 'formie-managenotificationstemplates:6e8a76a3-618f-46e6-850e-250f185ab533'
+  - 'formie-managesubmission:1c4e9296-35ba-474a-b648-476582666c52'
+  - 'formie-managesubmission:4dc5397c-d711-4fdc-8bca-0f718a532424'
+  - 'formie-managesubmission:6e8a76a3-618f-46e6-850e-250f185ab533'
+  - formie-viewforms
+  - formie-viewsentnotifications
+  - formie-viewsubmissions
+  - impersonateusers
+  - moderateusers
+  - 'publishentries:039f9f12-662c-4c07-a9c9-64c9b3b127a6' # Homepage
+  - 'publishentries:25405789-7fb3-47de-a849-aa178e4ae089' # 404 
+  - 'publishentries:38c7dc72-bf43-4793-9e53-5b74163cbbf5' # Blogs
+  - 'publishentries:44ad9dad-1806-469c-a491-6505d430fe10' # Vacatures
+  - 'publishentries:63578a7e-f1fe-414f-91c1-6e01aaf35851' # Zoeken
+  - 'publishentries:660654a3-b897-4e1d-9cfb-16a2b170435d' # Bedrijven
+  - 'publishentries:6be0d39b-24a8-41c8-8f32-58802e7edbf9' # Navigatie
+  - 'publishentries:76a53ca8-58e7-43da-b682-0d16c2be5edd' # Agenda
+  - 'publishentries:7907a8f8-18f9-49df-bf82-4c6913cfe8c3' # Kennisartikelen
+  - 'publishentries:9753d1d5-5cf8-423f-b211-82fcdcb343bb' # Personen
+  - 'publishentries:c7a73282-02b4-4b76-854d-58c24ede0f81' # Vragen
+  - 'publishentries:cf732ece-47c8-4642-af7d-7a0015a41e95' # Pagina's
+  - 'publishentries:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'publishentries:f9aaa7cb-bed7-4b5b-b0a7-c0fa0939fae0' # Showcases
+  - 'publishpeerentries:38c7dc72-bf43-4793-9e53-5b74163cbbf5' # Blogs
+  - 'publishpeerentries:44ad9dad-1806-469c-a491-6505d430fe10' # Vacatures
+  - 'publishpeerentries:660654a3-b897-4e1d-9cfb-16a2b170435d' # Bedrijven
+  - 'publishpeerentries:6be0d39b-24a8-41c8-8f32-58802e7edbf9' # Navigatie
+  - 'publishpeerentries:76a53ca8-58e7-43da-b682-0d16c2be5edd' # Agenda
+  - 'publishpeerentries:7907a8f8-18f9-49df-bf82-4c6913cfe8c3' # Kennisartikelen
+  - 'publishpeerentries:9753d1d5-5cf8-423f-b211-82fcdcb343bb' # Personen
+  - 'publishpeerentries:c7a73282-02b4-4b76-854d-58c24ede0f81' # Vragen
+  - 'publishpeerentries:cf732ece-47c8-4642-af7d-7a0015a41e95' # Pagina's
+  - 'publishpeerentries:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'publishpeerentries:f9aaa7cb-bed7-4b5b-b0a7-c0fa0939fae0' # Showcases
+  - 'publishpeerentrydrafts:039f9f12-662c-4c07-a9c9-64c9b3b127a6' # Homepage
+  - 'publishpeerentrydrafts:25405789-7fb3-47de-a849-aa178e4ae089' # 404 
+  - 'publishpeerentrydrafts:38c7dc72-bf43-4793-9e53-5b74163cbbf5' # Blogs
+  - 'publishpeerentrydrafts:44ad9dad-1806-469c-a491-6505d430fe10' # Vacatures
+  - 'publishpeerentrydrafts:63578a7e-f1fe-414f-91c1-6e01aaf35851' # Zoeken
+  - 'publishpeerentrydrafts:660654a3-b897-4e1d-9cfb-16a2b170435d' # Bedrijven
+  - 'publishpeerentrydrafts:6be0d39b-24a8-41c8-8f32-58802e7edbf9' # Navigatie
+  - 'publishpeerentrydrafts:76a53ca8-58e7-43da-b682-0d16c2be5edd' # Agenda
+  - 'publishpeerentrydrafts:7907a8f8-18f9-49df-bf82-4c6913cfe8c3' # Kennisartikelen
+  - 'publishpeerentrydrafts:9753d1d5-5cf8-423f-b211-82fcdcb343bb' # Personen
+  - 'publishpeerentrydrafts:c7a73282-02b4-4b76-854d-58c24ede0f81' # Vragen
+  - 'publishpeerentrydrafts:cf732ece-47c8-4642-af7d-7a0015a41e95' # Pagina's
+  - 'publishpeerentrydrafts:de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e' # Nieuws
+  - 'publishpeerentrydrafts:f9aaa7cb-bed7-4b5b-b0a7-c0fa0939fae0' # Showcases
+  - registerusers
+  - 'replacefilesinvolume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+  - 'replacepeerfilesinvolume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+  - 'retour:dashboard'
+  - 'retour:redirects'
+  - 'retour:settings'
+  - 'retour:shortlinks'
+  - 'saveassetinvolume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+  - 'seomatic:content-meta'
+  - 'seomatic:content-meta:facebook'
+  - 'seomatic:content-meta:general'
+  - 'seomatic:content-meta:sitemap'
+  - 'seomatic:content-meta:twitter'
+  - 'seomatic:dashboard'
+  - 'seomatic:global-meta'
+  - 'seomatic:global-meta:ads'
+  - 'seomatic:global-meta:facebook'
+  - 'seomatic:global-meta:general'
+  - 'seomatic:global-meta:humans'
+  - 'seomatic:global-meta:robots'
+  - 'seomatic:global-meta:security'
+  - 'seomatic:global-meta:twitter'
+  - 'seomatic:plugin-settings'
+  - 'seomatic:site-settings'
+  - 'seomatic:site-settings:creator'
+  - 'seomatic:site-settings:identity'
+  - 'seomatic:site-settings:miscellaneous'
+  - 'seomatic:site-settings:sitemap'
+  - 'seomatic:site-settings:social'
+  - 'seomatic:tracking-scripts'
+  - 'seomatic:tracking-scripts:facebookpixel'
+  - 'seomatic:tracking-scripts:fathom'
+  - 'seomatic:tracking-scripts:googleanalytics'
+  - 'seomatic:tracking-scripts:googletagmanager'
+  - 'seomatic:tracking-scripts:gtag'
+  - 'seomatic:tracking-scripts:hubspot'
+  - 'seomatic:tracking-scripts:linkedininsight'
+  - 'seomatic:tracking-scripts:matomo'
+  - 'seomatic:tracking-scripts:pinteresttag'
+  - 'seomatic:tracking-scripts:plausible'
+  - 'utility:asset-indexes'
+  - 'utility:clear-caches'
+  - 'utility:php-info'
+  - 'utility:queue-manager'
+  - 'utility:system-messages'
+  - 'utility:system-report'
+  - 'viewpeerfilesinvolume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets
+  - 'viewvolume:553c5ad6-3250-4b4b-a8fa-37f35373494d' # Assets

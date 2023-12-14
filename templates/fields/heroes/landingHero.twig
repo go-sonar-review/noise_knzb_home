@@ -1,0 +1,37 @@
+{# Eager loading - Entry fields #}
+{% do craft.app.elements.eagerLoadElements(
+    className(entry),
+    [entry],
+    [
+    'landingHero.heroContent',
+    'landingHero.heroContent:imageDesktop',
+    'landingHero.heroContent:imageMobile',
+    'landingHero.heroContent:ctas',
+    ]
+) %}
+{% set hero = entry.landingHero[0]|default() %}
+
+
+{% embed "fields/heroes/hero" with {type: 'landing', hero } %}
+    {% block content %}
+
+        <div class="c-hero__title">
+            <h1 class="t-heading-1 t-heading-1-uppercase t-heading-1---line-height-compact  t-heading-1--margin-reset t-heading-1--small">{{ hero.blockTitle|default( entry.title ) }}</h1>
+        </div>
+
+        {% if hero.ctas|default() %}
+            {% embed "_partials/content.twig" with { contentClass: "c-link-list c-link-list--no-spacing" } %}
+                {% block content %}
+                    {% for i in hero.ctas %}
+                        {% include '_partials/link.twig' with {
+                        cta: i.cta ,
+                        isPrimary: true,
+                        hasClipPathRight: true,
+                    } %}
+                    {% endfor %}
+                {% endblock %}
+            {% endembed %}
+        {% endif %}
+
+    {% endblock %}
+{% endembed %}

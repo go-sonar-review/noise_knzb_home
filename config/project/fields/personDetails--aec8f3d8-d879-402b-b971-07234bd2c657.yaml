@@ -1,0 +1,50 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 62bdff2d-64e6-4b21-8d1a-e63f9b794dc5 # Common
+handle: personDetails
+instructions: ''
+name: Persoonsgegevens
+searchable: false
+settings:
+  columns:
+    __assoc__:
+      -
+        - bf9a2d50-de9d-439b-be23-7f9e000b54b4 # Functietitel
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 1da4095b-2b8f-4bcc-8e25-f0bd66b6bc89 # Afdeling
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 37a35a06-f058-4066-8a50-7139dd157441 # Telefoonnummer
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 6314f43d-62f6-4af6-a3ee-7c9be84a188a # Email
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_persondetails}}'
+  fieldLayout: row
+  maxRows: '1'
+  minRows: '1'
+  placeholderKey: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: ''
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

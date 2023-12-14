@@ -1,0 +1,43 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 61527a91-9d72-4c0b-8d9f-6232afc41a62 # Navigation
+handle: navigation
+instructions: ''
+name: Navigatie
+searchable: false
+settings:
+  columns:
+    __assoc__:
+      -
+        - 864a214d-4fd4-4add-9847-87e7042e73d7 # Link Titel
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 71074a1d-2d7d-4913-a418-19f6f6f94178 # Link Url
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - c382d5b4-7897-470a-94bd-4c9d89dc76ff # Submenu
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_navigation}}'
+  fieldLayout: row
+  maxRows: ''
+  minRows: ''
+  placeholderKey: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: ''
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField

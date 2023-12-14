@@ -1,0 +1,10 @@
+enabled: true
+handle: mailchimp
+name: Mailchimp
+settings:
+  apiKey: $API_KEY_MAILCHIMP
+  appendTags: false
+  useDoubleOptIn: false
+sortOrder: 1
+tokenId: null
+type: verbb\formie\integrations\emailmarketing\Mailchimp

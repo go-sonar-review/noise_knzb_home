@@ -1,0 +1,27 @@
+defaultPlacement: beginning
+enableVersioning: true
+handle: navigation
+name: Navigatie
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  c3dd2df9-188d-4590-ac87-62318e5eb486: # KNZB
+    enabledByDefault: true
+    hasUrls: false
+    template: null
+    uriFormat: null
+structure:
+  maxLevels: 1
+  uid: 5a9e8345-43ac-4193-aac0-680bbba4bd5d
+type: structure

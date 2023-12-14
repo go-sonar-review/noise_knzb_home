@@ -1,0 +1,77 @@
+{% set imageProperties = {
+    image: block.imageDesktop[0]|default( defaults.fallbackImage[0] ),
+    sizes: '(max-width: 1023px) 100vw, (max-width: 1439px) 45vw, 750px',
+    srcset: ['360w','375w', '750w', '1200w', '1350w'],
+    width: 571,
+    height: 508
+} %}
+
+{% set imagePropertiesMobile = {
+    image: block.imageMobile[0]|default(block.imageDesktop[0]),
+    sizes: '100vw',
+    srcset: ['360w','375w', '750w'],
+    width: 344,
+    height: 305
+} %}
+
+{% set attributesBlock = {
+    class: [
+        'c-text-image-block',
+        "c-text-image-block--" ~ block.layout,
+        isNested|default(false) ? 'c-text-image-block--is-nested',
+        "c-text-image-block--is-" ~ block.backgroundColor.handle|default('white'),
+    ]
+} %}
+
+{% embed "_partials/section" with { 
+    style: { 'background': block.backgroundColor.color|default('white') },
+    hasNoPaddingHorizontal: true,
+    hasNoSpacing: block.backgroundColor.handle is not same as('white')
+} %}
+
+    {% block content %}
+        <div {{ attr(attributesBlock) }}>
+            <div class="c-text-image-block__visual">
+                {% embed "components/imageContainer" with { 
+                    style: 'background: transparent',
+                    is9x8: true
+                } %}
+                    {% block content %}
+                        {% include '_partials/image' with { 
+                            properties: imageProperties,
+                            propertiesMobile: imagePropertiesMobile
+                        } %}
+                    {% endblock %}
+                {% endembed %}
+            </div>
+            <div class="c-text-image-block__content">
+                <div class="c-text-image-block__title">
+                    <h2 class="t-heading-3 t-heading-3--bold {{ block.backgroundColor.handle|default('white') is same as('orange') ? 't-heading-3--is-white' : 't-heading-3--primary' }}">{{ block.blockTitle }}</h2>
+                </div>
+                <div class="t-wysiwyg">
+                    {{ block.description }}
+                </div>
+
+                {% if block.ctas|default() %}
+                    {% embed "_partials/content.twig" %}
+                        {% block content %}
+                            <div class="c-link-list">
+                                {% for i in block.ctas %}
+                                    {% include '_partials/link.twig' with { 
+                                    cta: i.cta, 
+                                    isPrimary: true, 
+                                    hasIconBefore: true, 
+                                    hasClipPathRight: true,
+                                    withoutBackgroundColor: true,
+                                    isWhite: block.backgroundColor.handle|default('white') is same as('orange')
+                                } %}
+                                {% endfor %}
+                            </div>
+                        {% endblock %}
+                    {% endembed %}
+                {% endif %}
+            </div>
+        </div>
+
+    {% endblock %}
+{% endembed %}

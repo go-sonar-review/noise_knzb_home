@@ -1,0 +1,33 @@
+{% set attributes = {
+    class: [
+      'c-card',
+      isDark|default(false) ? 'c-card--dark',
+      isWhite|default(false) ? 'c-card--white',
+      hasLionHead|default(false) ? 'c-card--has-lion-head',
+      withoutBoxShadow|default(false) ? 'c-card--without-box-shadow',
+      withoutPadding|default(false) ? 'c-card--without-padding',
+      isFlipCard|default(false) ? 'c-card--flip-card',
+      cta|default(false) ? 'c-card--linked-card',
+    ]
+} %}
+
+{% if cta|default() %}
+<a 
+  href="{{ cta.url }}" 
+  aria-label="{{ cta.text }}" 
+  target="{{cta.target|default('_self') }}"
+  {{ attr(attributes) }}>
+{% else %}
+  <div {{ attr(attributes) }}>
+{% endif %}
+
+  {% block image %}{% endblock %}
+  {% block content %}{% endblock %}
+  {% block details %}{% endblock %}
+  {% block flip %}{% endblock %}
+
+{% if cta|default() %}
+  </a>
+{% else %}
+  </div>
+{% endif %}

@@ -1,0 +1,47 @@
+{% set imageProperties = {
+    image: block.imageDesktop[0]|default( defaults.fallbackImage[0] ),
+    sizes: '100vw',
+    srcset: ['360w','375w', '750w', '1200w', '1350w'],
+    width: 1335,
+    height: 750
+} %}
+
+{% set imagePropertiesMobile = {
+    image: block.imageMobile[0]|default(block.imageDesktop[0]),
+    sizes: '100vw',
+    srcset: ['360w','375w', '750w'],
+    width: 360,
+    height: 202
+} %}
+
+{% set attributesBlock = {
+    class: [
+        "c-image-block",
+        "c-image-block--" ~ block.imageClipPath|default('right'),
+        isNested|default(false) ? 'c-image-block--is-nested'
+    ]
+} %}
+
+{% embed "_partials/section" with { 
+    style: { 'background-color': block.backgroundColor.color|default('white') },
+    hasPaddingVertical:  block.backgroundColor.handle|default('white') is not same as('white'),
+    hasNoPaddingHorizontal: true 
+} %}
+    {% block content %}
+        <div {{ attr(attributesBlock) }}>
+
+            {% embed "components/imageContainer" with { 
+                clipPath: block.imageClipPath.value|default('right'),
+                is16x9: true 
+            } %}
+                {% block content %}
+                    {% include '_partials/image' with { 
+                        properties: imageProperties,
+                        propertiesMobile: imagePropertiesMobile
+                    } %}
+                {% endblock %}
+            {% endembed %}
+            
+        </div>
+    {% endblock %}
+{% endembed %}

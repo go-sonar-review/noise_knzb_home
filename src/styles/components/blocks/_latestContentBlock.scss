@@ -1,0 +1,58 @@
+.c-latest-content-block {
+  @include full-grid-with-column-gap;
+
+  row-gap: 32px;
+  grid-auto-flow: dense;
+
+  &__header {
+    grid-column: main-start / main-end;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    text-align: center;
+
+    @include tablet{
+      padding: 0;
+    }
+  }
+
+  &__link-container {
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    @include tablet{
+      display: flex;
+    }
+  }
+
+  &__entries {
+    grid-column: main-start / main-end;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 18px 24px;
+
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+   }
+
+   &__footer {
+    grid-column: main-start / main-end;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+
+    @include tablet {
+      display: none;
+    }
+   }
+}

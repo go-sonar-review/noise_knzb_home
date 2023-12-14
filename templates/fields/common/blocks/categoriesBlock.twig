@@ -1,0 +1,102 @@
+{% set attributesBlock = {
+  class: [
+    'c-categories-block',
+    isNested|default(false) ? 'c-categories-block--is-nested'
+  ]
+} %}
+
+{% set categories = block.categories|default() ? block.categories : craft.categories({
+  group: 'subjects',
+  with: ['featuredImage']
+}).group('subjects').all() %}
+
+{% set categories = categories|filter( e => e.cta.url|default ) %}
+
+{% if categories|length %}
+  {% embed "_partials/section" with { 
+      style: { 'background-color': block.backgroundColor.color|default('white') },
+      hasPaddingVerticalSmall:  block.backgroundColor.handle|default('white') is not same as('white'),
+      hasNoPaddingHorizontal: true 
+  } %}
+      {% block content %}
+
+      {% set settings = {
+        autoplay: 5000,
+        focusAt: 0,
+        perView: 4.5,
+        breakpoints: {
+          1280: { perView: 4.2, },
+          768: { perView: 3.2, },
+          576: { perView: 2.2, },
+        },
+        gap: 32,
+        controls: false,
+        timeline: false,
+        bullets: true
+      } %}
+
+      <div {{ attr(attributesBlock) }}>
+        <div class="c-categories-block__content">
+
+          {% if block.blockTitle %}
+            <h2 class="t-heading-3 t-heading-3--primary t-heading-3--align-center">{{ block.blockTitle }}</h2>
+          {% endif %}
+
+          <slide-carousel :slides="{{ categories|length }}" :settings="{{ settings|json_encode }}">
+            {% for slide in categories %}
+              <template {{ 'v-slot:slide--' ~ loop.index }}>
+
+                <a href="{{ slide.cta.url }}" target="{{ slide.cta.target|default('_self') }}" class="c-categories-card">
+                  <div class="c-categories-card__content">
+                    {% set imageProperties = {
+                      image: slide.featuredImage[0]|default(),
+                      sizes: '(max-width: 576px) 50vw, (max-width: 768px) 33.33vw, (max-width: 1280px) 25vw, 400px',
+                      srcset: ['150w','300w' ],
+                      loading: "eager",
+                      width: 272,
+                      height: 398,
+                      class: "c-categories-card__image",
+                      mode: 'fit'
+                    } %}
+
+                    {% set imagePropertiesMobile = {
+                      sizes: '(max-width: 576px) 50vw, (max-width: 768px) 33.33vw, (max-width: 1280px) 25vw, 400px',
+                      srcset: ['150w','300w' ],
+                      loading: "eager",
+                      width: 150,
+                      height: 235,
+                      class: "c-categories-card__image",
+                      mode: 'fit'
+                    } %}
+
+                    {% include '_partials/image.twig' with { 
+                      properties: imageProperties,
+                      propertiesMobile: imagePropertiesMobile
+                    } %}
+
+                    <h2 class="c-categories-card__title">
+                      <span class="c-categories-card__pre-title">{{ block.firstPartTitle|default('Alles over') }}</span> {{ slide.cardTitle|default(slide.title) }}
+                    </h2>
+
+                    <div class="t-wysiwyg">{{ slide.summary }}</div>
+
+                    <div class="c-categories-card__link">
+                      {% include '_partials/link.twig' with { 
+                        cta: { url: slide.url, text: "Lees meer", target: null }, 
+                        isPrimary: true, 
+                        hasIconBefore: true, 
+                        hasClipPathLeft: true,
+                        withoutBackgroundColor: true
+                      } %}
+                    </div>
+                  </div>
+                </a>
+              </template>
+            {% endfor %}
+          </slide-carousel>
+
+        </div>
+      </div>
+    {% endblock %}
+  {% endembed %}
+{% endif %}

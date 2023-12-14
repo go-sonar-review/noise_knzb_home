@@ -1,0 +1,97 @@
+{% set settings = {
+    type: 'slider',
+    focusAt: 0,
+    perView: 2,
+    autoplay: false,
+    breakpoints: {
+        1024: { perView: 1 }
+    },
+    peek: {
+        before: 0,
+        after: 200
+    },
+    bullets: true,
+    controls: true,
+    gap: 24,
+    bound: true
+  } %}
+
+{% set entries = block.entries|length|default() ? block.entries : craft.entries({
+  section: block.entryType.value|default(),
+  limit: 8,
+  id: ( ['and', entry.id ] )|join(', not '),
+  with: [ 'featuredImage','cardImage' ]
+}).all() %}
+
+{% set imageProperties = {
+  sizes: '(max-width: 1023px) 100vw, 500px',
+  srcset: ['240w', '360w', '500w'  ],
+  width: 500,
+  height: 500,
+  class: "u-object-fit"
+} %}
+
+{% set imagePropertiesMobile = {
+    width: 360,
+    height: 400,
+} %}
+
+{% if entries|default() %}
+    {% embed "_partials/section" with {
+            style: { 'background-color': block.backgroundColor.color },
+            hasPaddingVertical: block.backgroundColor.handle is not same as('white'),
+            hasNoPaddingHorizontal: true
+        } %}
+        {% block content %}
+
+            <div class="c-featured-content">
+                <div class="c-featured-content__title">
+                    <h2 class="t-heading-3 t-heading-3--primary t-heading-3--margin-reset  t-heading-3--bold">{{ block.blockTitle }}</h2>
+                </div>
+                <div class="c-featured-content__main">
+                    <slide-carousel has-no-peek-mobile :slides="{{ entries|length }}" :settings="{{ settings|json_encode }}" block="{{ block.type.handle|default('default') }}">
+                        {% for item in entries %}
+                            {% set imageProperties = imageProperties|merge({
+                              image: item.cardImage[0] ?? item.featuredImage[0] ?? defaults.fallbackImage[0]|default()
+                            }) %}
+
+                            <template {{ 'v-slot:slide--' ~ loop.index }}>
+                                <a href="{{ item.url }}" sty="display: block;">
+                                    <div class="c-card-featured">
+                                        {% include '_partials/image.twig' with {
+                                            properties: imageProperties,
+                                            propertiesMobile: imagePropertiesMobile
+                                        } %}
+
+                                        <div class="c-card-featured__content">
+                                            <h3 class="c-card-featured__title t-title t-title--white t-title--big t-title--big t-title--semi-bold t-title--line-height-compact t-title--line-limit-4">{{ item.cardTitle|default(item.title) }}</h3>
+                                            <div class="c-card-featured__arrow">
+                                                {{ svg('@webroot/assets/ui/arrow-right.svg')|attr({
+                                                    width: 18,
+                                                    height: 18,
+                                                    title: "Pijl",
+                                                    alt: "Pijl"
+                                                }) }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </template>
+                        {% endfor %}
+                    </slide-carousel>
+                </div>
+                <div class="c-featured-content__link">
+                    {% include '_partials/link.twig' with {
+                        cta: block.blockLink,
+                        isPrimary: true,
+                        hasIconAfter: true,
+                        hasClipPathLeft: true,
+                        withoutBackgroundColor: true,
+                        paddingSmall: true
+                    } %}
+                </div>
+            </div>
+
+        {% endblock %}
+    {% endembed %}
+{% endif %}

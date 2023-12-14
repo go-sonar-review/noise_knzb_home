@@ -1,0 +1,37 @@
+{% if pageInfo is defined and pageInfo.totalPages > 1 %}
+	<ul class="c-pagination">
+		<li class="pagination__item">
+			<a href="{{ pageInfo.prevUrl }}" aria-disabled="{{ pageInfo.prevUrl ? false : true }}" class="c-link c-link--primary c-link--has-icon-before-back c-link--without-text {{ pageInfo.prevUrl ? '' : 'c-link--disabled' }}">
+				<span class="c-link__label"></span>
+			</a>
+		</li>
+
+		{% for url in pageInfo.prevUrls|default() %}
+			{% if url|default() %}
+				<li class="c-pagination__item">
+					<a href="{{ url }}" class="c-pagination__link">{{ pageInfo.currentPage - loop.index }}</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+
+		<li class="c-pagination__item">
+			<span class="c-pagination__link c-pagination__link--active">{{ pageInfo.currentPage }}</span>
+		</li>
+
+		{% for url in pageInfo.nextUrls|default() %}
+			{% if url|default() %}
+				<li class="c-pagination__item">
+					<a href="{{ url }}" class="c-pagination__link">{{ pageInfo.currentPage + loop.index }}</a>
+				</li>
+			{% endif %}
+		{% endfor %}
+
+		{% if pageInfo.nextUrl %}
+			<li class="pagination__item">
+				<a href="{{ pageInfo.nextUrl }}" aria-disabled="{{ pageInfo.prevUrl ? false : true }}" class="c-link c-link--primary c-link--has-icon-before c-link--without-text {{ pageInfo.nextUrl ? '' : 'c-link--disabled'}}">
+					<span class="c-link__label"></span>
+				</a>
+			</li>
+		{% endif %}
+	</ul>
+{% endif %}

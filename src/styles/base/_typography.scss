@@ -1,0 +1,664 @@
+// -----------------------------------------------------------------------------
+// This file contains all @font-face declarations, if any,
+// and all typgraphic styling (H1 - H6, p, strong, em, i, blockquote)
+// -----------------------------------------------------------------------------
+//
+// When preferred or needed, @font-face declarations can also be moved to
+// separate _fonts.scss
+// -----------------------------------------------------------------------------
+
+// INLCUDE FONTS
+@font-face {
+  font-family: "DIN Next";
+  src: url("#{$base-url}/fonts/DinNext/WOFF2/DINNextLTPro-Light.woff2") format("woff2"),
+    url("#{$base-url}/fonts/DinNext/WOFF/DINNextLTPro-Light.woff") format("woff"),
+    url("#{$base-url}/fonts/DinNext/OTF/DINNextLTPro-Light.otf") format("otf");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DIN Next";
+  src: url("#{$base-url}/fonts/DinNext/WOFF2/DINNextLTPro-Regular.woff2") format("woff2"),
+    url("#{$base-url}/fonts/DinNext/WOFF/DINNextLTPro-Regular.woff") format("woff"),
+    url("#{$base-url}/fonts/DinNext/OTF/DINNextLTPro-Regular.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DIN Next";
+  src: url("#{$base-url}/fonts/DinNext/WOFF2/DINNextLTPro-Medium.woff2") format("woff2"),
+    url("#{$base-url}/fonts/DinNext/WOFF/DINNextLTPro-Medium.woff") format("woff"),
+    url("#{$base-url}/fonts/DinNext/OTF/DINNextLTPro-Medium.otf") format("otf");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DIN Next";
+  src: url("#{$base-url}/fonts/DinNext/WOFF2/DINNextLTPro-Bold.woff2") format("woff2"),
+    url("#{$base-url}/fonts/DinNext/WOFF/DINNextLTPro-Bold.woff") format("woff"),
+    url("#{$base-url}/fonts/DinNext/OTF/DINNextLTPro-Bold.otf") format("otf");
+  font-weight: Bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DIN Next";
+  src: url("#{$base-url}/fonts/DinNext/WOFF2/DINNextLTPro-HeavyItalic.woff2") format("woff2")
+      url("#{$base-url}/fonts/DinNext/WOFF/DINNextLTPro-HeavyItalic.woff") format("woff"),
+    url("#{$base-url}/fonts/DinNext/OTF/DINNextLTPro-HeavyItalic.otf") format("otf");
+  font-weight: 750;
+  font-style: normal;
+  font-display: swap;
+  letter-spacing: 0.1em;
+}
+
+/// Regular font family
+/// @type List
+$text-font-stack: "Rubik", "Open Sans", "Helvetica Neue Light", "Helvetica Neue", "Helvetica",
+  "Arial", sans-serif !default;
+$title-font-stack: "DIN Next", "Open Sans", "Helvetica Neue Light", "Helvetica Neue", "Helvetica",
+  "Arial", sans-serif !default;
+$micro-font-stack: "DIN Next", "Open Sans", "Helvetica Neue Light", "Helvetica Neue", "Helvetica",
+  "Arial", sans-serif !default;
+
+/// Code (monospace) font family
+/// @type List
+$code-font-stack: "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Monaco", monospace !default;
+
+/*
+Typography
+Typographic elements
+Style guide: 2-base.typography
+*/
+
+body {
+  background-color: $white;
+  color: $text-color;
+
+  font-family: $text-font-stack;
+  font-size: $font-size-base;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+/*
+Headings
+Markup:
+<h1>h1 Title Halyard Display Bold 50/56</h1>
+<h2>h2 Title Halyard Display Bold 38/48 </h2>
+<h3>h3 Title Halyard Display Bold 28/36 </h3>
+<h4>h4 Title Halyard Display Bold 21/28 </h4>
+<h4 class="is-text">h4 Title Halyard Display Book 21/28</h4>
+<h5>h5 link text HALYARD MICRO bold 12/20</h5>
+<h5 class="is-text">h5 link text HALYARD MICRO book 12/20</h5>
+<h6>h6 caption LINK HALYARD MICRO Bold 9/20</h6>
+<h6 class="is-text">h6 caption LINK HALYARD MICRO book 9/20 </h6>
+Style guide: 2-base.typography.headings
+*/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $title-font-stack;
+  font-weight: 700;
+}
+
+// Modifiers
+@mixin heading-modifiers {
+  &--white {
+    color: $title-color--secondary;
+  }
+
+  &--primary {
+    color: $title-color--primary;
+  }
+
+  &--primary-dark {
+    color: $title-color--primary-dark;
+  }
+
+  &--secondary {
+    color: $title-color--secondary;
+  }
+
+  &--tertiary {
+    color: $title-color--tertiary;
+  }
+
+  &--quaternary {
+    color: $title-color--quaternary;
+  }
+
+  &--thin {
+    font-weight: 300;
+  }
+
+  &--full-width {
+    display: block;
+    width: 100%;
+  }
+
+  &--regular {
+    font-weight: normal;
+  }
+
+  &--semi-bold {
+    font-weight: 500;
+  }
+
+  &--sub-bold {
+    font-weight: 700;
+  }
+
+  &--bold {
+    font-weight: 750;
+  }
+
+  &--capitalize {
+    text-transform: capitalize;
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
+
+  &--no-transform {
+    text-transform: none;
+  }
+
+  &--margin-reset {
+    margin: 0;
+  }
+
+  &--style-normal {
+    font-style: normal;
+  }
+
+  &--style-italic {
+    font-style: italic;
+  }
+
+  &--line-height-compact {
+    line-height: 116%;
+  }
+
+  &--small-mobile {
+    @include until-tablet-landscape {
+      font-size: calcEm(29px);
+    }
+  }
+
+  &--is-link {
+    @include on-event {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+
+  &--align-center {
+    text-align: center;
+  }
+
+  &--small-letter-spacing {
+    letter-spacing: 1px;
+  }
+
+  &--big-letter-spacing {
+    letter-spacing: 3px;
+  }
+
+  &--line-limit-2 {
+    @include limit-lines(2);
+  }
+
+  &--line-limit-3 {
+    @include limit-lines(3);
+  }
+
+  &--line-limit-4 {
+    @include limit-lines(4);
+  }
+
+  &--font-semi-big {
+    font-size: 26px;
+
+    @include tablet-landscape {
+      font-size: 28px;
+    }
+  }
+
+  &--text-shadow {
+    text-shadow: $text-shadow;
+  }
+}
+
+.t-heading-1,
+.t-heading-2,
+.t-heading-3,
+.t-heading-4 {
+  text-transform: uppercase;
+  font-family: $title-font-stack;
+  font-weight: 750;
+  font-style: italic;
+  line-height: 1;
+
+  strong {
+    font-weight: 750;
+  }
+}
+
+.t-heading-5,
+.t-heading-6 {
+  text-transform: uppercase;
+}
+
+.t-heading-1 {
+  font-size: 48px;
+
+  @include tablet {
+    font-size: 56px;
+  }
+
+  @include heading-modifiers;
+
+  &--small {
+    font-size: 24px;
+
+    @include tablet {
+      font-size: 56px;
+    }
+  }
+}
+
+.t-heading-2 {
+  font-size: 40px;
+  margin-bottom: 8px;
+  line-height: 40px;
+
+  @include tablet {
+    font-size: 48px;
+    line-height: 48px;
+  }
+
+  @include heading-modifiers;
+}
+
+.t-heading-3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+
+  @include tablet {
+    font-size: 40px;
+  }
+
+  @include heading-modifiers;
+
+  &--static {
+    font-size: 24px;
+  }
+
+  &--small {
+    @include tablet {
+      font-size: 34px;
+    }
+  }
+}
+
+.t-heading-4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+
+  @include tablet-landscape {
+    font-size: 24px;
+  }
+
+  @include heading-modifiers;
+}
+
+.t-heading-5 {
+  font-family: $micro-font-stack;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+
+  @include heading-modifiers;
+}
+
+.t-heading-6 {
+  @extend h6;
+  @include heading-modifiers;
+}
+
+.t-title {
+  color: $lapis-blue;
+  text-decoration-color: $lapis-blue;
+  font-weight: 750;
+  font-size: 20px;
+  color: $lapis-blue;
+  font-style: normal;
+
+  @include heading-modifiers;
+
+  &--small {
+    font-size: 14px;
+  }
+
+  &--medium {
+    font-weight: 400;
+    font-size: 22px;
+  }
+
+  &--big {
+    font-size: 26px;
+
+    @include tablet-landscape {
+      font-size: 31px;
+    }
+  }
+
+  &--thin {
+    font-weight: 400;
+  }
+
+  &--bold {
+    font-weight: bold;
+  }
+
+  &--date {
+    font-size: 16px;
+
+    @include desktop {
+      font-size: 22px;
+    }
+  }
+}
+
+.t-details {
+  font-weight: 400;
+  font-size: 14px;
+  color: $black;
+  font-style: normal;
+
+  @include heading-modifiers;
+}
+
+/*
+Text
+Markup:
+<strong>Body Subheader Halyard Text Bold 16/24</strong>
+<p>wysiwyg
+  Body Copy Halyard Text Book 16/24<br />
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vulputate porta quam ornare dictum. Donec auctor
+  ligula eget iaculis pulvinar. Donec placerat id erat at convallis. Sed quis sollicitudin mi. Ut sit amet
+  facilisis lacus. Praesent sollicitudin risus in ultricies lobortis.
+</p>
+Style guide: 2-base.typography.text
+*/
+
+strong {
+  font-weight: 700;
+}
+
+/*
+Links
+Basic styles for links
+Markup:
+<a href="#">Body Link Halyard Text Book 16/24</a>
+Style guide: 2-base.typography.links
+*/
+
+a {
+  color: $link-default-color;
+  text-decoration: underline;
+
+  @include on-event {
+    color: $text-link-color-hover;
+    text-decoration: underline;
+  }
+}
+
+/*
+WYSIWYG
+Basic styles for links
+Markup:
+<a href="#">Body Link Halyard Text Book 16/24</a>
+Style guide: 2-base.typography.links
+*/
+
+.wysiwyg,
+.t-wysiwyg {
+  overflow-x: auto;
+
+  & > *:last-child {
+    margin-bottom: 0;
+  }
+
+  h1 {
+    font-size: 48px;
+    @include tablet-landscape {
+      font-size: 56px;
+    }
+  }
+
+  h2 {
+    font-size: 40px;
+    @include tablet-landscape {
+      font-size: 48px;
+    }
+  }
+
+  h3 {
+    font-size: 32px;
+    @include tablet-landscape {
+      font-size: 40px;
+    }
+  }
+
+  h4 {
+    font-size: 24px;
+    @include tablet-landscape {
+      font-size: 32px;
+    }
+  }
+
+  h5 {
+    font-size: 20px;
+    @include tablet-landscape {
+      font-size: 24px;
+    }
+  }
+
+  h6 {
+    font-size: 16px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: $title-font-stack;
+    font-weight: 750;
+  }
+
+  h4,
+  h5,
+  h6 {
+    font-family: $text-font-stack;
+    font-weight: bold;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: inherit;
+  }
+
+  p,
+  ul,
+  ol,
+  pre,
+  blockquote,
+  figure {
+    margin-bottom: 32px;
+    @include tablet-landscape {
+      margin-bottom: 40px;
+    }
+  }
+
+  ul,
+  ol {
+    list-style: none;
+
+    li {
+      position: relative;
+      padding-left: 28px;
+
+      &:not(:last-child) {
+        padding-bottom: 16px;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 12px;
+        height: 12px;
+        font-size: inherit;
+        color: $white;
+        font-weight: 500;
+        background: $color-list-gradiant;
+        border-radius: 50%;
+        transform: translateY(50%);
+      }
+    }
+  }
+
+  ol {
+    counter-reset: custom-counter;
+
+    li {
+      counter-increment: custom-counter;
+      border-left: 2px solid $navy-blue;
+      padding-left: 40px;
+
+      &:last-child {
+        border-left: none;
+      }
+
+      &::before {
+        content: counter(custom-counter);
+        width: 32px;
+        height: 2em;
+        padding-right: 5px;
+        @include clip-path("right", 5px);
+        border-radius: 0;
+        transform: none;
+      }
+    }
+
+    & ol {
+      margin-top: 16px;
+      li::before {
+        content: counter(custom-counter, lower-alpha);
+      }
+    }
+
+    & ol ol {
+      li::before {
+        content: counter(custom-counter, upper-roman);
+      }
+    }
+  }
+
+  blockquote {
+    padding-left: 16px;
+    border-left: 3px solid $lapis-blue;
+    color: $black;
+
+    font-family: $title-font-stack;
+    font-size: 20px;
+    font-weight: 500;
+    font-style: italic;
+
+    @include tablet-landscape {
+      font-size: 32px;
+    }
+  }
+
+  pre {
+    font-family: inherit;
+    font-size: inherit;
+    padding: 4px 8px;
+    background: $white-lilac;
+    color: $nile-blue;
+    font-size: 16px;
+  }
+
+  &--light,
+  &--light a {
+    color: white;
+  }
+
+  figure,
+  figure img {
+    width: auto;
+    max-width: 100%;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: separate;
+  }
+
+  th,
+  td {
+    min-width: 120px;
+    padding: 5px;
+    border: 1px solid black;
+    text-align: left;
+  }
+
+  &--primary-dark {
+    color: $title-color--primary-dark;
+  }
+
+  &--white {
+    color: $white;
+  }
+}
+
+.t-paragraph {
+  &--primary {
+    color: $title-color--primary;
+  }
+
+  &--primary-dark {
+    color: $title-color--primary-dark;
+  }
+
+  &--white {
+    color: $white;
+  }
+}

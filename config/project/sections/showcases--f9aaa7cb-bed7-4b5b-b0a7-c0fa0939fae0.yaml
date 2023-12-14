@@ -1,0 +1,27 @@
+defaultPlacement: beginning
+enableVersioning: true
+handle: showcases
+name: Showcases
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  c3dd2df9-188d-4590-ac87-62318e5eb486: # KNZB
+    enabledByDefault: true
+    hasUrls: true
+    template: site.twig
+    uriFormat: '{parent.uri ? parent.uri : ''showcases''}/{slug}'
+structure:
+  maxLevels: 2
+  uid: 18abf872-f8c0-4887-90e8-2008e8c59d2a
+type: structure

@@ -1,0 +1,15 @@
+.c-socials-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  .c-socials-list &__link {
+    color: $white;
+    transition: color $transition-fast;
+    
+    @include on-event {
+      color: $blaze-orange;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "title"        : "KNZB - Styleguide",
+  "mask"         : "*.scss",
+  "placeholder"  : "[modifier]",
+
+"//": "relative to this file.",
+  "source"       : ["./src/styles", "./templates"],
+  "destination"  : "./web/styleguide",
+
+"//": "relative to source.",
+  "homepage"     : "./src/styles/styleguide-homepage.md",
+
+"//": "relative to the generated style guide.",
+  "css": [
+    "main.css",
+    "../dist/css/main.css"
+  ],
+  "js": [
+    "main.js",
+    "../dist/js/main.js"
+  ]
+}

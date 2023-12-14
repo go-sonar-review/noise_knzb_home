@@ -1,0 +1,20 @@
+{% set socials = seomatic.site.sameAsLinks|filter( social => social.url|default()) %}
+
+{% if socials|default() %}
+  <ul class="c-socials-list">
+  {% for social in socials %}
+    <li class="c-socials-list__item">
+      <a href="{{ social.url }}" target="_blank" class="c-socials-list__link">
+        {{ svg('@webroot/assets/icons/' ~ social.handle|default('web') ~'.svg')|attr({ 
+          class: 'c-socials-list__image', 
+          width: 24, 
+          height: 24, 
+          title: social.siteName, 
+          alt: social.siteName  
+          }) 
+        }}
+      </a>
+    </li>
+  {% endfor %}
+  </ul>
+{% endif %}

@@ -1,0 +1,90 @@
+{% set attributesBlock = {
+  class: [
+    'c-partner-block',
+    isNested|default(false) ? 'c-partner-block--is-nested'
+  ]
+} %}
+
+{% set partners = block.partners|default() ? block.partners : craft.entries({
+  section: 'businesses',
+  with: ['logo'],
+  orderBy: 'RAND()'
+}).all() %}
+
+{% if partners|length %}
+  {% embed "_partials/section" with { 
+      style: { 'background-color': block.backgroundColor.color|default('white') },
+      hasPaddingVerticalSmall:  block.backgroundColor.handle|default('white') is not same as('white'),
+      hasNoPaddingHorizontal: true 
+  } %}
+      {% block content %}
+
+      {% set settings = {
+        type: "slider",
+        autoplay: 50000,
+        focusAt: 0,
+        perView: 1.99,
+        breakpoints: {
+          768: { perView: 0.99, focusAt: 'center', },
+        },
+        controls: false,
+        timeline: false,
+        bullets: true,
+        bound: true
+      } %}
+
+          <div {{ attr(attributesBlock) }}>
+              <div class="c-partner-block__content">
+                  
+                  <slide-carousel :slides="{{ partners|length }}" :settings="{{ settings|json_encode }}">
+                    {% for slide in partners %}
+                      <template {{ 'v-slot:slide--' ~ loop.index }}>
+
+                        <div class="c-partner-card">
+                          <div class="c-partner-card__content">
+
+                            <div class="c-partner-card__image-container">
+                              {% if slide.logo[0]|default() %}
+                                {% set imageProperties = {
+                                  image: slide.logo[0]|default(),
+                                  sizes: '(max-width: 1280px) 100vw, 1280px',
+                                  srcset: ['300w', '600w'],
+                                  class: "c-partner-card__image",
+                                  mode: 'fit',
+                                  quality: 90
+                                } %}
+
+                                {% include '_partials/image.twig' with { 
+                                  properties: imageProperties
+                                } %}
+                              {% endif %}
+                            </div>
+
+                            <div class="c-partner-card__text">
+                              <h2 class="t-heading-4 t-heading-4--primary t-heading-4--bold t-heading-4--style-normal t-heading-4--no-transform t-heading-4--font-semi-big">{{ slide.title }}</h2>
+                              <div class="t-wysiwyg">{{ slide.summary }}</div>
+                            </div>
+
+                            <div class="c-partner-card__link">
+                              {% include '_partials/link.twig' with { 
+                                cta: { url: slide.cta.url|default( slide.url ) , text: "Lees meer", target: slide.cta.targetString|default('_self') }, 
+                                isPrimary: true, 
+                                hasIconBefore: true, 
+                                hasClipPathLeft: true,
+                                withoutBackgroundColor: true
+                              } %}
+                            </div>
+
+                            
+                          </div>
+                        </div>
+                      </template>
+                    {% endfor %}
+                  </slide-carousel>
+    
+              </div>
+          </div>
+
+      {% endblock %}
+  {% endembed %}
+{% endif %}

@@ -1,0 +1,30 @@
+{% set attributes = {
+  class: [
+    'c-date',
+    isWhite|default(false) ? 'c-date--white',
+    withIcon|default(false) ? 'c-date--has-icon'
+  ]
+} %}
+
+<p {{ attr(attributes) }} >
+  {% if startDate|default and endDate|default() %}
+    {% set checks = {
+      isSameyear: startDate|date('Y') == endDate|date('Y'),
+      isSameMonth: startDate|date('mm Y') == endDate|date('mm Y'),
+      isSameDay: startDate|date('d mm Y') == endDate|date('d mm Y')
+    } %}
+
+    {% if checks.isSameDay|default(false) %}
+      {{ startDate|date( dateFormat|default('d mm Y')) }} {{startDate|date( 'H:i' )}}-{{endDate|date( 'H:i' )}}   {# 23 november 2022 15:33-15:40 #}
+    {% elseif checks.isSameMonth|default(false) %}
+      {{ startDate|date( dateFormat|default('d')) }}-{{endDate|date( 'd mm Y' )}}                                 {# 23-25 november 2022 #}
+    {% elseif checks.isSameyear|default(false) %}
+      {{ startDate|date( dateFormat|default('d mm')) }} - {{ endDate|date( dateFormat|default('d mm Y')) }}        {# 23 november - 25 november 2022 #}
+    {% else %}
+      {{ startDate|date( dateFormat|default('d mm Y')) }} - {{ endDate|date( dateFormat|default('d mm Y')) }}     {# 23 november 2022 - 25 november 2023 #}
+    {% endif %}
+    
+  {% elseif startDate|default() %}
+    {{ startDate|date( dateFormat|default('d mm Y')) }}                                                           {# 23 november 2022 #}
+  {% endif %}
+</p>

@@ -1,0 +1,423 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+
+/// Event wrapper
+/// @author Harry Roberts
+/// @param {Bool} $self [false] - Whether or not to include current selector
+/// @link https://twitter.com/csswizardry/status/478938530342006784 Original tweet from Harry Roberts
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @author Hugo Giraudel
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+@mixin when-after($context) {
+  #{$context} + & {
+    @content;
+  }
+}
+
+@mixin basic-reset {
+  list-style: none;
+  background: none;
+  text-decoration: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin limit-lines($amount) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $amount;
+  line-clamp: $amount;
+  -webkit-box-orient: vertical;
+}
+
+@mixin clip-path($position: "left", $amount: 25%) {
+  @if $position == "left" {
+    clip-path: polygon(#{$amount} 0, 100% 0, 100% 100%, 0% 100%);
+  } @else {
+    clip-path: polygon(0 0, 100% 0, calc(100% - #{$amount}) 100%, 0% 100%);
+  }
+}
+
+@mixin arrow-shape($color, $position: center center, $svg: $arrow-svg-shape) {
+  background-image: url("data:image/svg+xml, #{svg-replace( $svg, $color )}");
+  background-position: $position;
+  background-repeat: no-repeat;
+  background-size: 18px;
+}
+
+@mixin full-grid-with-column-gap {
+  width: 100%;
+  margin: 0 auto;
+  max-width: $widescreen;
+  column-gap: $gutter-mobile;
+
+  display: grid;
+  grid-template-columns: [side-start] calc(
+      $section-outer-padding--mobile - $gutter-mobile
+    ) [main-start] repeat(6, 1fr) [main-end] calc(
+      $section-outer-padding--mobile - $gutter-mobile
+    ) [side-end];
+
+  @include tablet {
+    column-gap: $gutter;
+    grid-template-columns: get-fullgrid-column-width(
+      $colums-total: $container-max-width--tablet,
+      $column-gap: $gutter
+    );
+  }
+
+  @include tablet-landscape {
+    grid-template-columns: get-fullgrid-column-width(
+      $colums-total: $container-max-width--tablet-landscape,
+      $column-gap: $gutter
+    );
+  }
+
+  @include widescreen {
+    grid-template-columns: get-fullgrid-column-width(
+      $colums-total: $container-max-width--widescreen,
+      $column-gap: $gutter
+    );
+  }
+
+  &--is-nested {
+    @include tablet-landscape {
+      grid-template-columns: [side-start] 0 [main-start] repeat(12, 1fr) [main-end] 0 [side-end];
+      column-gap: 0;
+    }
+  }
+}
+
+@mixin nested-grid {
+  @include tablet-landscape {
+    &--col-4 {
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: $gutter;
+    }
+
+    &--col-6 {
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: $gutter;
+    }
+
+    &--col-8 {
+      grid-template-columns: repeat(8, 1fr);
+      column-gap: $gutter;
+    }
+  }
+}
+
+@mixin dev-mode {
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.1) calc(100% - #{$gutter}),
+    transparent calc(100% - #{$gutter})
+  );
+  background-size: calc(100% / 6 + ($gutter / 5));
+
+  @include tablet {
+    background-size: calc(100% / 12 + ($gutter / 11));
+  }
+}
+
+@mixin section {
+  width: 100%;
+  max-width: $widescreen;
+
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-left: $section-outer-padding--mobile;
+  padding-right: $section-outer-padding--mobile;
+
+  @include tablet-landscape {
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+
+  &--has-no-padding-horizontal {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
+
+  &--has-spacing-small {
+    margin-top: 48px;
+    margin-bottom: 48px;
+  }
+
+  &--has-spacing-medium {
+    margin-top: 80px;
+    margin-bottom: 80px;
+
+    @include tablet {
+      margin-bottom: 70px;
+      margin-top: 70px;
+    }
+  }
+
+  &--has-padding-vertical {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  &--is-nested {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+
+  &--has-no-spacing {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &--has-padding-vertical-small {
+    padding-top: 32px;
+    padding-bottom: 32px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  &--has-padding-horizontal-Mobile {
+    @include until-tablet-landscape {
+      padding-left: $section-outer-padding--mobile;
+      padding-right: $section-outer-padding--mobile;
+    }
+  }
+
+  &--has-decoration-top {
+    padding-top: 10px;
+    clip-path: polygon(
+      0 0,
+      calc(100% - 20px) 0%,
+      calc(100% - 36px) 50px,
+      100% 50px,
+      100% 100%,
+      0 100%
+    );
+
+    @include tablet {
+      padding-top: 40px;
+      clip-path: polygon(
+        0 0,
+        60% 0%,
+        calc(60% - 16px) 32px,
+        100% 32px,
+        100% 100%,
+        0 100%
+      );
+    }
+
+    @include tablet-landscape {
+      padding-top: 60px;
+      clip-path: polygon(
+        0 0,
+        60% 0%,
+        calc(60% - 16px) 52px,
+        100% 52px,
+        100% 100%,
+        0 100%
+      );
+    }
+
+    @include widescreen {
+      padding-top: 80px;
+      clip-path: polygon(
+        0 0,
+        40% 0%,
+        calc(40% - 16px) 72px,
+        100% 72px,
+        100% 100%,
+        0 100%
+      );
+    }
+  }
+
+  &--has-padding-vertical#{&}--has-decoration-top {
+    padding-top: 30px;
+
+    @include tablet {
+      padding-top: 60px;
+    }
+
+    @include tablet-landscape {
+      padding-top: 80px;
+    }
+
+    @include widescreen {
+      padding-top: 100px;
+    }
+  }
+
+  &--is-first-nested-block {
+    @include tablet-landscape {
+      margin-top: 0;
+    }
+  }
+}
+
+@mixin container {
+  margin: 0 auto;
+
+  @include tablet {
+    max-width: $container-max-width--tablet;
+  }
+
+  @include tablet-landscape {
+    max-width: $container-max-width--tablet-landscape;
+  }
+
+  @include widescreen {
+    max-width: $container-max-width--widescreen;
+  }
+
+  &--show-grid {
+    @include dev-mode;
+  }
+}
+
+@mixin standard-grid($columnGap: $gutter) {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: $columnGap;
+
+  @include tablet {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+@mixin basic-reset {
+  list-style: none !important;
+  background: none !important;
+  text-decoration: none !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+@mixin shape-cursive-before($shape, $color) {
+  &:before {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    content: "";
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml, #{svg-replace($shape, $color)}");
+    aspect-ratio: 110 / 545;
+    height: 100%;
+    z-index: 1;
+  }
+}
+
+@mixin shape-cursive-after($shape, $color: #fff) {
+  &:after {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    background-size: cover;
+    background-image: url("data:image/svg+xml, #{svg-replace($shape, $color)}");
+    aspect-ratio: 110 / 546;
+    background-repeat: no-repeat;
+    height: 100%;
+    z-index: 1;
+  }
+}
+
+@mixin shape-cursive-before-mask($shape, $color) {
+  &:before {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    content: "";
+    mask-size: cover;
+    mask-repeat: no-repeat;
+    mask-image: url("data:image/svg+xml, #{svg-replace($shape, #fff)}");
+    aspect-ratio: 110 / 546;
+    height: 100%;
+    background: $color;
+    z-index: 1;
+  }
+}
+
+@mixin shape-cursive-after-mask($shape, $color) {
+  &:after {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    mask-size: cover;
+    mask-image: url("data:image/svg+xml, #{svg-replace($shape, #fff)}");
+    aspect-ratio: 110 / 546;
+    mask-repeat: no-repeat;
+    height: 100%;
+    background: $color;
+    z-index: 1;
+  }
+}
+
+@mixin custom-scroll-bar {
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 18px;
+        background-color: rgba($color: $black, $alpha: 0.2);
+    }
+
+    &::-webkit-scrollbar-thumb {
+        height: 6px;
+        border: 4px solid rgba($color: $black, $alpha: 0);;
+        background-clip: padding-box;
+        border-radius: 7px;
+        background-color:rgba($color: $white, $alpha: 0.4);
+       
+    }
+
+    &::-webkit-scrollbar-button {
+        width: 0;
+        height: 0;
+        display: none;
+    }
+
+    &::-webkit-scrollbar-corner {
+        background-color: transparent;
+    }
+}

@@ -1,0 +1,173 @@
+data:
+  availability: always
+  availabilityFrom: null
+  availabilitySubmissions: null
+  availabilityTo: null
+  dataRetention: forever
+  dataRetentionValue: ''
+  fileUploadsAction: retain
+  pages:
+    -
+      id: new1433145758
+      label: 'Page 1'
+      rows:
+        -
+          fields:
+            -
+              brandNewField: false
+              columnWidth: 12
+              handle: hiddenSport
+              hasLabel: true
+              id: new1413154319
+              label: _hiddenSport
+              settings:
+                columnType: ''
+                defaultOption: custom
+                handle: hiddenSport
+                includeInEmail: true
+                instructionsPosition: ''
+                label: _hiddenSport
+                labelPosition: verbb\formie\positions\Hidden
+                limitType: characters
+              type: verbb\formie\fields\formfields\Hidden
+              vid: new7777-8277
+          id: new5348-4654
+        -
+          fields:
+            -
+              brandNewField: false
+              columnWidth: 12
+              handle: stelHierJouwVraag
+              hasLabel: false
+              id: new1562695358
+              isNested: false
+              label: 'Stel hier jouw vraag'
+              settings:
+                conditions: '{"showRule":"show","conditionRule":"all","conditions":[]}'
+                handle: stelHierJouwVraag
+                headingSize: h2
+                instructionsPosition: ''
+                label: 'Stel hier jouw vraag'
+                labelPosition: ''
+                limitType: characters
+              type: verbb\formie\fields\formfields\Heading
+              vid: new7937-6148
+          id: new420-5165
+        -
+          fields:
+            -
+              brandNewField: false
+              columnWidth: 12
+              handle: naam
+              hasLabel: true
+              id: new650554875
+              isNested: false
+              label: Naam
+              settings:
+                conditions: '{"showRule":"show","conditionRule":"all","conditions":[]}'
+                firstNameCollapsed: true
+                firstNameDefaultValue: ''
+                firstNameEnabled: true
+                firstNameLabel: Voornaam
+                firstNamePlaceholder: Voornaam
+                firstNamePrePopulate: ''
+                handle: naam
+                instructionsPosition: verbb\formie\positions\FieldsetStart
+                label: Naam
+                labelPosition: ''
+                lastNameCollapsed: true
+                lastNameDefaultValue: ''
+                lastNameEnabled: true
+                lastNameLabel: Achternaam
+                lastNamePlaceholder: Achternaam
+                lastNamePrePopulate: ''
+                limitType: characters
+                middleNameCollapsed: true
+                middleNameDefaultValue: ''
+                middleNameEnabled: false
+                middleNameLabel: 'Middle Name'
+                middleNamePrePopulate: ''
+                prefixCollapsed: true
+                prefixDefaultValue: ''
+                prefixEnabled: false
+                prefixLabel: Prefix
+                prefixPrePopulate: ''
+                subfieldLabelPosition: ''
+                useMultipleFields: true
+                visibility: ''
+              type: verbb\formie\fields\formfields\Name
+              vid: new3109-3163
+          id: new9191-13
+      settings:
+        backButtonLabel: Back
+        buttonsPosition: left
+        jsGtmEventOptions:
+          -
+            label: event
+            value: formPageSubmission
+          -
+            label: formId
+            value: sportTemplateForm
+          -
+            label: pageId
+            value: new1433145758
+          -
+            label: pageIndex
+            value: 0
+        label: 'Page 1'
+        nextButtonConditions: '{"showRule":"show","conditionRule":"all","conditions":[]}'
+        showBackButton: false
+        submitButtonLabel: Verstuur
+      sortOrder: 0
+  requireUser: false
+  settings:
+    availabilityMessage: null
+    availabilityMessageDate: null
+    availabilityMessageSubmissions: null
+    collectIp: ''
+    collectUser: ''
+    dataRetention: null
+    dataRetentionValue: null
+    defaultEmailTemplateId: ''
+    defaultInstructionsPosition: verbb\formie\positions\AboveInput
+    defaultLabelPosition: verbb\formie\positions\AboveInput
+    disableCaptchas: false
+    displayCurrentPageTitle: ''
+    displayFormTitle: ''
+    displayPageProgress: ''
+    displayPageTabs: ''
+    errorMessage: '[{"type":"paragraph","content":[{"type":"text","text":"Couldn’t save submission due to errors."}]}]'
+    errorMessagePosition: top-form
+    fileUploadsAction: null
+    integrations:
+      mailchimp:
+        appendTags: ''
+        enabled: ''
+        fieldMapping: ''
+        listId: ''
+        optInField: ''
+        useDoubleOptIn: ''
+    loadingIndicator: ''
+    loadingIndicatorText: ''
+    progressPosition: end
+    redirectUrl: null
+    scrollToTop: '1'
+    storeData: null
+    submissionTitleFormat: '{timestamp}'
+    submitAction: message
+    submitActionFormHide: ''
+    submitActionMessage: '[{"type":"paragraph","content":[{"type":"text","text":"Submission saved."}]}]'
+    submitActionMessagePosition: top-form
+    submitActionMessageTimeout: ''
+    submitActionTab: null
+    submitActionUrl: ''
+    submitMethod: page-reload
+    userDeletedAction: null
+    validationOnFocus: ''
+    validationOnSubmit: '1'
+  userDeletedAction: retain
+defaultStatus: 804a4a61-c974-44a3-8f0b-ea3bf899f987 # New
+handle: sportForm
+name: 'Sport Form'
+submitActionEntry: null
+template: null

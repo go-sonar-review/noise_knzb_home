@@ -1,0 +1,12 @@
+{% set attributes = {
+    class: [
+        'c-tags',
+        secondary|default(false) ? 'c-tags--secondary'
+    ]
+} %}
+
+<ul {{ attr(attributes) }}>
+  {% for tag in tags|default([]) %}
+    <li class="c-tags__item">{{ tag }}</li>
+  {% endfor %}
+</ul>

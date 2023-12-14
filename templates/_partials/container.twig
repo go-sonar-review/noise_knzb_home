@@ -1,0 +1,10 @@
+{% set attributes = {
+    class: [
+        'l-container',
+        isSmallWidescreen|default(false) ? 'l-container--is-small-widescreen'
+    ]
+} %}
+
+<div {{ attr(attributes) }}>
+    {% block content %}{% endblock %}
+</div>

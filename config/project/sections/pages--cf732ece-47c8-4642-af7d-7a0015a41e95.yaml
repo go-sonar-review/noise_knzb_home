@@ -1,0 +1,27 @@
+defaultPlacement: beginning
+enableVersioning: true
+handle: pages
+name: 'Pagina''s'
+previewTargets:
+  -
+    __assoc__:
+      -
+        - label
+        - 'Primary entry page'
+      -
+        - urlFormat
+        - '{url}'
+      -
+        - refresh
+        - '1'
+propagationMethod: all
+siteSettings:
+  c3dd2df9-188d-4590-ac87-62318e5eb486: # KNZB
+    enabledByDefault: true
+    hasUrls: true
+    template: site
+    uriFormat: '{parent.uri}/{slug}'
+structure:
+  maxLevels: 4
+  uid: db637382-d8ac-4a62-92a3-4112aabaaf3b
+type: structure

@@ -1,0 +1,63 @@
+{% if blocks|default(false) == false %}
+  {# Eager loading - Entry fields #}
+  {% do craft.app.elements.eagerLoadElements(
+    className(entry),
+    [entry],
+    [
+    'blocks',
+
+    'blocks.imageBlock:imageDesktop',
+    'blocks.imageBlock:imageMobile',
+
+    'blocks.agendaBlock:categories',
+    'blocks.agendaBlock:imageDesktop',
+    'blocks.agendaBlock:imageMobile',
+    'blocks.agendaBlock:ctas',
+    'blocks.agendaBlock:entries',
+    'blocks.agendaBlock:featured',
+
+    'blocks.categoriesBlock:categories',
+    'blocks.categoriesBlock:categories.featuredImage',
+
+    'blocks.contentCards:cards',
+    'blocks.contentCards:cards.blockEntry',
+
+    'blocks.ctaBlock',
+
+    'blocks.ctaList:ctas',
+
+    'blocks.embedBlock',
+
+    'blocks.formBlock:form',
+    'blocks.formBlock:details',
+
+    'blocks.latestContentBlock:categories',
+    'blocks.latestContentBlock:entries',
+    'blocks.latestContentBlock:entries.featuredImage',
+    'blocks.latestContentBlock:entries.categories',
+
+    'blocks.partnersBlock:partners',
+    'blocks.partnersBlock:partners.logo',
+
+    'blocks.peopleBlock:entries',
+    'blocks.peopleBlock:entries.featuredImage',
+
+    'blocks.quoteBlock',
+
+    'blocks.textBlock:ctas',
+
+    'blocks.textImageBlock:ctas',
+    'blocks.textImageBlock:imageDesktop',
+    'blocks.textImageBlock:imageMobile',
+
+    'blocks.featuredContentBlock:entries',
+    'blocks.featuredContentBlock:entries.cardImage',
+    'blocks.featuredContentBlock:entries.featuredImage',
+
+    'blocks.faqBlock:entries'
+    ]
+  ) %}
+  {% set blocks = entry.blocks %}
+{% endif %}
+
+{% include "fields/common/blocksInclude"  with { blocks } %}

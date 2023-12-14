@@ -1,0 +1,19 @@
+columnSuffix: eotavhch
+contentColumnType: string(1020)
+fieldGroup: 62bdff2d-64e6-4b21-8d1a-e63f9b794dc5 # Common
+handle: cardSummary
+instructions: ''
+name: 'Kaart omschrijving'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: 255
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

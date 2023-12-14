@@ -1,0 +1,63 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass functions.
+// -----------------------------------------------------------------------------
+
+/// Native `url(..)` function wrapper
+/// @param {String} $base - base URL for the asset
+/// @param {String} $type - asset type folder (e.g. `fonts/`)
+/// @param {String} $path - asset path
+/// @return {Url}
+/// 
+@function asset($base, $type, $path) {
+  @return url($base + $type + $path);
+}
+
+/// Returns URL to an image based on its path
+/// @param {String} $path - image path
+/// @param {String} $base [$base-url] - base URL
+/// @return {Url}
+/// @require $base-url
+@function image($path, $base: $base-url) {
+  @return asset($base, 'images/', $path);
+}
+
+/// Returns URL to a font based on its path
+/// @param {String} $path - font path
+/// @param {String} $base [$base-url] - base URL
+/// @return {Url}
+/// @require $base-url
+@function font($path, $base: $base-url) {
+  @return asset($base, 'fonts/', $path);
+}
+
+/// Replace `$search` with `$replace` in `$string`
+/// @author Kitty Giraudel
+/// @param {String} $string - Initial string
+/// @param {String} $search - Substring to replace
+/// @param {String} $replace ('') - New value
+/// @return {String} - Updated string
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+
+@function svg-replace($svg, $color) {
+  $svg: str-replace($svg, 'fill=""', 'fill="#{$color}"');
+  $svg: str-replace($svg, 'stroke=""', 'stroke="#{$color}"');
+  $svg: str-replace($svg, "#", "%23");
+  @return $svg;
+}
+
+/// Returns size in unit EM based on $font-size-base
+@function calcEm($size, $base: $font-size-base) {
+  @return calc($size / $base) * 1em;
+}
+
+@function get-fullgrid-column-width($colums-total: $column-width, $column-gap: 0px) {
+  $gap-total: $column-gap * 11;
+  @return [side-start] 1fr [main-start] repeat(12, calc(($colums-total - $gap-total) / 12)) [main-end] 1fr [side-end];
+}

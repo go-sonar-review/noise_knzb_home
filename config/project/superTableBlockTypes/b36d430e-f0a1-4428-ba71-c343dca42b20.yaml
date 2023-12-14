@@ -1,0 +1,93 @@
+field: 48001980-a6c8-413f-97e4-9f6d4c04f8ee # Zoek Hero
+fieldLayouts:
+  bd785eb1-0ce0-4ddc-97f9-d19144b5641a:
+    tabs:
+      -
+        elements:
+          -
+            fieldUid: 1103e60f-d29f-47a0-b958-3e181523d9f7 # Titel
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 9b155a2e-1efa-48e3-928e-2e36a3ee5d0e # Search Placeholder
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+          -
+            fieldUid: 42d85a90-137c-4dff-8730-9e7111d30b48 # CTA's
+            instructions: null
+            label: null
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            warning: null
+            width: 100
+        name: Content
+        sortOrder: 1
+fields:
+  9b155a2e-1efa-48e3-928e-2e36a3ee5d0e: # Search Placeholder
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: searchPlaceholder
+    instructions: ''
+    name: 'Search Placeholder'
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: Zoeken
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText
+  42d85a90-137c-4dff-8730-9e7111d30b48: # CTA's
+    columnSuffix: null
+    contentColumnType: string
+    fieldGroup: null
+    handle: ctas
+    instructions: ''
+    name: 'CTA''s'
+    searchable: false
+    settings:
+      contentTable: '{{%matrixcontent_ctas}}'
+      maxBlocks: '2'
+      minBlocks: '0'
+      propagationKeyFormat: null
+      propagationMethod: all
+    translationKeyFormat: null
+    translationMethod: site
+    type: craft\fields\Matrix
+  1103e60f-d29f-47a0-b958-3e181523d9f7: # Titel
+    columnSuffix: null
+    contentColumnType: text
+    fieldGroup: null
+    handle: blockTitle
+    instructions: ''
+    name: Titel
+    searchable: false
+    settings:
+      byteLimit: null
+      charLimit: null
+      code: ''
+      columnType: null
+      initialRows: '4'
+      multiline: ''
+      placeholder: null
+      uiMode: normal
+    translationKeyFormat: null
+    translationMethod: none
+    type: craft\fields\PlainText

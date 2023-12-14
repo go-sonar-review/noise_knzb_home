@@ -1,0 +1,46 @@
+ {% if authors|default() %}
+
+  {% if asList|default(false) %}
+    <ul class="authors__list">
+  {% endif %}
+    
+  {% for author in authors.all() %}
+
+    {% if asList|default(false) %}
+      <li class="authors__item">
+    {% else %}
+      <div class="authors__item">
+    {% endif %}
+
+      {% if  author.featuredImage[0].url|default() %}
+        {% set imageProperties = {
+          image:  author.featuredImage[0],
+          class: "authors__image",
+          sizes: '20px',
+          srcset: ['200w'],
+          height: 20,
+          width: 20,
+          quality: 90,
+        } %}
+        {% include '_partials/image.twig' with { 
+          properties: imageProperties
+        } %}
+      {% else %}
+        <span class="authors__image authors__image--fallback"></span>
+      {% endif %}
+
+      <p class="authors__name">{{ author.title }}</p>
+
+    {% if asList|default(false) %}
+      </li>
+    {% else %}
+      </div>
+    {% endif %}
+
+  {% endfor %}
+
+  {% if asList|default(false) %}
+    </ul>
+  {% endif %}
+  
+{% endif %}

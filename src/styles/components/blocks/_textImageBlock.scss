@@ -1,0 +1,126 @@
+.c-text-image-block {
+  @include full-grid-with-column-gap;
+
+  row-gap: 32px;
+  grid-auto-flow: dense;
+
+  &--is-orange {
+    color: $white;
+    background: $gradient-orange;
+  }
+
+  &--is-gray {
+    background-color: $catskill-white;
+  }
+
+  &__visual {
+    position: relative;
+    grid-column: side-start/ main-end;
+    display: flex;
+    align-items: center;
+
+    @include shape-cursive-after($svg-shape-cursive-right, $white);
+
+    &::after {
+      right: -1px;
+    }
+
+    @include tablet-landscape {
+      grid-column: side-start / span 6;
+    }
+
+    @include widescreen {
+      grid-column: side-start / span 7;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-column: main-start/ main-end;
+
+    @include tablet-landscape {
+      grid-column: span 7 / main-end;
+      max-width: 500px;
+    }
+
+    @include widescreen {
+      grid-column: span 6 / main-end;
+    }
+  }
+
+  &__title{
+    width: 100%;
+    @include desktop {
+      max-width: 90%;
+    }
+  }
+
+  // Layout
+  &--image-left &__visual,
+  &--image-right &__visual {
+    &::after {
+      display: none;
+    }
+  }
+  
+  &--image-right &__visual {
+    grid-column: main-start/ side-end;
+
+    &::before {
+      top: -1px;
+      height: calc(100% + 1px);
+      left: 0;
+    }
+
+    @include tablet-landscape {
+      grid-column: span 6 / side-end;
+    }
+
+    @include widescreen {
+      grid-column: span 7 / side-end;
+    }
+  }
+
+  &--image-right &__content {
+    @include tablet-landscape {
+      grid-column: main-start / span 7;
+    }
+
+    @include widescreen {
+      grid-column: main-start / span 6;
+    }
+  }
+
+  // Clippaths
+  &--image-left#{&}--is-transparent &__visual,
+  &--image-left#{&}--is-white &__visual {
+    @include shape-cursive-after($svg-shape-cursive-right, $white);
+  }
+  
+  &--image-left#{&}--is-gray &__visual {
+    @include shape-cursive-after($svg-shape-cursive-right, $catskill-white);
+  }
+
+  &--image-left#{&}--is-orange &__visual {
+    @include tablet-landscape {
+      @include shape-cursive-after-mask($svg-shape-cursive-right, $gradient-orange);
+    }
+  }
+
+  &--image-right#{&}--is-transparent &__visual,
+  &--image-right#{&}--is-white &__visual {
+    @include shape-cursive-before($svg-shape-cursive-left, $white);
+  }
+
+  &--image-right#{&}--is-gray &__visual {
+    @include shape-cursive-before($svg-shape-cursive-left, $catskill-white);
+  }
+
+  &--image-right#{&}--is-orange &__visual {
+    @include tablet-landscape {
+      @include shape-cursive-before-mask($svg-shape-cursive-left, $gradient-orange);
+    }
+  }
+}

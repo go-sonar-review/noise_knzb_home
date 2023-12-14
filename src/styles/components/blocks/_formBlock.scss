@@ -1,0 +1,68 @@
+.c-form-block {
+  @include standard-grid;
+  
+  row-gap: $gutter;
+
+  &__main {
+    grid-column: span 6;
+
+    @include tablet {
+      grid-column: span 12;
+    }
+
+    @include tablet-landscape {
+        grid-column: span 8;
+    }
+
+    @include widescreen {
+        grid-column: 2 / span 7;
+    }
+
+    &--alone {
+
+        @include tablet-landscape {
+            grid-column: 2 / span 10;
+        }
+    
+        @include widescreen {
+            grid-column: 3 / span 8;
+        }
+    }
+  }
+
+  &__aside {
+    grid-column: span 6;
+
+    @include tablet {
+      grid-column: span 12;
+    }
+
+    @include tablet-landscape {
+        grid-column: span 4;
+    }
+
+    @include widescreen {
+        grid-column: span 3;
+    }
+  }
+}
+
+.l-article-layout--with-aside .c-form-block {
+  &__main {
+    grid-column: span 12;
+  }
+
+  &__aside {
+    grid-column: span 12;
+  }
+
+  @include desktop {
+    &__main {
+      grid-column: span 6;
+    }
+    
+    &__aside {
+      grid-column: span 6;
+    }
+  }
+}

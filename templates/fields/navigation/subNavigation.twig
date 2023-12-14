@@ -1,0 +1,42 @@
+{# Eager loading - Navigation #}
+{% set mainNavigation = craft.entries({
+  section: 'navigation',
+  id: 60,
+  with: [
+      'navigation',
+      'navigation.submenu',
+      'navigation.submenu.menu:menuLinks'
+  ]
+}).one() %}
+{% set sportNavigation = craft.entries({
+  section: 'navigation',
+  id: 477,
+  with: [
+      'navigation',
+      'navigation.submenu',
+      'navigation.submenu.menu:menuLinks'
+  ]
+}).one() %}
+
+{% if mainNavigation|default() and sportNavigation|default() and craft.app.request.getSegment(1)|default() %}
+  {% set parentNavElement = (mainNavigation.navigation|merge( sportNavigation.navigation ))|filter( i => '/'~ craft.app.request.getSegment(1) in i.linkUrl.url ) %}
+  {% set childNavElements = parentNavElement|map(e => e.submenu[0]|default() )|first %}
+
+  {% if childNavElements|default() and childNavElements.menuLinks|filter( e=> e.menuLink.url|default())|length %}
+    <sub-navigation 
+      :menu-name="'{{ sportNavigation.title|default('menu') }}'"
+      site-url="{{ siteUrl }}"
+      mode="sticky">
+      <template #list-items>
+        {% for cta in childNavElements.menuLinks|filter( e=> e.menuLink.url|default()) %}
+          <li class="c-sub-navigation__item" :key="{{ cta.id }}" :data-index="{{ loop.index }}">
+            <a class="c-sub-navigation__link" href="{{cta.menuLink.url}}">
+              <span> {{cta.menuLink.text}} </span>
+              <img class="c-sub-navigation__icon" src="{{siteUrl}}assets/icons/chevron-double-right.svg" alt="" />
+            </a>
+          </li>
+        {% endfor %}
+      </template>
+    </sub-navigation>
+  {% endif %}
+{% endif %}

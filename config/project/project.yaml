@@ -1,0 +1,561 @@
+dateModified: 1684307608
+email:
+  fromEmail: $EMAIL_SENDER_ADDRESS
+  fromName: $EMAIL_SENDER_NAME
+  replyToEmail: $EMAIL_REPLY_TO_ADDRESS
+  template: ''
+  transportSettings:
+    encryptionMethod: $SMTP_ENCRYPTION_METHOD
+    host: $SMTP_HOST
+    password: $SMTP_PASSWORD
+    port: $SMTP_PORT
+    timeout: '25'
+    useAuthentication: '1'
+    username: $SMTP_USERNAME
+  transportType: craft\mail\transportadapters\Smtp
+meta:
+  __names__:
+    0a96e39a-0860-4435-91f4-94d0abf24282: 'Afbeelding Desktop' # Afbeelding Desktop
+    0c007389-6f8c-4878-b059-9e012e1dae0e: 'Modal Window' # Modal Window
+    0c6de825-8746-4ed2-91ac-2dde23b7f310: 'Fallback Afbeelding' # Fallback Afbeelding
+    0f8a00f3-f923-4e36-9471-a6604e964f51: Formulier # Formulier
+    0ff30834-7192-492f-90f2-a8401510d82f: Titel # Titel
+    1a0a0609-e360-4e6c-8798-34ec1472d8e9: Titel # Titel
+    1a0ff948-5a11-400c-969f-7566631fc19d: 'Afbeelding Desktop' # Afbeelding Desktop
+    1ae2e7b0-3e47-48e6-8ec4-9b3b7ea423de: 'Afbeelding Mobiel' # Afbeelding Mobiel
+    01b1ce08-e34c-4f5e-8645-4f74f4715a73: 'Hero Content' # Hero Content
+    1bf4b387-f78b-4efc-84b4-e409f6423c65: Indeling # Indeling
+    1c5c2ec1-88e1-4a5a-87f7-3540acdb1cb5: CTA # CTA
+    1c44b6a2-3e9f-46b1-abbb-5fce729d0ab5: Locatie # Locatie
+    1c932ef8-cdfa-434b-a8fb-fe3404c1e4ef: Achtergrondkleur # Achtergrondkleur
+    1da4095b-2b8f-4bcc-8e25-f0bd66b6bc89: Afdeling # Afdeling
+    1da91282-7792-495b-838b-80f1af6f9025: Quote # Quote
+    1e05ab99-5320-4492-b9b5-7df4b11fdc00: Vraag # Vraag
+    1e64fc10-5ecc-411c-b836-874f7fa83c8b: Titel # Titel
+    1ff4ab7b-37c2-403b-b7d8-2e0563ef1a41: CTA # CTA
+    2ab79f8e-9122-47ec-b6f9-4d096c939b10: Meta # Meta
+    2b6ca9ec-bdcc-4dd2-810a-3937aecebe43: Nieuws # Nieuws
+    2c115245-8595-4706-89c6-0c8174c97225: Achtergrondkleur # Achtergrondkleur
+    3a269b36-ccb2-495e-ba93-8d33d06cec1b: 'CTA''S' # CTA'S
+    03b554b0-b40d-48a1-955f-402eed55793b: CTA # CTA
+    3c94ebe8-b8a5-46b4-b88f-90ca312c8c55: 'Sport Form' # Sport Form
+    3d69003b-fdd0-4015-9b9a-5d6f15708d64: 'Menu Titel' # Menu Titel
+    3e792dce-484d-4735-978e-aa9ff0f97168: CTA # CTA
+    3f858981-1dbb-4049-9ab4-d4fd28585e68: Achtergrondkleur # Achtergrondkleur
+    4a2d309f-6e0d-4b8f-a99d-79b3df6eca81: Showcase # Showcase
+    4e17186a-5f1b-489e-a53b-336f37353ce5: Achtergrondkleur # Achtergrondkleur
+    5a2a424f-f905-45cf-86d9-519f3425fb85: Titel # Titel
+    5dd2cb57-f5e8-4c7f-a1b3-2bb67a3583d4: 'CTA''s' # CTA's
+    5e9762d2-1a80-4737-b531-123ed61b6462: 'Afbeelding mobiel' # Afbeelding mobiel
+    5edc4b85-b143-4f76-b60d-3c0c0605587e: 'Footer Tekst' # Footer Tekst
+    6a97301e-c65c-412b-80f0-1021ac5db6c3: Samenvatting # Samenvatting
+    6b63e66f-2615-433f-8484-b74a7d59f665: 'Afbeelding Mobiel' # Afbeelding Mobiel
+    6ba240ec-66ea-467a-a5a9-5182f1600af4: Title # Title
+    6bdb6206-bf46-424b-8084-4776e7cfcb6a: Formulier # Formulier
+    6be0d39b-24a8-41c8-8f32-58802e7edbf9: Navigatie # Navigatie
+    6cbd9dbc-3b65-44f3-8c98-eb9a3b24859c: Titel # Titel
+    6d6aaf44-ff1a-43a3-9d18-3a20e3a25666: 'Tekst knop' # Tekst knop
+    6f837c82-27e6-4176-b099-bc77f8ebe649: Categorieën # Categorieën
+    7ac2b5a4-2956-4914-aaab-6daff9ab9512: Schrijver # Schrijver
+    7b20cf41-4106-4765-96ff-669de1b5892d: 'Laatste content' # Laatste content
+    7cb02100-dee1-4afd-b7e5-c2e3d2c234b7: Link # Link
+    7cfbabd5-efce-4559-90df-e7230af3b008: 'CTA''s' # CTA's
+    7d5c0470-3ff6-41c9-8226-9d80fc761bcc: Einddatum # Einddatum
+    7dbcf101-5d5d-4016-865a-51bad730e4d9: Achtergrondkleur # Achtergrondkleur
+    8d236710-08cf-4ee1-9ef8-58a74904e5a0: CTA # CTA
+    8e646155-a601-475a-8d52-a0f2d616e444: 'Eerste gedeelte titel' # Eerste gedeelte titel
+    8f5931f8-a4a3-489e-be70-6048f27076fb: Titel # Titel
+    8fd389a6-3f09-468e-8cb1-e1c179fd685c: 'Afbeelding Desktop' # Afbeelding Desktop
+    9a04240d-87c9-4141-ad5d-05cb5f47cf61: Personen # Personen
+    9b4f68b7-8879-4708-b11d-434258df20c4: Achtergrondkleur # Achtergrondkleur
+    9b155a2e-1efa-48e3-928e-2e36a3ee5d0e: 'Search Placeholder' # Search Placeholder
+    09b89905-ed73-4faf-9c33-b6c461c6310f: 'CTA''s' # CTA's
+    9c25e7d0-5ebb-4a09-bc55-832914680cbb: Personen # Personen
+    9e06c017-f04d-4615-b6d9-44512bdb1ce9: Achtergrondkleur # Achtergrondkleur
+    9e4ceccd-5706-4f20-af07-f4c7e890dc76: 'Tekst en afbeelding' # Tekst en afbeelding
+    11ebb5ce-5fd7-4955-b130-465ef58e2fd3: Partners # Partners
+    16c254d7-8b10-4f25-a01f-c78459d1a73c: Detailpagina # Detailpagina
+    22c9b66e-8ed9-4067-9fb9-e02a1f250d7f: 'Footer content' # Footer content
+    30cf907c-02db-47e7-9a14-5fe8ad8f962b: Kennisartikel # Kennisartikel
+    33d3a039-a425-4afc-803c-f4014319cb81: Agenda # Agenda
+    33d15d8e-f0aa-483d-9541-dc15e2a2138d: Inhoud # Inhoud
+    37a35a06-f058-4066-8a50-7139dd157441: Telefoonnummer # Telefoonnummer
+    38c7dc72-bf43-4793-9e53-5b74163cbbf5: Blogs # Blogs
+    38e230dd-26f6-4263-b7a9-a0b559a90e6a: SEO # SEO
+    039f9f12-662c-4c07-a9c9-64c9b3b127a6: Homepage # Homepage
+    42d85a90-137c-4dff-8730-9e7111d30b48: 'CTA''s' # CTA's
+    43e117ef-3189-44f3-89d1-49d3fc2726c3: 'Footer Content' # Footer Content
+    44ad9dad-1806-469c-a491-6505d430fe10: Vacatures # Vacatures
+    47aa44f4-b258-43f0-92f9-08513110dafe: Titel # Titel
+    49bb77e6-f292-48ad-b2b8-7c2a5a4ceb7b: Uitgelicht # Uitgelicht
+    50d23bb7-47e7-4d1c-a3f0-fa89e155e14e: 'Overzicht settings' # Overzicht settings
+    56d49d21-c801-43b8-ba7d-19437577c631: 'Extra info' # Extra info
+    57d2d210-c613-4648-a626-5d5235c40234: Inhoud # Inhoud
+    57efe9f4-3a50-41c7-9860-26ca3e376bc7: 'Afbeelding desktop' # Afbeelding desktop
+    61cadaba-7363-436a-8314-9fc5a7e6e4f2: Omschrijving # Omschrijving
+    62bdff2d-64e6-4b21-8d1a-e63f9b794dc5: Common # Common
+    63adc4f1-2c85-4b08-8f0f-13a308345402: Details # Details
+    64a1d31f-4a84-4e23-8080-c9c0158f0b45: 'Content rijen' # Content rijen
+    67f52e00-c9f8-4fa7-bcc6-2ff6635b0338: Inhoud # Inhoud
+    71c88ecc-fe92-443a-bed4-e455e96a9420: Navigatie # Navigatie
+    71ea499e-bc46-4131-a228-3ef9afe4d63f: 'Hero Content' # Hero Content
+    76a53ca8-58e7-43da-b682-0d16c2be5edd: Agenda # Agenda
+    80e87baf-f80c-47d1-bbb8-adcac648ebb1: 'Toon categorie select' # Toon categorie select
+    81e41ae2-1b80-4b36-b6b8-0fa3f2aa6de6: Details # Details
+    82a722e6-22d8-4ded-8aaf-b4e83bf4746c: Defaults # Defaults
+    84b2803a-4ef9-4d0e-affb-ad203bdb4b09: Beheerder # Beheerder
+    89aafaee-869a-4a60-864b-bae48f3fa269: Globals # Globals
+    97bbb5d8-654d-430d-9cc5-c5120a738d23: Personen # Personen
+    99fd912f-77bb-4658-bd5d-80ca9e924d6b: 'Footer Logo' # Footer Logo
+    163f8077-5e22-4216-a8dc-96c62b8cc736: 'Kaart Titel' # Kaart Titel
+    164de2f6-4bc7-49ea-b902-5b259249fab9: CTA # CTA
+    0207d02e-a3d3-40a3-8600-d65eecb6f09d: CTA # CTA
+    215fdd85-250a-4ca7-b347-3c0575747d58: 'Afbeelding Desktop' # Afbeelding Desktop
+    290fd66a-3041-48c4-b792-b0d4947bdea6: 'Public Schema' # Public Schema
+    292e7481-89bf-4ce0-8257-62de89c29057: 'Hoofd partners' # Hoofd partners
+    314b11f9-10bb-4cec-b9e7-6969b2e493fa: CTA # CTA
+    318e787b-fba8-4d05-be7c-e8cd18a745a3: Titel # Titel
+    329c0d61-58cc-4ee2-812a-6ebb31e692db: Kaarten # Kaarten
+    391b4e51-cde4-49f5-93f1-b74a2c0fd723: Zoeken # Zoeken
+    393e8c81-27ff-4c42-a49c-b1cced3bda51: Achtergrondkleur # Achtergrondkleur
+    418f2d4e-2f64-4824-b432-3733a5075c6b: Vraag # Vraag
+    434eb68e-0415-4737-a134-8125d2c6ee23: 'Landing Hero' # Landing Hero
+    449a91b5-2b79-471f-8614-143aef09e53d: 'Afbeelding clippath' # Afbeelding clippath
+    496c5b7f-f1ff-43a8-ade2-04a95174b070: CTA # CTA
+    514a3ac4-a557-42dd-a0ce-93cb82d9523f: Partners # Partners
+    514a7165-45be-4fd6-bce0-2ea6c5221f64: 'Kaart Afbeelding' # Kaart Afbeelding
+    520cbb57-c5ea-454f-b55d-6dd4e583f47f: 'Kaart omschrijving' # Kaart omschrijving
+    553c5ad6-3250-4b4b-a8fa-37f35373494d: Assets # Assets
+    563df9c7-c411-4b06-b771-91dfdb480020: 'Afbeeding Mobiel' # Afbeeding Mobiel
+    602bdc3e-5843-4879-85a7-cf27071d8737: Tekst # Tekst
+    646a6b05-7106-423c-abff-59d5dd2b87bb: CTA # CTA
+    680a557c-6175-4cb6-a397-b3b42c540c50: Titel # Titel
+    726b8c07-4ffe-427e-bce5-7637f49cf99f: Pagina # Pagina
+    732c78f9-000e-402c-8d1d-9ce4994fc905: Menu # Menu
+    804a4a61-c974-44a3-8f0b-ea3bf899f987: New # New
+    807c0cb2-ce95-47ee-b858-1c0ad58c69c7: Formulier # Formulier
+    821ccd0e-42ac-4249-a456-a43a353e063d: '404 ' # 404 
+    855b5830-225b-44ee-8748-3b8bc5e30678: CTA # CTA
+    864a214d-4fd4-4add-9847-87e7042e73d7: 'Link Titel' # Link Titel
+    868b1fa4-0158-4e48-a124-686df02c83ee: Inhoud # Inhoud
+    887e0edd-e2e9-4c3a-b68f-27e02d64b45f: 'Pre titel' # Pre titel
+    905e7a60-a7d6-43fa-9953-db2e8f75b8dc: Tekst # Tekst
+    908bedc8-043e-4576-8efc-4a73f8244631: Link # Link
+    923fd252-f4a7-4b93-b0d9-983ae9260192: 'Afbeelding Desktop' # Afbeelding Desktop
+    999ea817-99f1-4bfa-a042-4a34f4a198af: CTA # CTA
+    1103e60f-d29f-47a0-b958-3e181523d9f7: Titel # Titel
+    1980f1ed-d081-49d2-b2be-c55ce0de6c51: 'Detail Hero' # Detail Hero
+    2113a2f7-8815-4024-bfa5-c62bf9d16979: Startdatum # Startdatum
+    2150a0d5-ced4-4194-a227-93fccb051f1f: Partners # Partners
+    3013c7fc-c039-411e-afba-0aaa9e6445c0: 'CTA''s' # CTA's
+    3152d61e-9eec-493d-a5f1-ee267c4338f7: 'Category Placeholder' # Category Placeholder
+    3415dad4-3019-49ac-91b1-6ed455f2b311: Modals # Modals
+    4213a9e1-27b9-474c-9f4b-590ace85a110: ID # ID
+    5356a574-503c-4e2d-9d4f-c6218c1961b4: 'Entry Type' # Entry Type
+    5458f95e-5a45-497d-99ec-0120fa14160c: Achtergrondkleur # Achtergrondkleur
+    6314f43d-62f6-4af6-a3ee-7c9be84a188a: Email # Email
+    6375dd5e-1faf-4799-b04f-e4f9e8533eca: 'CTA''s' # CTA's
+    6709ad07-d196-4f51-a7c0-b360d5dbff9f: 'Tags achtergrondkleur' # Tags achtergrondkleur
+    07654c5b-71aa-4d1b-9599-b38ec64e4d69: SEOMatic # SEOMatic
+    7907a8f8-18f9-49df-bf82-4c6913cfe8c3: Kennisartikelen # Kennisartikelen
+    9753d1d5-5cf8-423f-b211-82fcdcb343bb: Personen # Personen
+    9856a4b3-b28a-4c34-b2e9-c591d88de932: Tekst # Tekst
+    13131fa3-f657-4d39-a8a4-4533a2ff2ca3: 'Embed block' # Embed block
+    26333da4-97aa-484d-b04c-e5aaabcf7aa6: Navigatie # Navigatie
+    28639aac-a677-4fdb-a33c-d102396a207c: 'Categorieën block' # Categorieën block
+    36284fad-33be-41ff-9a5e-1cd3f68cd112: Onderwerpen # Onderwerpen
+    40456aee-5927-4493-8f20-6029fe619d35: Titel # Titel
+    41712d1b-59c1-4165-9f0f-434807ea2ed7: Titel # Titel
+    44974b66-1d26-49c8-ad9c-ce76b9944b8a: Titel # Titel
+    61527a91-9d72-4c0b-8d9f-6232afc41a62: Navigation # Navigation
+    63284e79-c995-4800-a887-532736269464: 'Uitgelichte afbeelding' # Uitgelichte afbeelding
+    63578a7e-f1fe-414f-91c1-6e01aaf35851: Zoeken # Zoeken
+    71074a1d-2d7d-4913-a418-19f6f6f94178: 'Link Url' # Link Url
+    230458d3-f450-47a1-94d8-6054cf77f56c: Vacature # Vacature
+    237291ed-1c4b-4687-9035-06b1fce038fa: 'Personen block' # Personen block
+    400973f2-4dc6-43b5-9e3e-63247617dfb8: Tekst # Tekst
+    454657e9-b27d-40c2-9a81-f580603b1fc3: Titel # Titel
+    553494af-eadb-4e9a-bb59-efaea6fdbd03: 'Carousel Hero' # Carousel Hero
+    660654a3-b897-4e1d-9cfb-16a2b170435d: Bedrijven # Bedrijven
+    674139a8-c2e3-435f-9c2d-5125383d6cf9: 'Landings pagina' # Landings pagina
+    732684ee-7a69-438e-8720-8c2affe0fb0c: 'Hero Content' # Hero Content
+    830901d7-ab4c-4d50-984d-f87a5bf654e4: Tekst # Tekst
+    918240e9-3d65-4975-8813-b0ed3fd7af43: Titel # Titel
+    2702215e-9faf-40d2-b2dd-4f32855b0855: Articulate # Articulate
+    03775924-55f8-433c-b18c-6563e4ca0aab: Titel # Titel
+    05631174-aab0-4a97-a8e6-bb9ad45da0e1: Heroes # Heroes
+    6344115d-55b3-4f08-ac70-3e8512044d56: 'CTA Lijst' # CTA Lijst
+    6444601d-97cd-4c6d-a6f7-0ba81d83544f: Categorieën # Categorieën
+    06889192-7cd1-4b50-9a08-5268968f0a51: CTA # CTA
+    8476431a-ffd9-442e-89b7-ce4d85ab416a: Bedrijf # Bedrijf
+    9257116d-773e-4e7f-b56b-5b6eb0b8c859: 'Sport Forms' # Sport Forms
+    25405789-7fb3-47de-a849-aa178e4ae089: '404 ' # 404 
+    48001980-a6c8-413f-97e4-9f6d4c04f8ee: 'Zoek Hero' # Zoek Hero
+    56788052-be8d-464b-b7a0-8def292762ed: Mailchimp # Mailchimp
+    a4fb4aa5-136a-4f61-8e9c-36a4dd99cd93: 'Afbeelding desktop' # Afbeelding desktop
+    a9e14171-d389-4b5d-9a4b-2fc1b4ef2f02: 'Menu links' # Menu links
+    a12c0f8a-0927-413f-a578-a4851994896d: 'Content types' # Content types
+    a35a64d4-ca8e-4a30-ad81-599cb85df7e0: Blog # Blog
+    a437ca26-5313-45d7-a610-71695d682fbe: Auteur # Auteur
+    a907ea8c-5d8c-45ec-b19b-847a1fe4a1ca: Type # Type
+    a492523f-7d42-417f-8b8b-ec57e3e13f34: 'Menu link' # Menu link
+    aa6b944e-f14f-4503-9049-911000bd9c58: 'Entry Type' # Entry Type
+    aeadb555-437c-4b05-b177-7643f335a8ce: 'Content kaarten' # Content kaarten
+    aeb67ba7-faa4-4f12-a8ab-57126fc2249c: Sponsoren # Sponsoren
+    aec8f3d8-d879-402b-b971-07234bd2c657: Persoonsgegevens # Persoonsgegevens
+    b3d2116e-c804-4ca6-a755-35c5f9b1b411: Onderwerp # Onderwerp
+    b4f8a94f-06ed-4e9e-af76-16830c109db5: 'Geen resultaten bericht' # Geen resultaten bericht
+    b23eaf87-5f8d-46e7-a03e-b9f82dcbbfaa: 'Afbeelding Mobiel' # Afbeelding Mobiel
+    b54a0cea-ae73-4f68-b81e-973a408c937e: Embed # Embed
+    b62f49e7-c35e-4c90-a57f-4657da37c3b8: Logo # Logo
+    b85df7c7-d924-4932-bd44-6a82433f35ea: Titel # Titel
+    b290bbb6-6217-49d5-ab8c-0a58b7a706ee: Label # Label
+    b836be00-f770-417e-8576-b87603346fdd: 'Afbeelding mobiel' # Afbeelding mobiel
+    b7963ff6-ef74-46d0-b1f6-8d30582f250e: Achtergrondkleur # Achtergrondkleur
+    b67271c9-deaf-4f52-91f6-3392469feae8: Blokken # Blokken
+    b71359eb-dbb6-4b50-9f49-32bb9cd5b757: 'Afbeelding Desktop' # Afbeelding Desktop
+    b8366860-34d1-4bc3-8024-dd48f07dce87: 'Uitgelichte onderwerpen' # Uitgelichte onderwerpen
+    bc53954b-b198-41c1-ac6b-216db9edbb50: 'CTA''s' # CTA's
+    bca9e05d-2b39-4f95-bc6d-9bead4d663d5: AchtergrondKleur # AchtergrondKleur
+    bd525484-5f1d-42cd-ac9f-c5afbcb8741e: Formulier # Formulier
+    be1a6abb-5ab6-465c-abcb-6d3af6bbc2ae: Agenda # Agenda
+    bf9a2d50-de9d-439b-be23-7f9e000b54b4: Functietitel # Functietitel
+    bf265657-3988-41be-bccc-74e969f399b4: Afbeelding # Afbeelding
+    bfed8b97-a955-4c1c-acd8-e5f90c5fd8e1: Categories # Categories
+    c3dd2df9-188d-4590-ac87-62318e5eb486: KNZB # KNZB
+    c5e9e09f-0e41-456b-84f3-b1c464a89abb: Title # Title
+    c7a73282-02b4-4b76-854d-58c24ede0f81: Vragen # Vragen
+    c8fbb0c7-68f8-4220-a141-687ac3b4f73d: CTA # CTA
+    c90b4ad7-74a7-45a2-bb20-77c2fdcd5ca8: Titel # Titel
+    c92f2df3-d95b-4964-8df7-7330a1e141e9: Inhoud # Inhoud
+    c382d5b4-7897-470a-94bd-4c9d89dc76ff: Submenu # Submenu
+    c9753bf5-a7b7-449a-9eed-8ba19f74a8c1: Titel # Titel
+    ca10c5d2-8f5c-4d18-a454-fcc8443bf285: Quote # Quote
+    cb11aced-c06b-4fce-9afc-05c10c7a9ff7: 'CTA''s' # CTA's
+    cf4cd569-d0b6-49eb-bebb-d6f789757455: Antwoord # Antwoord
+    cf732ece-47c8-4642-af7d-7a0015a41e95: 'Pagina''s' # Pagina's
+    d011f1fe-4b18-493b-99e3-269298156fa7: 'Afbeelding Desktop' # Afbeelding Desktop
+    d1aef858-713c-41bd-ac92-04b766430b9f: 'Afbeelding Mobiel' # Afbeelding Mobiel
+    d20f9928-5de2-468a-8528-9b305513f5a1: 'Afbeelding Mobile' # Afbeelding Mobile
+    d87a3d70-0e27-4f32-87d4-afea07d924d0: CTA # CTA
+    d610a180-435d-4ae4-bb13-1bf4aaac5ac9: 'Uitgelichte inhoud' # Uitgelichte inhoud
+    d752e4ee-8970-4344-bb9e-218cf10c3f3c: Titel # Titel
+    da543c0c-84e5-4c50-9fde-b286e03279ec: Homepage # Homepage
+    dab427bc-5cbd-4887-903b-6a637c52f75e: 'Aantal rijen' # Aantal rijen
+    de8ef1bd-fd9c-4c8c-8ee0-129b6a92a67e: Nieuws # Nieuws
+    df9e8c0f-8cf9-4f6c-82f3-8b65d3ccc74c: Achtergrondkleur # Achtergrondkleur
+    e1d64b03-0dbc-4cc3-aa47-92c0f078b7b0: Achtergrondkleur # Achtergrondkleur
+    e22b8b11-5a84-4611-83c9-ca9ec1cf6af0: Lijst # Lijst
+    e81c94cc-5925-4854-8f27-7952aac899e3: Titel # Titel
+    e42088b5-9a48-4aaf-892e-092dbd342e50: 'Gedetailleerde lijst' # Gedetailleerde lijst
+    e55668cb-d733-4160-a746-252aaa0f54b9: Cta # Cta
+    ea11ce40-905b-4570-b101-59668c42e656: 'Veelgestelde vragen' # Veelgestelde vragen
+    eacefce5-34e0-46d9-af59-cd17e595f7a1: 'Contact Form' # Contact Form
+    eb41ab3f-fe64-4cad-95bf-f1e9aff05415: Quotee # Quotee
+    eb46c8c4-827b-4215-9d44-180905407fb6: Hoofdsponsoren # Hoofdsponsoren
+    ecaff3c1-aa0e-4eb2-a016-444524243683: Auteur # Auteur
+    ee06cac3-c759-42e5-a620-ed3847b76f79: 'Uitgelichte inhoud' # Uitgelichte inhoud
+    efcb47e3-161b-4b91-9df9-f29dcf8f9f31: 'Tekst knop' # Tekst knop
+    f6b0b221-b218-4a90-bc85-b3d3a722a036: Partners # Partners
+    f9a53747-387c-4b17-b1b3-6167c1418b5d: Questions # Questions
+    f9aaa7cb-bed7-4b5b-b0a7-c0fa0939fae0: Showcases # Showcases
+    f9e2da13-ca3d-4fb8-a414-a38374a8c8c2: Tekst # Tekst
+    f2473f99-c071-4128-9d86-cf444775d0db: 'Afbeelding Mobiel' # Afbeelding Mobiel
+    fab7bc77-3529-4a0b-812f-a2c662234aea: Link # Link
+    fbbd55e9-2d62-4067-9c96-cce76b07a465: Hoofdpartners # Hoofdpartners
+    fbc2f61e-3ce5-4d6c-b249-388326350f6d: 'CTA Block' # CTA Block
+    fc6d457f-74be-4ed7-9006-848f12d61631: 'Overzicht settings' # Overzicht settings
+    fc21b763-cd6a-4e79-832a-ac7186407a63: Redacteur # Redacteur
+    fc62c0bc-76dd-41d5-a405-38c87cb7acae: Tekst # Tekst
+    fd485c5e-e771-4819-9279-4bc79edbf316: Titel # Titel
+    fe43ce30-c73e-431e-9ea1-df332e4d7923: 'Content types' # Content types
+plugins:
+  assetrev:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  async-queue:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  aws-s3:
+    edition: standard
+    enabled: true
+    schemaVersion: '1.2'
+  colorit:
+    edition: standard
+    enabled: true
+    licenseKey: $LICENSE_KEY_COLORIT
+    schemaVersion: 1.0.3
+    settings:
+      hasCpSectionOverride: '1'
+      pluginNameOverride: Colorit
+  cp-css:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+    settings:
+      additionalCss: ''
+      cacheBusting: true
+      cssFile: ''
+  cp-field-inspect:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  dashboard-begone:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  dumper:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  element-api:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  elements-panel:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  enforce-password:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  expanded-singles:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  formie:
+    edition: standard
+    enabled: true
+    licenseKey: $LICENSE_KEY_FORMIE
+    schemaVersion: 1.2.9
+    settings:
+      ajaxTimeout: 10
+      alertEmails: null
+      captchas:
+        __assoc__:
+          -
+            - recaptcha
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Recaptcha
+                -
+                  - enabled
+                  - true
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      -
+                        - handle
+                        - recaptcha
+                      -
+                        - secretKey
+                        - $RECAPTCHA_SECRET_KEY
+                      -
+                        - siteKey
+                        - $RECAPTCHA_SITE_KEY
+                      -
+                        - type
+                        - v3
+                      -
+                        - size
+                        - normal
+                      -
+                        - theme
+                        - light
+                      -
+                        - badge
+                        - bottomright
+                      -
+                        - language
+                        - nl
+                      -
+                        - minScore
+                        - '0.5'
+                      -
+                        - projectId
+                        - ''
+          -
+            - hcaptcha
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Hcaptcha
+                -
+                  - enabled
+                  - false
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      -
+                        - handle
+                        - hcaptcha
+                      -
+                        - secretKey
+                        - ''
+                      -
+                        - siteKey
+                        - ''
+                      -
+                        - size
+                        - normal
+                      -
+                        - theme
+                        - light
+                      -
+                        - language
+                        - en
+                      -
+                        - minScore
+                        - '0.5'
+          -
+            - duplicate
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Duplicate
+                -
+                  - enabled
+                  - false
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      -
+                        - handle
+                        - duplicate
+          -
+            - honeypot
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Honeypot
+                -
+                  - enabled
+                  - false
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      -
+                        - handle
+                        - honeypot
+          -
+            - javascript
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Javascript
+                -
+                  - enabled
+                  - false
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      -
+                        - handle
+                        - javascript
+                      -
+                        - minTime
+                        - ''
+      defaultDateDisplayType: ''
+      defaultDateTime: null
+      defaultDateValueOption: ''
+      defaultEmailTemplate: ''
+      defaultFileUploadVolume: ''
+      defaultFormTemplate: ''
+      defaultInstructionsPosition: verbb\formie\positions\AboveInput
+      defaultLabelPosition: verbb\formie\positions\AboveInput
+      defaultPage: forms
+      enableCsrfValidationForGuests: true
+      enableGatsbyCompatibility: false
+      enableLargeFieldStorage: false
+      enableUnloadWarning: true
+      maxIncompleteSubmissionAge: 30
+      maxSentNotificationsAge: 30
+      pdfPaperOrientation: portrait
+      pdfPaperSize: letter
+      pluginName: Formie
+      saveSpam: true
+      sendEmailAlerts: false
+      sentNotifications: true
+      spamBehaviour: showSuccess
+      spamBehaviourMessage: ''
+      spamEmailNotifications: false
+      spamKeywords: ''
+      spamLimit: 500
+      useQueueForIntegrations: true
+      useQueueForNotifications: true
+  linkit:
+    edition: standard
+    enabled: true
+    licenseKey: $LICENSE_KEY_LINKIT
+    schemaVersion: 1.2.0
+  oembed:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  redactor-tweaks:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  retour:
+    edition: standard
+    enabled: true
+    licenseKey: $LICENSE_KEY_RETOUR
+    schemaVersion: 3.0.11
+  route-map:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  scout:
+    edition: standard
+    enabled: true
+    schemaVersion: 0.1.0
+  sentry-sdk:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  seomatic:
+    edition: standard
+    enabled: true
+    licenseKey: $LICENSE_KEY_SEOMATIC
+    schemaVersion: 3.0.11
+  sidebar-shortcuts:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.2.1
+  two-factor-authentication:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.7.2
+  upper:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
+system:
+  edition: pro
+  live: true
+  name: KNZB
+  retryDuration: null
+  schemaVersion: 3.8.0.1
+  timeZone: Europe/Amsterdam

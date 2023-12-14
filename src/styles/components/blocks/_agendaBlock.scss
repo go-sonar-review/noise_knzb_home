@@ -1,0 +1,136 @@
+.c-agenda-block {
+  @include full-grid-with-column-gap;
+
+  row-gap: 30px;
+
+  & > * {
+    grid-column: main-start / main-end;
+  }
+
+  @include tablet-landscape {
+    grid-template-rows: 60px 1fr 60px;
+    row-gap: 0px;
+  }
+
+  &__content {
+    @include tablet-landscape {
+      position: relative;
+      background-color: $white;
+      padding-top: 40px;
+      padding-left: 40px;
+      padding-bottom: 20px;
+      padding-right: 20px;
+
+      grid-column: main-start / span 5;
+      grid-row: 1 / span 3;
+
+      z-index: 2;
+
+      @include shape-cursive-after($svg-shape-cursive-left, $white);
+
+      &::after {
+        transform: translateX(calc(100% - 1px));
+      }
+
+      &--grey {
+        background-color: $catskill-white;
+      }
+    }
+
+    @include widescreen {
+        padding-right: 50px;
+    }
+  }
+
+  &__visual {
+    position: relative;
+    height: 210px;
+    overflow: hidden;
+
+    @include shape-cursive-after($svg-shape-cursive-right, $catskill-white);
+
+    @include tablet-landscape {
+      grid-column: span 8 / -2;
+      grid-row: 2 / span 2;
+      height: 0;
+      padding-top: calc(100% / 16 * 9);
+
+      &::after {
+        display: none;
+      }
+    }
+
+    & > picture > img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__visual-details {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 14%;
+    margin-left: 16px;
+    margin-bottom: 20px;
+
+    @include tablet-landscape {
+      margin-right: 20px;
+      margin-left: 160px;
+      text-align: right;
+    }
+
+    @include widescreen {
+      margin-left: 140px;
+    }
+  }
+
+  &__link {
+    @include tablet-landscape {
+      margin-top: 12px;
+      justify-self: end;
+      grid-row: 1 / span 1;
+      grid-column: span 8 / -2;
+    }
+  }
+
+  &--white &__content {
+    @include tablet-landscape {
+        @include shape-cursive-after($svg-shape-cursive-left, $catskill-white);
+    }
+  }
+
+  &--white &__visual {
+    @include shape-cursive-after($svg-shape-cursive-right, $white);
+
+    @include tablet-landscape {
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+.l-article-layout--with-aside .c-agenda-block {
+  @include tablet-landscape {
+    &__content {
+      grid-column: main-start / main-end;
+      clip-path: none;
+    }
+
+    &__visual {
+      grid-column: main-start / main-end;
+      grid-row: auto;
+      position: relative;
+      overflow: hidden;
+
+      @include clip-path("right", 10%);
+    }
+  }
+}

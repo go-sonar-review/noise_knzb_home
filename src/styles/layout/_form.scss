@@ -1,0 +1,109 @@
+// CHECKBOX STYLING
+
+// RADIO BUTTON STYLING
+
+// SELECT DROPDOWN STYLING
+
+// TEXT INPUT STYLING
+
+// SEARCH STYLING
+
+// SUBMIT BTN STYLING
+
+.c-form {
+  .fui {
+    &-input,
+    &-select {
+      background-color: $form-input-background;
+      border: transparent;
+      border-radius: 0px;
+      line-height: 34px;
+    }
+
+    &-btn {
+      border-radius: 0;
+
+      @extend .c-link;
+      @extend .c-link--has-clip-path-right;
+      @extend .c-link__label;
+
+      border: transparent;
+      color: $white !important;
+      background-color: $link-background--primary;
+
+      @include on-event {
+        background-color: $button-background-hover-dark;
+      }
+    }
+
+    &-type-heading {
+      margin-bottom: 0px !important;
+    }
+
+    &-heading-h2 {
+      @extend .t-heading-3;
+      @extend .t-heading-3--primary-dark;
+    }
+
+    &-heading-h3 {
+      @extend .t-heading-6;
+
+      color: $form-heading-3-color;
+    }
+
+    &-alert {
+      @extend .t-wysiwyg;
+
+      padding: 0px !important;
+      background-color: transparent !important;
+      color: $black !important;
+    }
+
+    &-alert-error,
+    &-error-message {
+      color: red !important;
+    }
+
+    &-type-file-upload {
+      position: relative;
+    }
+
+    &-type-file-upload input {
+      position: relative;
+
+      &::-webkit-file-upload-button {
+        visibility: hidden;
+        width: 0;
+        overflow: hidden;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%);
+        width: 16px;
+        height: 16px;
+        background-image: url("data:image/svg+xml, #{svg-replace($svg-upload, #183291)}");
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        background-size: contain;
+      }
+    }
+  }
+
+  &--is-dark {
+    label,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    legend,
+    .fui-alert,
+    .fui-heading-h2 {
+      color: $white !important;
+    }
+  }
+}

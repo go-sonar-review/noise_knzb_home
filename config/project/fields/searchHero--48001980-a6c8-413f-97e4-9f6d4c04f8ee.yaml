@@ -1,0 +1,43 @@
+columnSuffix: null
+contentColumnType: string
+fieldGroup: 05631174-aab0-4a97-a8e6-bb9ad45da0e1 # Heroes
+handle: searchHero
+instructions: ''
+name: 'Zoek Hero'
+searchable: false
+settings:
+  columns:
+    __assoc__:
+      -
+        - 1103e60f-d29f-47a0-b958-3e181523d9f7 # Titel
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 9b155a2e-1efa-48e3-928e-2e36a3ee5d0e # Search Placeholder
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+      -
+        - 42d85a90-137c-4dff-8730-9e7111d30b48 # CTA's
+        -
+          __assoc__:
+            -
+              - width
+              - ''
+  contentTable: '{{%stc_searchhero}}'
+  fieldLayout: matrix
+  maxRows: '1'
+  minRows: '1'
+  placeholderKey: null
+  propagationKeyFormat: null
+  propagationMethod: all
+  selectionLabel: ''
+  staticField: '1'
+translationKeyFormat: null
+translationMethod: site
+type: verbb\supertable\fields\SuperTableField
